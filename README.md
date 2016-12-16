@@ -1,2 +1,2 @@
-# mpwu
+# MPWU
 My Personnal Wake Up project.
