@@ -24,6 +24,7 @@ namespace MPWU
 				await Task.Delay((int)time.TotalMilliseconds);
 				DependencyService.Get<IPlayer>().Play();
 			});
+
 		}
 
 		protected override void OnSleep()
