@@ -48,9 +48,9 @@
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>blabla</string>
+	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>New Entry</string>
+	<string></string>
 	<key>RequestWhenInUseAuthorization</key>
 	<string></string>
 </dict>
