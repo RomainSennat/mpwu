@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{597D63FF-71C8-4F69-9BE7-D56712E5CE5A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MPWU/App.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
       <File FileName="MPWU/MPWUPage.xaml.cs" Line="8" Column="40" />
       <File FileName="iOS/Player.cs" Line="40" Column="4" />
       <File FileName="Droid/Player.cs" Line="25" Column="31" />
       <File FileName="MPWU/App.xaml" Line="1" Column="1" />
       <File FileName="MPWU/App.xaml.cs" Line="25" Column="45" />
+      <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
