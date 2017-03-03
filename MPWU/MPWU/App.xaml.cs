@@ -1,19 +1,29 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using MPWU.Alarm;
 
 namespace MPWU
 {
 	public partial class App : Application
 	{
+
 		public App()
 		{
 			InitializeComponent();
-
 			MainPage = new MPWUPage();
 		}
 
-		protected override void OnStart()
+		protected override async void OnStart()
 		{
-			// Handle when your app starts
+			await Task.Run(async () =>
+			{
+				DateTime now = DateTime.Now;
+				DateTime target = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second + 4);
+				TimeSpan time = target - now;
+				await Task.Delay((int)time.TotalMilliseconds);
+				DependencyService.Get<IPlayer>().Play();
+			});
 		}
 
 		protected override void OnSleep()
