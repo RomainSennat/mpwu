@@ -1,0 +1,14 @@
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/ibtool/_BundleResourceWithLogicalName.items
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/actool/_PartialAppManifest.items
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/actool/_BundleResourceWithLogicalName.items
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/optimized/
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/MPWU.iOS.exe.mdb
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/MPWU.iOS.exe
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/MPWU.iOS.exe
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/obj/iPhone/Release/MPWU.iOS.exe.mdb
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/Xamarin.Forms.Core.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/Xamarin.Forms.Platform.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/Xamarin.Forms.Platform.iOS.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/Xamarin.Forms.Xaml.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhone/Release/MPWU.dll

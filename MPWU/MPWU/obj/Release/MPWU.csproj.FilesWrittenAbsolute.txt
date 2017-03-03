@@ -1,0 +1,10 @@
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/obj/Release/.NETPortable,Version=v4.5,Profile=Profile111.AssemblyAttribute.cs
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/obj/Release/MPWU.App.xaml
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/obj/Release/MPWU.MPWUPage.xaml
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/obj/Release/MPWU.App.xaml.g.cs
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/obj/Release/MPWU.MPWUPage.xaml.g.cs
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/bin/Release/MPWU.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/obj/Release/MPWU.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/bin/Release/Xamarin.Forms.Core.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/bin/Release/Xamarin.Forms.Platform.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/MPWU/bin/Release/Xamarin.Forms.Xaml.dll
