@@ -1,3 +1,4 @@
-./MPWU/Droid/obj/*
-./MPWU/Droid/Resources/*
-./MPWU/MPWU.userprefs
+MPWU/Droid/obj/**/*
+MPWU/Droid/Resources/**/*
+MPWU/**/MPWU.userprefs/**/*
+MPWU/MPWU.userprefs
