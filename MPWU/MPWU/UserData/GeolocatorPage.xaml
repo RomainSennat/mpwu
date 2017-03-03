@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MPWU.UserData.GeolocatorPage">
+     <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="20, 40, 20, 20"
+                    Android="20, 20, 20, 20"
+                    WinPhone="20, 20, 20, 20" />
+     </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+
+			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
+				<StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+					<Label Text="Bienvenue dans le service de géolocalisation 3000" />
+					<Label Text="" x:Name="xmlPos"/>
+            		<Button Text="Geolocalise toi" Clicked="OnClickGeo" />
+					<Label Text="" x:Name="champAdresse"/>
+					<Entry x:Name="entryAdresse"/>
+					<Button Text="Recuperer coord via adresses" Clicked="SwitchCoord"/>
+					<Button Text="Itinéraire" Clicked="getItineraire"/>
+				</StackLayout>
+			</ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

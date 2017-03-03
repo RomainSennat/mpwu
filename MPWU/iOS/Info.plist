@@ -47,5 +47,11 @@
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>blabla</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>New Entry</string>
+	<key>RequestWhenInUseAuthorization</key>
+	<string></string>
 </dict>
 </plist>

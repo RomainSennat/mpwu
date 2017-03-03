@@ -23,10 +23,14 @@ namespace MPWU {
         private global::Xamarin.Forms.Button stopButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button callGeolocalisation;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(MPWUPage));
             title = this.FindByName <global::Xamarin.Forms.Label>("title");
             stopButton = this.FindByName <global::Xamarin.Forms.Button>("stopButton");
+            callGeolocalisation = this.FindByName <global::Xamarin.Forms.Button>("callGeolocalisation");
         }
     }
 }

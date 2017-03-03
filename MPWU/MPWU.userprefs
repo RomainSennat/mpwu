@@ -1,21 +1,20 @@
-﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default">
+﻿<Properties StartupConfiguration="{597D63FF-71C8-4F69-9BE7-D56712E5CE5A}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/App.xaml.cs" Line="9" Column="3" />
-      <File FileName="MPWU/MPWUPage.xaml.cs" Line="19" Column="25" />
-      <File FileName="iOS/Player.cs" Line="8" Column="19" />
-      <File FileName="iOS/Main.cs" Line="5" Column="10" />
-      <File FileName="iOS/Info.plist" />
-      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="MPWU/UserData/Geolocalisation.cs" Line="19" Column="4" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="15" Column="26" />
+      <File FileName="iOS/AppDelegate.cs" Line="20" Column="4" />
+      <File FileName="Droid/MainActivity.cs" Line="24" Column="49" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4f1ee5568fa29c2059acea8abc7f4f4e80948711" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E335BF2-4CB6-4561-955E-F65C0A34FE54" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android6.0" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.06e485a3" />
   <MultiItemStartupConfigurations />
 </Properties>

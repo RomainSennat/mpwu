@@ -13,6 +13,8 @@
 			Spacing="15">
 			<Label x:Name="title" Text="My Personnal Wake Up"/>
 			<Button x:Name="stopButton" Text="Stop" Clicked="StopSound"/>
+			<Button x:Name="callGeolocalisation" Text="Geolocalisation"
+          Clicked="OnNavigateGeo" />
 		</StackLayout>
 	</ContentPage.Content>	
 </ContentPage>

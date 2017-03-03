@@ -11,7 +11,7 @@ namespace MPWU
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new MPWUPage();
+			MainPage = new NavigationPage(new MPWUPage());
 		}
 
 		protected override async void OnStart()
