@@ -12,3 +12,8 @@
 /Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Xamarin.Forms.Platform.iOS.dll
 /Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Xamarin.Forms.Xaml.dll
 /Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/MPWU.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Xamarin.Forms.Maps.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Xamarin.Forms.Maps.iOS.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Plugin.Geolocator.Abstractions.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Plugin.Geolocator.dll
+/Users/romain/IUT/CSID/Projet/MPWU/MPWU/iOS/bin/iPhoneSimulator/Release/Newtonsoft.Json.dll
