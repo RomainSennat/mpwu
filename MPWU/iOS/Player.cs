@@ -38,7 +38,7 @@ namespace MPWU.iOS
 
 		public void Stop()
 		{
-			if (player.Playing)
+			if (player != null && player.Playing)
 			{
 				this.player.Stop();
 				this.player.Init();

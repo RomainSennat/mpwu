@@ -32,7 +32,7 @@ namespace MPWU.Droid
 
 		public void Stop()
 		{
-			if (this.player.IsPlaying)
+			if (this.player != null && this.player.IsPlaying)
 			{
 				this.player.Stop();
 				this.player.Reset();
