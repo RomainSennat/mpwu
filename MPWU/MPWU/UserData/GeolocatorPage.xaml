@@ -19,13 +19,16 @@
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
-					<Label Text="Bienvenue dans le service de géolocalisation 3000" />
+					<Label Text="Bienvenue dans le service de géolocalisation" />
 					<Label Text="" x:Name="xmlPos"/>
             		<Button Text="Geolocalise toi" Clicked="OnClickGeo" />
 					<Label Text="" x:Name="champAdresse"/>
 					<Entry x:Name="entryAdresse"/>
 					<Button Text="Recuperer coord via adresses" Clicked="SwitchCoord"/>
 					<Button Text="Itinéraire" Clicked="getItineraire"/>
+					<Label Text="Heure d'arrivée :" FontSize="30"/>
+					<Label Text="" x:Name="champHeure" FontSize="30"/>
+
 				</StackLayout>
 			</ScrollView>
         </StackLayout>

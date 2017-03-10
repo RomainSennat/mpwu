@@ -30,6 +30,7 @@ namespace MPWU.UserData
 		async void getItineraire(object sender, EventArgs e)
 		{
 			await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
+			champHeure.Text = stif.getHeureArrive();
 		}
 	}
 }

@@ -3,36 +3,48 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Net.Http;
+
 using System.Net.Http.Headers;
 using System.Text;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace MPWU.UserData
 {
 	public class Stif
 	{
-		
+		String heureArrive;
 
 		public Stif()
 		{
 
 		}
 
+		public String getHeureArrive() 
+		{
+			return this.heureArrive;
+		}
+
 		public async Task<Boolean> getItineraire(Coord depart, Coord arrive)
 		{
-			
+
 			String date = DateTime.Now.ToString("yyyyMMddTHHmmss");
 			string url = "https://opendata.stif.info/service/api-stif-recherche-itineraires/journeys" +
-				"?from=" + depart.longi.ToString().Replace(",",".") + "%3B" + depart.lat.ToString().Replace(",", ".") +
+				"?from=" + depart.longi.ToString().Replace(",", ".") + "%3B" + depart.lat.ToString().Replace(",", ".") +
 				"&to=" + arrive.longi.ToString().Replace(",", ".") + "%3B" + arrive.lat.ToString().Replace(",", ".") +
-				"&datetime=" + date;
+				"&datetime=" + date +
+				"&apikey=05dd8acbae99e3b9959076d38ab5cc472c3b6ca0452a97b5ea838c5d";
 			Debug.WriteLine(url);
-			var response = await httpRequest(url);
-			Debug.WriteLine(response);
+			var response = await getJson(url);
+			this.heureArrive = convertToDate(response).ToString("HH:mm");
+			Debug.WriteLine(convertToDate(response).ToString("HH:mm"));
 			return true;
 		}
 
 
-		public async Task<string> httpRequest(string url)
+		public async Task<string> getJson(string url)
 		{
 			//Uri uri = new Uri(url);
 			//HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
@@ -51,14 +63,38 @@ namespace MPWU.UserData
 			//}
 
 			//return received;
-
+			bool recupValeurDateTime = false;
+			string arrive = "null";
 			HttpClient client = new HttpClient();
 			HttpResponseMessage resp = await client.GetAsync(url);
 			HttpContent content = resp.Content;
 			String result = await content.ReadAsStringAsync();
-			Debug.WriteLine(result);
-			return "a";
+
+
+			JsonTextReader reader = new JsonTextReader(new StringReader(result));
+			while (reader.Read())
+			{
+				if (reader.Value != null) 
+				{
+					if (reader.Value.ToString().Equals("arrival_date_time"))
+					{
+						recupValeurDateTime = true;
+					}
+					else if (recupValeurDateTime) 
+					{
+						arrive = reader.Value.ToString();
+						recupValeurDateTime = false;
+					}
+				}
+			}
+			return arrive;
 		}
 
+		public DateTime convertToDate(string dateString)
+		{
+			Debug.WriteLine(dateString);
+			DateTime date = DateTime.ParseExact(dateString, "yyyyMMddTHHmmss", CultureInfo.InvariantCulture);
+			return date;
+		}
 	}
 }
