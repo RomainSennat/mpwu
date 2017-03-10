@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MPWU.Alarm;
+using MPWU.UserData;
 
 namespace MPWU
 {
@@ -11,7 +12,15 @@ namespace MPWU
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new NavigationPage(new MPWUPage());
+			MainPage = new TabbedPage
+			{
+				Children =
+				{
+					new GeolocatorPage(),
+					new MPWUPage(),
+
+				}
+			};
 		}
 
 		protected override async void OnStart()

@@ -3,11 +3,15 @@
     <Files>
       <File FileName="iOS/Main.cs" Line="17" Column="1" />
       <File FileName="MPWU/UserData/Geolocalisation.cs" Line="67" Column="74" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="16" Column="4" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="13" Column="24" />
       <File FileName="iOS/AppDelegate.cs" Line="19" Column="1" />
       <File FileName="Droid/MainActivity.cs" Line="21" Column="1" />
       <File FileName="MPWU/UserData/Stif.cs" Line="73" Column="4" />
       <File FileName="MPWU/UserData/GeolocatorPage.xaml" Line="22" Column="63" />
+      <File FileName="MPWU/MPWUPage.xaml" Line="15" Column="1" />
+      <File FileName="MPWU/App.xaml.cs" Line="19" Column="27" />
+      <File FileName="MPWU/MPWUPage.xaml.cs" Line="11" Column="3" />
+      <File FileName="MPWU/Alarm/AlarmManager.cs" Line="1" Column="1" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -17,6 +21,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3E335BF2-4CB6-4561-955E-F65C0A34FE54" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.06e485a3" />
   <MultiItemStartupConfigurations />
 </Properties>

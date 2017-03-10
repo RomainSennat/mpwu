@@ -19,10 +19,5 @@ namespace MPWU
 		{
 			this.manager.StopSound();
 		}
-
-		async void OnNavigateGeo(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new GeolocatorPage());
-		}
 	}
 }

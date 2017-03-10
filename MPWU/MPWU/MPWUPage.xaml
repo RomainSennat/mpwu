@@ -12,7 +12,6 @@
 			Orientation="Vertical"
 			Spacing="15">
 			<Button x:Name="stopButton" Text="Stop" Clicked="StopSound"/>
-			<Button x:Name="callGeolocalisation" Text="Geolocalisation" Clicked="OnNavigateGeo" />
 		</StackLayout>
 	</ContentPage.Content>	
 </ContentPage>
