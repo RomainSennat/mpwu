@@ -15,7 +15,7 @@ namespace MPWU.UserData
 {
 	public class Stif
 	{
-		String heureArrive;
+		String tempsTrajet;
 
 		public Stif()
 		{
@@ -24,7 +24,7 @@ namespace MPWU.UserData
 
 		public String getHeureArrive() 
 		{
-			return this.heureArrive;
+			return this.tempsTrajet;
 		}
 
 		public async Task<Boolean> getItineraire(Coord depart, Coord arrive)
@@ -38,7 +38,7 @@ namespace MPWU.UserData
 				"&apikey=05dd8acbae99e3b9959076d38ab5cc472c3b6ca0452a97b5ea838c5d";
 			Debug.WriteLine(url);
 			var response = await getJson(url);
-			this.heureArrive = convertToDate(response).ToString("HH:mm");
+			this.tempsTrajet = convertToDate(response).ToString("HH:mm");
 			Debug.WriteLine(convertToDate(response).ToString("HH:mm"));
 			return true;
 		}
@@ -93,8 +93,13 @@ namespace MPWU.UserData
 		public DateTime convertToDate(string dateString)
 		{
 			Debug.WriteLine(dateString);
+			Debug.WriteLine(dateString);
+			DateTime now = DateTime.Now;
 			DateTime date = DateTime.ParseExact(dateString, "yyyyMMddTHHmmss", CultureInfo.InvariantCulture);
-			return date;
+			TimeSpan duree = date - now;
+
+			DateTime reponse = new DateTime(now.Year, now.Month, now.Day, duree.Hours, duree.Minutes, duree.Seconds);
+			return reponse;
 		}
 	}
 }

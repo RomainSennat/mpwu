@@ -21,8 +21,8 @@
 					
 					<Button Text="Recuperer coord via adresses" Clicked="SwitchCoord"/>
 					<Button Text="Itinéraire" Clicked="getItineraire"/>
-					<Label Text="Heure d'arrivée :" FontSize="30"/>
-					<Label Text="" x:Name="champHeure" FontSize="30"/>
+					<Label Text="temps de trajet : " FontSize="15"/>
+					<Label Text="" x:Name="champHeure" FontSize="15"/>
 				</StackLayout>
 			</ScrollView>
         </StackLayout>
