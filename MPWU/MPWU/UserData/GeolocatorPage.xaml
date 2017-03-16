@@ -28,7 +28,6 @@
 					<Button Text="Itinéraire" Clicked="getItineraire"/>
 					<Label Text="Heure d'arrivée :" FontSize="30"/>
 					<Label Text="" x:Name="champHeure" FontSize="30"/>
-
 				</StackLayout>
 			</ScrollView>
         </StackLayout>

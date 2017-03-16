@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MPWU.Alarm;
@@ -11,11 +11,19 @@ namespace MPWU
 		public App()
 		{
 			InitializeComponent();
-
-			var page = new TabbedPage();
-			page.Children.Add(new GeolocatorPage() { Icon = "logoParam.png" });
-			page.Children.Add(new MPWUPage() { Icon = "alarm.png" });
-			page.Children.Add(new ContentPage() { Icon = "schedule.png" });
+			TabbedPage page = new TabbedPage();
+			page.Children.Add(new GeolocatorPage()
+			{
+				Icon = "logoParam.png"
+			});
+			page.Children.Add(new MPWUPage()
+			{
+				Icon = "alarm.png"
+			});
+			page.Children.Add(new ContentPage()
+			{
+				Icon = "schedule.png"
+			});
 			page.CurrentPage = page.Children[1];
 			MainPage = page;
 		}
