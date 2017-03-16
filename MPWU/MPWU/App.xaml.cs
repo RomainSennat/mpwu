@@ -12,7 +12,7 @@ namespace MPWU
 		{
 			InitializeComponent();
 			TabbedPage page = new TabbedPage();
-			page.Children.Add(new GeolocatorPage()
+			page.Children.Add(new Parametres()
 			{
 				Icon = "logoParam.png"
 			});

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MPWU.UserData.GeolocatorPage">
+	
      <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="20, 40, 20, 20"
@@ -9,6 +10,7 @@
                     WinPhone="20, 20, 20, 20" />
      </ContentPage.Padding>
     <ContentPage.Content>
+		
         <StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
@@ -24,6 +26,7 @@
             		<Button Text="Geolocalise toi" Clicked="OnClickGeo" />
 					<Label Text="" x:Name="champAdresse"/>
 					<Entry x:Name="entryAdresse"/>
+					
 					<Button Text="Recuperer coord via adresses" Clicked="SwitchCoord"/>
 					<Button Text="Itinéraire" Clicked="getItineraire"/>
 					<Label Text="Heure d'arrivée :" FontSize="30"/>

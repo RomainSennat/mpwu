@@ -1,5 +1,7 @@
 ﻿using Foundation;
 using UIKit;
+using SegmentedControl;
+using SegmentedControl.FormsPlugin.iOS;
 
 namespace MPWU.iOS
 {
@@ -10,6 +12,7 @@ namespace MPWU.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 			global::Xamarin.FormsMaps.Init();
+			SegmentedControlRenderer.Init();
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
