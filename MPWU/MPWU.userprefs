@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{597D63FF-71C8-4F69-9BE7-D56712E5CE5A}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/UserData/Parametres.xaml" Line="20" Column="76" />
+      <File FileName="MPWU/UserData/Parametres.xaml" Line="1" Column="1" />
       <File FileName="MPWU/UserData/Parametres.xaml.cs" Line="29" Column="54" />
       <File FileName="MPWU/obj/Debug/MPWU.UserData.Parametres.xaml.g.cs" Line="1" Column="1" />
       <File FileName="iOS/Main.cs" Line="1" Column="1" />
-      <File FileName="MPWU/MPWUPage.xaml" Line="8" Column="24" />
-      <File FileName="MPWU/EDT/Rss.xaml" Line="6" Column="28" />
+      <File FileName="MPWU/MPWUPage.xaml" Line="1" Column="1" />
+      <File FileName="MPWU/EDT/Rss.xaml" Line="1" Column="1" />
       <File FileName="MPWU/EDT/Rss.xaml.cs" Line="47" Column="10" />
       <File FileName="MPWU/obj/Debug/MPWU.EDT.Rss.xaml.g.cs" Line="1" Column="1" />
       <File FileName="MPWU/MPWUPage.xaml.cs" Line="1" Column="1" />
@@ -20,6 +20,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.99D06049-3095-4F57-A65E-15E218F1B0BA" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.73QDU16828006816" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MultiItemStartupConfigurations />
 </Properties>
