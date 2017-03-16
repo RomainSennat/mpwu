@@ -33,10 +33,10 @@
     <EmbeddedResource Include="UserData\GeolocatorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserData\Parametres.xaml">
+    <EmbeddedResource Include="EDT\Rss.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="EDT\Rss.xaml">
+    <EmbeddedResource Include="Parametres.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -56,11 +56,11 @@
       <DependentUpon>GeolocatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserData\Stif.cs" />
-    <Compile Include="UserData\Parametres.xaml.cs">
-      <DependentUpon>Parametres.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EDT\Rss.xaml.cs">
       <DependentUpon>Rss.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Parametres.xaml.cs">
+      <DependentUpon>Parametres.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

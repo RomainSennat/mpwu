@@ -18,37 +18,33 @@ namespace MPWU
 
 		public async void onClick(object sender, EventArgs e)
 		{
-			Debug.WriteLine(await recupProchaineHeure());
-		} 
+			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", addressRss.Text, "Oui", "Non"))
+			{
+				Debug.WriteLine(await recupProchaineHeure(addressRss.Text));
+			}
+		}
 
-		public async Task<TimeSpan> recupProchaineHeure()
+		public async Task<TimeSpan> recupProchaineHeure(string url)
 		{
 			TimeSpan heure = new TimeSpan();
+			HttpClient webc = new HttpClient();
+			var request = webc.GetAsync(new Uri(url));
+			var result = request.Result.Content;
 
-			if (await DisplayAlert("Est-ce la bonne adresse ?", addressRss.Text, "Oui", "Non"))
+			string xmlString = await result.ReadAsStringAsync();
+			XDocument xml = XDocument.Parse(xmlString);
+
+			Regex regex = new Regex("(([0-1]){1,}([0-9]{1,})|(2[0-3]))(:)([0-5]{1}[0-9]{1})");
+			Match match = regex.Match(xml.Descendants("item").Cast<XElement>().FirstOrDefault().Value);
+
+			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
+			var i = 1;
+			while (i < xml.Descendants("item").Count() && (DateTime.Now.Hour >= heure.Hours && int.Parse(match.Value.Split(':')[0]) >= 12))
 			{
-				string url = addressRss.Text;
-
-				HttpClient webc = new HttpClient();
-
-				var request = webc.GetAsync(new Uri(url));
-				var result = request.Result.Content;
-				string xmlString = await result.ReadAsStringAsync();
-				XDocument xml = XDocument.Parse(xmlString);
-				Regex regex = new Regex("(([0-1]){1,}([0-9]{1,})|(2[0-3]))(:)([0-5]{1}[0-9]{1})");
-
-				Match match = regex.Match(xml.Descendants("item").Cast<XElement>().FirstOrDefault().Value);
-
-				heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
-
-				var i = 1;
-				while (i < xml.Descendants("item").Count() && (DateTime.Now.Hour >= heure.Hours && int.Parse(match.Value.Split(':')[0]) >= 12))
-				{
-					i++;
-					match = regex.Match(xml.Descendants("item").Cast<XElement>().ElementAtOrDefault(i).Value);
-				}
-				heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
+				i++;
+				match = regex.Match(xml.Descendants("item").Cast<XElement>().ElementAtOrDefault(i).Value);
 			}
+			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 			return heure;
 		}
 	}

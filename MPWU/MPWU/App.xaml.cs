@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MPWU.Alarm;
-using MPWU.UserData;
+using System.Diagnostics;
 
 namespace MPWU
 {
@@ -33,9 +33,19 @@ namespace MPWU
 			await Task.Run(async () =>
 			{
 				DateTime now = DateTime.Now;
-				DateTime target = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second + 4);
-				TimeSpan time = target - now;
-				await Task.Delay((int)time.TotalMilliseconds);
+				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+				start = start.Add(await new Rss().recupProchaineHeure("http://agendas.iut.univ-paris8.fr/indexRSS.php?login=rsennat"));
+				if (now.Hour >= start.Hour)
+				{
+					start = start.AddDays(1);
+				}
+				TimeSpan journey = new TimeSpan(0, 0, 5);
+				TimeSpan prepare = new TimeSpan(0, 0, 15);
+				TimeSpan time = start.Add(journey).Add(prepare) - now;
+				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
+				Debug.WriteLine(time.ToString());
+				//await Task.Delay((int)time.TotalMilliseconds);
+				await Task.Delay((int)timeForTest.TotalMilliseconds);
 				DependencyService.Get<IPlayer>().Play();
 			});
 

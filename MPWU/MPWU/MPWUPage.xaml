@@ -13,5 +13,5 @@
 			Spacing="15">
 			<Button x:Name="stopButton" Text="Stop" Clicked="StopSound"/>
 		</StackLayout>
-	</ContentPage.Content>	
+	</ContentPage.Content>
 </ContentPage>
