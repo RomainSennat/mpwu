@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage Title="My Personnal Wake Up" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:MPWU" x:Class="MPWU.MPWUPage">
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:MPWU" x:Class="MPWU.MPWUPage">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
             iOS="20, 40, 20, 20"

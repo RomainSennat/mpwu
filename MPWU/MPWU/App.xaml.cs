@@ -8,19 +8,16 @@ namespace MPWU
 {
 	public partial class App : Application
 	{
-
 		public App()
 		{
 			InitializeComponent();
-			MainPage = new TabbedPage
-			{
-				Children =
-				{
-					new GeolocatorPage(),
-					new MPWUPage(),
 
-				}
-			};
+			var page = new TabbedPage();
+			page.Children.Add(new GeolocatorPage() { Icon = "logoParam.png" });
+			page.Children.Add(new MPWUPage() { Icon = "alarm.png" });
+			page.Children.Add(new ContentPage() { Icon = "schedule.png" });
+			page.CurrentPage = page.Children[1];
+			MainPage = page;
 		}
 
 		protected override async void OnStart()
