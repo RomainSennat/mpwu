@@ -20,7 +20,7 @@
 					<Entry x:Name="entryAdresse"/>
 					<Button x:Name="getPos" Text="Recuperer coord via adresses" Clicked="SwitchCoord" IsEnabled="false"/>
 					<Button x:Name="getIti" Text="Itinéraire" Clicked="getItineraire" IsEnabled="false"/>
-					<Label Text="temps de trajet : " FontSize="15"/>
+					<Label Text="Temps de trajet : " FontSize="15"/>
 					<Label Text="" x:Name="champHeure" FontSize="15"/>
 				</StackLayout>
 			</ScrollView>

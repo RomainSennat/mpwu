@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-namespace MPWU
+namespace MPWU.EDT
 {
 	public partial class Rss : ContentPage
 	{
@@ -53,13 +53,13 @@ namespace MPWU
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
 			// Init à 1, car on a déjà la valeur 0
-			var i = 1;
+			int i = 1;
 			// Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
-			while (i < list.Count() && (DateTime.Now.Hour >= 0 || int.Parse(match.Value.Split(':')[0]) >= 12))
+			while (i < list.Count() && (DateTime.Now.Hour >= int.Parse(match.Value.Split(':')[0]) || int.Parse(match.Value.Split(':')[0]) >= 12))
 			{
-				i++;
 				match = regex.Match(list.ElementAtOrDefault(i).Value);
 				matchJours = regexJours.Match(list.ElementAtOrDefault(i).Value);
+				i++;
 			}
 			// Gérer le jour de début de semaine en fonction du pays
 			DayOfWeek firstDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
@@ -68,10 +68,11 @@ namespace MPWU
 
 			// Heure à laquelle on commence la prochaine activité
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
+			Debug.WriteLine(heure.ToString());
 
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan((Array.IndexOf(jours, matchJours.Value) + indexDay) * 24, 0, 0));
-
+			Debug.WriteLine(heure.ToString());
 			return heure;
 		}
 	}

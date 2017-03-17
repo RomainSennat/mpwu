@@ -29,8 +29,16 @@ namespace MPWU.UserData
 
 		async void getItineraire(object sender, EventArgs e)
 		{
-			await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
-			champHeure.Text = stif.getHeureArrive();
+			try
+			{
+				await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
+				champHeure.Text = stif.getHeureArrive();
+
+			}
+			catch (Exception ex)
+			{
+
+			}
 		}
 
 		void Handle_Toggled(object sender, Xamarin.Forms.ToggledEventArgs e)
@@ -43,7 +51,7 @@ namespace MPWU.UserData
 				getPos.IsEnabled = true;
 				getGeo.IsEnabled = true;
 			}
-			else 
+			else
 			{
 				getIti.IsEnabled = false;
 				getPos.IsEnabled = false;

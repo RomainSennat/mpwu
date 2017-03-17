@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MPWU/EDT/Rss.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
     <Files>
-      <File FileName="MPWU/App.xaml.cs" Line="28" Column="40" />
+      <File FileName="MPWU/App.xaml.cs" Line="49" Column="13" />
       <File FileName="MPWU/Parametres.xaml" Line="1" Column="1" />
-      <File FileName="MPWU/Parametres.xaml.cs" Line="14" Column="15" />
-      <File FileName="iOS/AppDelegate.cs" Line="14" Column="4" />
-      <File FileName="iOS/UserNotificationCenterDelegate.cs" Line="6" Column="45" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="58" Column="54" />
+      <File FileName="MPWU/Parametres.xaml.cs" Line="2" Column="21" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="62" Column="7" />
       <File FileName="MPWU État" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
