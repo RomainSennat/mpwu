@@ -52,9 +52,10 @@ namespace MPWU
 			// Init de la variable du return
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
-			var i = 1; // Init à 1, car on a déjà la valeur 0
-					   // Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
-			while (i < list.Count() - 1 && (DateTime.Now.Hour >= int.Parse(match.Value.Split(':')[0]) || int.Parse(match.Value.Split(':')[0]) >= 12))
+			// Init à 1, car on a déjà la valeur 0
+			var i = 1;
+			// Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
+			while (i < list.Count() && (DateTime.Now.Hour >= 0 || int.Parse(match.Value.Split(':')[0]) >= 12))
 			{
 				i++;
 				match = regex.Match(list.ElementAtOrDefault(i).Value);
