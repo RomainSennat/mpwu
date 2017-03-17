@@ -9,18 +9,17 @@
                      Spacing="15">
 
 			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
-				<StackLayout VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand"
+            <StackLayout VerticalOptions="FillAndExpand"
+            		HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
-					<Label Text="Bienvenue dans le service de géolocalisation" />
+      				<Switch HorizontalOptions="EndAndExpand" Toggled="Handle_Toggled"></Switch>
 					<Label Text="" x:Name="xmlPos"/>
-            		<Button Text="Geolocalise toi" Clicked="OnClickGeo" />
+					<Button x:Name="getGeo" Text="Geolocalise toi" Clicked="OnClickGeo" IsEnabled="false" />
 					<Label Text="" x:Name="champAdresse"/>
 					<Entry x:Name="entryAdresse"/>
-					
-					<Button Text="Recuperer coord via adresses" Clicked="SwitchCoord"/>
-					<Button Text="Itinéraire" Clicked="getItineraire"/>
+					<Button x:Name="getPos" Text="Recuperer coord via adresses" Clicked="SwitchCoord" IsEnabled="false"/>
+					<Button x:Name="getIti" Text="Itinéraire" Clicked="getItineraire" IsEnabled="false"/>
 					<Label Text="temps de trajet : " FontSize="15"/>
 					<Label Text="" x:Name="champHeure" FontSize="15"/>
 				</StackLayout>

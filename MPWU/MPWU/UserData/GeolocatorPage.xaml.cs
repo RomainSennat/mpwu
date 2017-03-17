@@ -32,5 +32,24 @@ namespace MPWU.UserData
 			await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
 			champHeure.Text = stif.getHeureArrive();
 		}
+
+		void Handle_Toggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		{
+			bool estActive = e.Value;
+
+			if (estActive)
+			{
+				getIti.IsEnabled = true;
+				getPos.IsEnabled = true;
+				getGeo.IsEnabled = true;
+			}
+			else 
+			{
+				getIti.IsEnabled = false;
+				getPos.IsEnabled = false;
+				getGeo.IsEnabled = false;
+				//Faire update et insert ici ? 
+			}
+		}
 	}
 }

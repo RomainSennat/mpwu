@@ -93,7 +93,6 @@ namespace MPWU.UserData
 		public DateTime convertToDate(string dateString)
 		{
 			Debug.WriteLine(dateString);
-			Debug.WriteLine(dateString);
 			DateTime now = DateTime.Now;
 			DateTime date = DateTime.ParseExact(dateString, "yyyyMMddTHHmmss", CultureInfo.InvariantCulture);
 			TimeSpan duree = date - now;
