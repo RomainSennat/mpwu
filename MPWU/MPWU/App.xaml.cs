@@ -36,7 +36,7 @@ namespace MPWU
 				DateTime now = DateTime.Now;
 				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
 				start = start.Add(await new Rss().recupProchaineHeure("http://agendas.iut.univ-paris8.fr/indexRSS.php?login=rsennat"));
-				CrossLocalNotifications.Current.Show("Alarme", "L'alarme sonnera à " + start.ToString("hh:mm"));
+				CrossLocalNotifications.Current.Show("My Personnal Wake Up", "L'alarme sonnera à " + start.ToString("hh:mm") + ".");
 				TimeSpan journey = new TimeSpan(0, 0, 5);
 				TimeSpan prepare = new TimeSpan(0, 0, 15);
 				TimeSpan time = start.Add(journey).Add(prepare) - now;
