@@ -2,6 +2,8 @@
 using MPWU.Alarm;
 using MPWU.UserData;
 using Xamarin.Forms;
+using Plugin.Geolocator;
+using Plugin.LocalNotifications;
 
 namespace MPWU
 {

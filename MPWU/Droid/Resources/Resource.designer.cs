@@ -26,6 +26,7 @@ namespace MPWU.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::MPWU.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::SegmentedControl.FormsPlugin.Android.Resource.Animation.abc_fade_in = global::MPWU.Droid.Resource.Animation.abc_fade_in;
 			global::SegmentedControl.FormsPlugin.Android.Resource.Animation.abc_fade_out = global::MPWU.Droid.Resource.Animation.abc_fade_out;
 			global::SegmentedControl.FormsPlugin.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::MPWU.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -4267,20 +4268,23 @@ namespace MPWU.Droid
 			// aapt resource value: 0x7f0200cc
 			public const int mr_ic_play_light = 2130837708;
 			
-			// aapt resource value: 0x7f0200d1
-			public const int notification_template_icon_bg = 2130837713;
+			// aapt resource value: 0x7f0200d2
+			public const int notification_template_icon_bg = 2130837714;
 			
 			// aapt resource value: 0x7f0200cd
-			public const int schedule = 2130837709;
+			public const int plugin_lc_smallicon = 2130837709;
 			
 			// aapt resource value: 0x7f0200ce
-			public const int segmented_control_background = 2130837710;
+			public const int schedule = 2130837710;
 			
 			// aapt resource value: 0x7f0200cf
-			public const int segmented_control_first_background = 2130837711;
+			public const int segmented_control_background = 2130837711;
 			
 			// aapt resource value: 0x7f0200d0
-			public const int segmented_control_last_background = 2130837712;
+			public const int segmented_control_first_background = 2130837712;
+			
+			// aapt resource value: 0x7f0200d1
+			public const int segmented_control_last_background = 2130837713;
 			
 			static Drawable()
 			{
