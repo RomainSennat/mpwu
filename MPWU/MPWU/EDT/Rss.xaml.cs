@@ -53,7 +53,7 @@ namespace MPWU
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
 			var i = 1; // Init à 1, car on a déjà la valeur 0
-			// Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
+					   // Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
 			while (i < list.Count() - 1 && (DateTime.Now.Hour >= int.Parse(match.Value.Split(':')[0]) || int.Parse(match.Value.Split(':')[0]) >= 12))
 			{
 				i++;
@@ -69,7 +69,7 @@ namespace MPWU
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
-			heure = heure.Add(new TimeSpan ((Array.IndexOf(jours, matchJours.Value) + indexDay) * 24, 0, 0));
+			heure = heure.Add(new TimeSpan((Array.IndexOf(jours, matchJours.Value) + indexDay) * 24, 0, 0));
 
 			return heure;
 		}
