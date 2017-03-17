@@ -38,6 +38,7 @@ namespace MPWU
 			string xmlString = await result.ReadAsStringAsync();
 			XDocument xml = XDocument.Parse(xmlString);
 
+			// Init de la liste des éléments qui correpondent au titre du flux rss
 			var list = xml.Descendants("item").Cast<XElement>().ToList();
 
 			//Regex heures
@@ -48,22 +49,26 @@ namespace MPWU
 			Regex regexJours = new Regex("lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche");
 			Match matchJours = regexJours.Match(list.FirstOrDefault().Value);
 
+			// Init de la variable du return
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
-			var i = 1;
-			//Debug.WriteLine("Condition " + (i < list.Count() && (DateTime.Now.Hour >= int.Parse(match.Value.Split(':')[0]) || int.Parse(match.Value.Split(':')[0]) >= 12)));
-			while (i < list.Count() && (DateTime.Now.Hour >= int.Parse(match.Value.Split(':')[0]) && int.Parse(match.Value.Split(':')[0]) >= 12))
+
+			var i = 1; // Init à 1, car on a déjà la valeur 0
+			// Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
+			while (i < list.Count() - 1 && (DateTime.Now.Hour >= int.Parse(match.Value.Split(':')[0]) || int.Parse(match.Value.Split(':')[0]) >= 12))
 			{
 				i++;
 				match = regex.Match(list.ElementAtOrDefault(i).Value);
 				matchJours = regexJours.Match(list.ElementAtOrDefault(i).Value);
 			}
+			// Gérer le jour de début de semaine en fonction du pays
 			DayOfWeek firstDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
+			// Calculer le jour de la semaine
 			int indexDay = 7 - (DateTime.Now.DayOfWeek + 7 - firstDayOfWeek) % 7;
 
-			Debug.WriteLine(matchJours.Value);
-			// heure à laquelle on commence le prochain jour
+			// Heure à laquelle on commence la prochaine activité
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
+			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan ((Array.IndexOf(jours, matchJours.Value) + indexDay) * 24, 0, 0));
 
 			return heure;
