@@ -3,6 +3,7 @@
     <Files>
       <File FileName="MPWU/App.xaml.cs" Line="45" Column="47" />
       <File FileName="MPWU/EDT/Rss.xaml.cs" Line="59" Column="5" />
+      <File FileName="iOS/LaunchScreen.storyboard" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
