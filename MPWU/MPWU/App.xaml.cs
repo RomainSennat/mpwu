@@ -40,19 +40,24 @@ namespace MPWU
 				// Get start day time
 				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
 				start = start.Add(await new Rss().recupProchaineHeure("http://agendas.iut.univ-paris8.fr/indexRSS.php?login=rsennat"));
-				start = start.AddDays(start.Hour % 24);
-				// Add journey and prepare time
-				TimeSpan journey = new TimeSpan(0, 0, 5);
-				TimeSpan prepare = new TimeSpan(0, 0, 15);
-				start = start.Add(journey).Add(prepare);
-				// Get time
-				TimeSpan time = start - now;
-				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
-				Debug.WriteLine(time.ToString());
-				String body = String.Format("L'alarme sonnera {0} {1} à {2}:{3}.", start.ToString("dddd"), start.ToString("M"), time.Hours, time.Minutes);
+				// Substract journey and prepare time
+				TimeSpan journey = new TimeSpan(0, 5, 0);
+				TimeSpan prepare = new TimeSpan(0, 10, 0);
+				start = start.Subtract(journey).Subtract(prepare);
+				// Notify time to user
+				String body = String.Format("L'alarme sonnera {0} {1} à {2}.", start.ToString("dddd"), start.ToString("M"), start.ToString("t"));
 				CrossLocalNotifications.Current.Show("My Personnal Wake Up", body);
-				//await Task.Delay((int)time.TimeOfDay.TotalMilliseconds);
+				// Get time between start time and now time
+				TimeSpan time = start - now;
+				Debug.WriteLine(time.ToString());
+				// Time for test
+				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
+				//await Task.Delay((int)time.TotalMilliseconds);
+				// Wait to reach time
 				await Task.Delay((int)timeForTest.TotalMilliseconds);
+				// Notify user to wake up
+				CrossLocalNotifications.Current.Show("My Personnal Wake Up", "Reveil toi !");
+				// Play sound
 				DependencyService.Get<IPlayer>().Play();
 			});
 		}
