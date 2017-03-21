@@ -64,14 +64,13 @@ namespace MPWU.EDT
 			// Gérer le jour de début de semaine en fonction du pays
 			DayOfWeek firstDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
 			// Calculer le jour de la semaine
-			int indexDay = 7 - (DateTime.Now.DayOfWeek + 7 - firstDayOfWeek) % 7;
-
+			int indexDay = (DateTime.Now.DayOfWeek - firstDayOfWeek) % 7;
 			// Heure à laquelle on commence la prochaine activité
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
-			Debug.WriteLine(heure.ToString());
 
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
-			heure = heure.Add(new TimeSpan((Array.IndexOf(jours, matchJours.Value) + indexDay) * 24, 0, 0));
+			// Add 1 to indexDay if we calcul time for next days
+			heure = heure.Add(new TimeSpan(((DateTime.Now.Hour > heure.Hours) ? ++indexDay : indexDay) * 24, 0, 0));
 			Debug.WriteLine(heure.ToString());
 			return heure;
 		}

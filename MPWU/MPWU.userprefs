@@ -2,8 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
       <File FileName="MPWU/App.xaml.cs" Line="45" Column="47" />
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="59" Column="5" />
-      <File FileName="iOS/LaunchScreen.storyboard" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="72" Column="56" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -13,6 +12,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4f1ee5568fa29c2059acea8abc7f4f4e80948711" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.06e485a3" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android6.0" />
   <MultiItemStartupConfigurations />
 </Properties>
