@@ -13,7 +13,7 @@ namespace MPWU.EDT
 	public partial class Rss : ContentPage
 	{
 
-		private readonly String[] jours = { "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" };
+		private readonly string[] jours = { "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" };
 
 		public Rss()
 		{
@@ -54,23 +54,29 @@ namespace MPWU.EDT
 
 			// Init à 1, car on a déjà la valeur 0
 			int i = 1;
-			// Mettre à jour les Matchs si : heure actuelle >= 0 OU >= 12
+			// Get next match if needed
 			while (i < list.Count() && !(int.Parse(match.Value.Split(':')[0]) < 13 || int.Parse(match.Value.Split(':')[0]) > DateTime.Now.Hour))
 			{
 				match = regex.Match(list.ElementAtOrDefault(i).Value);
 				matchJours = regexJours.Match(list.ElementAtOrDefault(i).Value);
 				i++;
 			}
-			// Gérer le jour de début de semaine en fonction du pays
-			DayOfWeek firstDayOfWeek = CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
-			// Calculer le jour de la semaine
-			int indexDay = (DateTime.Now.DayOfWeek - firstDayOfWeek) % 7;
-			// Heure à laquelle on commence la prochaine activité
+
+			// Get current day
+			DateTime today = DateTime.Today;
+			// Get current day index in week
+			int currentDay = (int)today.DayOfWeek;
+			// Get monday on current week
+			DateTime monday = today.AddDays(-(DateTime.Now.DayOfWeek - CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek) % 7);
+			// Get range between monday and target day
+			int dayIndex = Array.FindIndex(this.jours, day => day.Equals(matchJours.Value));
+			// Get target time
+			TimeSpan target = monday.AddDays(dayIndex).AddDays(-(currentDay - 1)) - monday;
+
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
-			// Add 1 to indexDay if we calcul time for next days
-			heure = heure.Add(new TimeSpan(((DateTime.Now.Hour > heure.Hours) ? ++indexDay : indexDay) * 24, 0, 0));
+			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
 			Debug.WriteLine(heure.ToString());
 			return heure;
 		}
