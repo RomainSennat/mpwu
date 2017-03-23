@@ -55,7 +55,7 @@ namespace MPWU.EDT
 			// Init à 1, car on a déjà la valeur 0
 			int i = 1;
 			// Get next match if needed
-			while (i < list.Count() && !(int.Parse(match.Value.Split(':')[0]) < 13 || int.Parse(match.Value.Split(':')[0]) > DateTime.Now.Hour))
+			while (i < list.Count() && !(int.Parse(match.Value.Split(':')[0]) < 13 && int.Parse(match.Value.Split(':')[0]) > DateTime.Now.Hour))
 			{
 				match = regex.Match(list.ElementAtOrDefault(i).Value);
 				matchJours = regexJours.Match(list.ElementAtOrDefault(i).Value);
