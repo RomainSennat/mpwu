@@ -55,7 +55,7 @@ namespace MPWU.EDT
 			// Init à 1, car on a déjà la valeur 0
 			int i = 1;
 			// Get next match if needed
-			while (i < list.Count() && (int.Parse(match.Value.Split(':')[0]) > 12 || ((int)DateTime.Today.DayOfWeek - 1 == Array.IndexOf(this.jours, matchJours.Value)) && int.Parse(match.Value.Split(':')[0]) < DateTime.Now.Hour))
+			while (i < list.Count() && (int.Parse(match.Value.Split(':')[0]) > 12 || ((int)DateTime.Today.DayOfWeek - 1 == Array.IndexOf(this.jours, matchJours.Value) && (int.Parse(match.Value.Split(':')[0]) <= DateTime.Now.Hour && int.Parse(match.Value.Split(':')[1]) <= DateTime.Now.Minute))))
 			{
 				match = regex.Match(list.ElementAtOrDefault(i).Value);
 				matchJours = regexJours.Match(list.ElementAtOrDefault(i).Value);
@@ -75,6 +75,11 @@ namespace MPWU.EDT
 
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
+			// If alarm is next week add 7 days
+			if ((int)target.TotalDays == -1)
+			{
+				target = target.Add(new TimeSpan(7 * 24, 0, 0));
+			}
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
 			Debug.WriteLine(heure.ToString());

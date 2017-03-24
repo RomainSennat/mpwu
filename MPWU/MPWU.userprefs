@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="58" Column="115" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="78" Column="39" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
