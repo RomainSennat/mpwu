@@ -76,7 +76,7 @@ namespace MPWU.EDT
 			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
 
 			// If alarm is next week add 7 days
-			if ((int)target.TotalDays == -1)
+			if ((int)target.TotalDays < 0)
 			{
 				target = target.Add(new TimeSpan(7 * 24, 0, 0));
 			}
