@@ -4268,8 +4268,8 @@ namespace MPWU.Droid
 			// aapt resource value: 0x7f0200cc
 			public const int mr_ic_play_light = 2130837708;
 			
-			// aapt resource value: 0x7f0200d2
-			public const int notification_template_icon_bg = 2130837714;
+			// aapt resource value: 0x7f0200d4
+			public const int notification_template_icon_bg = 2130837716;
 			
 			// aapt resource value: 0x7f0200cd
 			public const int plugin_lc_smallicon = 2130837709;
@@ -4285,6 +4285,12 @@ namespace MPWU.Droid
 			
 			// aapt resource value: 0x7f0200d1
 			public const int segmented_control_last_background = 2130837713;
+			
+			// aapt resource value: 0x7f0200d2
+			public const int splash_icon = 2130837714;
+			
+			// aapt resource value: 0x7f0200d3
+			public const int SplashScreen = 2130837715;
 			
 			static Drawable()
 			{
@@ -5768,6 +5774,9 @@ namespace MPWU.Droid
 			
 			// aapt resource value: 0x7f0c0173
 			public const int MyTheme_Base = 2131493235;
+			
+			// aapt resource value: 0x7f0c0175
+			public const int MyTheme_Splash = 2131493237;
 			
 			// aapt resource value: 0x7f0c0032
 			public const int Platform_AppCompat = 2131492914;

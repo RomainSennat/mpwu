@@ -141,6 +141,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -159,7 +160,8 @@
     <AndroidResource Include="Resources\drawable\alarm.png" />
     <AndroidResource Include="Resources\drawable\logoParam.png" />
     <AndroidResource Include="Resources\drawable\schedule.png" />
-    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable\SplashScreen.xml" />
+    <AndroidResource Include="Resources\drawable\splash_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\raw\" />

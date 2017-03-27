@@ -34,7 +34,7 @@
                                     <constraint id="155" firstItem="10" firstAttribute="width" constant="570"/>
                                 </constraints>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="14" translatesAutoresizingMaskIntoConstraints="NO" image="Logo.png">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="203" verticalHuggingPriority="251" id="14" translatesAutoresizingMaskIntoConstraints="NO" image="Logo.png">
                                 <rect key="frame" x="20" y="245" width="560" height="200"/>
                                 <constraints>
                                     <constraint id="169" firstItem="14" firstAttribute="height" constant="200"/>
@@ -64,7 +64,4 @@
         <image name="schedule.png" width="32" height="32"/>
         <image name="Logo.png" width="300" height="300"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
