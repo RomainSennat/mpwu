@@ -9,6 +9,7 @@ namespace MPWU.UserData
 	{
 		Geolocalisation geolocalisation = new Geolocalisation();
 		Stif stif = new Stif();
+		Waze waze = new Waze();
 
 		public GeolocatorPage()
 		{
@@ -31,9 +32,16 @@ namespace MPWU.UserData
 		{
 			try
 			{
-				await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
-				champHeure.Text = stif.getHeureArrive();
-
+				if (true)
+				{
+					await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
+					champHeure.Text = stif.getHeureArrive();
+				}
+				else
+				{
+					await this.waze.getItineraire(this.geolocalisation.coordAuto.lat, this.geolocalisation.coordAuto.longi, this.geolocalisation.coordAddress.lat, this.geolocalisation.coordAddress.longi);
+					champHeure.Text = waze.getHeureArrive();
+				}
 			}
 			catch (Exception ex)
 			{

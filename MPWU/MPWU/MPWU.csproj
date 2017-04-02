@@ -62,6 +62,7 @@
     <Compile Include="Parametres.xaml.cs">
       <DependentUpon>Parametres.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserData\Waze.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Geolocator.Abstractions">

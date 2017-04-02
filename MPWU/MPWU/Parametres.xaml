@@ -11,10 +11,10 @@
 <ContentPage.Content>
 	<StackLayout VerticalOptions="FillAndExpand">
 		<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="Handle_ValueChanged">
-		  <controls:SegmentedControl.Children>
-		    <controls:SegmentedControlOption Text="Localisation" />
-		    <controls:SegmentedControlOption Text="Flux Rss" />
-		  </controls:SegmentedControl.Children>
+			<controls:SegmentedControl.Children>
+				<controls:SegmentedControlOption Text="Localisation" />
+		    	<controls:SegmentedControlOption Text="Flux Rss" />
+			</controls:SegmentedControl.Children>
 		</controls:SegmentedControl>
 
 		<StackLayout x:Name="SegContent" Grid.Row="1" Grid.Column="0" Padding="0, 20, 0, 0">
