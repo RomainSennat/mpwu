@@ -3,10 +3,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using MPWU.UserData;
 using Newtonsoft.Json;
 
-namespace MPWU
+namespace MPWU.UserData
 {
 	public class Waze
 	{

@@ -34,7 +34,7 @@ namespace MPWU
 
 		public void Handle_ValueChangedJourney(object o, EventArgs e)
 		{
-
+			//Waze Seg code
 		}
 	}
 }
