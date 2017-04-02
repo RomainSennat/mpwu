@@ -9,30 +9,29 @@ namespace MPWU.UserData
 {
 	public class Waze
 	{
-		String tempsTrajetLabel;
+		TimeSpan tempsTrajetLabel;
 
 		public Waze()
 		{
 
 		}
 
-		public String getHeureArrive()
+		public TimeSpan getHeureArrive()
 		{
 			return this.tempsTrajetLabel;
 		}
 
-		public async Task<Boolean> getItineraire(double startLat, double startLon, double endLat, double endLon)
+		public async Task<Boolean> getItineraire(Coord start, Coord end)
 		{
 			//string url = "http://localhost:8080/waze/routesXY?" +
 			string url = "http://speakgame.balastegui.com:1992/waze/routesXY?" +
-							"endLat=" + endLat.ToString().Replace(",", ".") +
-							"&endLon=" + endLon.ToString().Replace(",", ".") +
-							"&startLat=" + startLat.ToString().Replace(",", ".") +
-							"&startLon=" + startLon.ToString().Replace(",", ".");
+							"endLat=" + end.lat.ToString().Replace(",", ".") +
+							"&endLon=" + end.longi.ToString().Replace(",", ".") +
+							"&startLat=" + start.lat.ToString().Replace(",", ".") +
+							"&startLon=" + start.longi.ToString().Replace(",", ".");
 
 			Debug.WriteLine(url);
-			var response = await getJson(url);
-			this.tempsTrajetLabel = response.ToString();
+			this.tempsTrajetLabel = await getJson(url);
 			return true;
 		}
 

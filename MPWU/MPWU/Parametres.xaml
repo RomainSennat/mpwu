@@ -10,7 +10,7 @@
 	</ContentPage.Padding>
 <ContentPage.Content>
 	<StackLayout VerticalOptions="FillAndExpand">
-		<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="Handle_ValueChanged">
+		<controls:SegmentedControl x:Name="SegControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="TabChange">
 			<controls:SegmentedControl.Children>
 				<controls:SegmentedControlOption Text="Localisation" />
 		    	<controls:SegmentedControlOption Text="Flux Rss" />

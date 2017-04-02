@@ -1,0 +1,102 @@
+objc[880]: Class VCWeakObjectHolder is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/GameKitServices.framework/Frameworks/ViceroyTrace.framework/ViceroyTrace (0x1248edca8) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/GameKitServices.framework/Frameworks/AVConference.framework/AVConference (0x12481fcd0). One of the two will be used. Which one is undefined.
+objc[880]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x125fc5cc0) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x1259ea6f0). One of the two will be used. Which one is undefined.
+2017-04-02 18:42:13.440 MPWU.iOS[880:18343] 
+Unhandled Exception:
+Xamarin.Forms.Xaml.XamlParseException: Position 18:94. Method JourneyModeChange does not have the correct signature ---> System.ArgumentException: method arguments are incompatible
+  at System.Delegate.CreateDelegate (System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method, System.Boolean throwOnBindFailure, System.Boolean allowClosed) [0x0034a] in <69565aa0839a4d2ba7987962c4848340>:0 
+  at System.Delegate.CreateDelegate (System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method) [0x00000] in <69565aa0839a4d2ba7987962c4848340>:0 
+  at System.Reflection.RuntimeMethodInfo.CreateDelegate (System.Type delegateType, System.Object target) [0x00000] in <69565aa0839a4d2ba7987962c4848340>:0 
+  at Xamarin.Forms.Xaml.ApplyPropertiesVisitor.TryConnectEvent (System.Object element, System.String localName, System.Object value, System.Object rootElement, System.Xml.IXmlLineInfo lineInfo, System.Exception& exception) [0x00090] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+   --- End of inner exception stack trace ---
+  at Xamarin.Forms.Xaml.ApplyPropertiesVisitor.SetPropertyValue (System.Object xamlelement, Xamarin.Forms.Xaml.XmlName propertyName, System.Object value, System.Object rootElement, Xamarin.Forms.Xaml.INode node, Xamarin.Forms.Xaml.HydratationContext context, System.Xml.IXmlLineInfo lineInfo) [0x000de] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ApplyPropertiesVisitor.Visit (Xamarin.Forms.Xaml.ValueNode node, Xamarin.Forms.Xaml.INode parentNode) [0x00085] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ValueNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00000] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00054] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00089] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00089] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00089] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.RootNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00054] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.XamlLoader.Visit (Xamarin.Forms.Xaml.RootNode rootnode, Xamarin.Forms.Xaml.HydratationContext visitorContext) [0x00082] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.XamlLoader.Load (System.Object view, System.String xaml) [0x0005d] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.XamlLoader.Load (System.Object view, System.Type callingType) [0x0002f] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.Extensions.LoadFromXaml[TXaml] (TXaml view, System.Type callingType) [0x00000] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at MPWU.UserData.GeolocatorPage.InitializeComponent () [0x00000] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.UserData.GeolocatorPage..ctor () [0x00027] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.Parametres..ctor () [0x0000c] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.App..ctor () [0x00018] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.iOS.AppDelegate.FinishedLaunching (UIKit.UIApplication app, Foundation.NSDictionary options) [0x00087] in <47be973c611e4be7853fc9992d6a22cf>:0 
+--- End of stack trace from previous location where exception was thrown ---
+  at (wrapper managed-to-native) UIKit.UIApplication:UIApplicationMain (int,string[],intptr,intptr)
+  at UIKit.UIApplication.Main (System.String[] args, System.IntPtr principal, System.IntPtr delegate) [0x00005] in <478d55f3e5f7428eb56fe488ae05bcea>:0 
+  at UIKit.UIApplication.Main (System.String[] args, System.String principalClassName, System.String delegateClassName) [0x00038] in <478d55f3e5f7428eb56fe488ae05bcea>:0 
+  at MPWU.iOS.Application.Main (System.String[] args) [0x00000] in <47be973c611e4be7853fc9992d6a22cf>:0 
+2017-04-02 18:42:13.442 MPWU.iOS[880:18343] Unhandled managed exception:
+Position 18:94. Method JourneyModeChange does not have the correct signature (Xamarin.Forms.Xaml.XamlParseException)
+  at Xamarin.Forms.Xaml.ApplyPropertiesVisitor.SetPropertyValue (System.Object xamlelement, Xamarin.Forms.Xaml.XmlName propertyName, System.Object value, System.Object rootElement, Xamarin.Forms.Xaml.INode node, Xamarin.Forms.Xaml.HydratationContext context, System.Xml.IXmlLineInfo lineInfo) [0x000de] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ApplyPropertiesVisitor.Visit (Xamarin.Forms.Xaml.ValueNode node, Xamarin.Forms.Xaml.INode parentNode) [0x00085] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ValueNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00000] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00054] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00089] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00089] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.ElementNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00089] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.RootNode.Accept (Xamarin.Forms.Xaml.IXamlNodeVisitor visitor, Xamarin.Forms.Xaml.INode parentNode) [0x00054] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.XamlLoader.Visit (Xamarin.Forms.Xaml.RootNode rootnode, Xamarin.Forms.Xaml.HydratationContext visitorContext) [0x00082] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.XamlLoader.Load (System.Object view, System.String xaml) [0x0005d] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.XamlLoader.Load (System.Object view, System.Type callingType) [0x0002f] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at Xamarin.Forms.Xaml.Extensions.LoadFromXaml[TXaml] (TXaml view, System.Type callingType) [0x00000] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+  at MPWU.UserData.GeolocatorPage.InitializeComponent () [0x00000] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.UserData.GeolocatorPage..ctor () [0x00027] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.Parametres..ctor () [0x0000c] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.App..ctor () [0x00018] in <806694a0641d470fad84e7284fdd3c08>:0 
+  at MPWU.iOS.AppDelegate.FinishedLaunching (UIKit.UIApplication app, Foundation.NSDictionary options) [0x00087] in <47be973c611e4be7853fc9992d6a22cf>:0 
+--- End of stack trace from previous location where exception was thrown ---
+  at (wrapper managed-to-native) UIKit.UIApplication:UIApplicationMain (int,string[],intptr,intptr)
+  at UIKit.UIApplication.Main (System.String[] args, System.IntPtr principal, System.IntPtr delegate) [0x00005] in <478d55f3e5f7428eb56fe488ae05bcea>:0 
+  at UIKit.UIApplication.Main (System.String[] args, System.String principalClassName, System.String delegateClassName) [0x00038] in <478d55f3e5f7428eb56fe488ae05bcea>:0 
+  at MPWU.iOS.Application.Main (System.String[] args) [0x00000] in <47be973c611e4be7853fc9992d6a22cf>:0 
+ --- inner exception ---
+method arguments are incompatible (System.ArgumentException)
+  at System.Delegate.CreateDelegate (System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method, System.Boolean throwOnBindFailure, System.Boolean allowClosed) [0x0034a] in <69565aa0839a4d2ba7987962c4848340>:0 
+  at System.Delegate.CreateDelegate (System.Type type, System.Object firstArgument, System.Reflection.MethodInfo method) [0x00000] in <69565aa0839a4d2ba7987962c4848340>:0 
+  at System.Reflection.RuntimeMethodInfo.CreateDelegate (System.Type delegateType, System.Object target) [0x00000] in <69565aa0839a4d2ba7987962c4848340>:0 
+  at Xamarin.Forms.Xaml.ApplyPropertiesVisitor.TryConnectEvent (System.Object element, System.String localName, System.Object value, System.Object rootElement, System.Xml.IXmlLineInfo lineInfo, System.Exception& exception) [0x00090] in <c0971a7bea8d4d93a93643b23f88643a>:0 
+2017-04-02 18:42:13.442 MPWU.iOS[880:18343] critical: Stacktrace:
+
+2017-04-02 18:42:13.442 MPWU.iOS[880:18343] critical: 
+Native stacktrace:
+
+2017-04-02 18:42:13.475 MPWU.iOS[880:18343] critical: 	0   MPWU.iOS                            0x000000010bfde4fd mono_handle_native_sigsegv + 253
+2017-04-02 18:42:13.475 MPWU.iOS[880:18343] critical: 	1   libsystem_platform.dylib            0x0000000118d2cb3a _sigtramp + 26
+2017-04-02 18:42:13.475 MPWU.iOS[880:18343] critical: 	2   libsystem_pthread.dylib             0x0000000118d4a2c8 _pthread_keys + 9720
+2017-04-02 18:42:13.475 MPWU.iOS[880:18343] critical: 	3   libsystem_c.dylib                   0x0000000118a0e88f abort + 127
+2017-04-02 18:42:13.475 MPWU.iOS[880:18343] critical: 	4   MPWU.iOS                            0x000000010c15f702 xamarin_unhandled_exception_handler + 34
+2017-04-02 18:42:13.475 MPWU.iOS[880:18343] critical: 	5   MPWU.iOS                            0x000000010c03a34b mono_invoke_unhandled_exception_hook + 139
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	6   MPWU.iOS                            0x000000010bfddd4f mono_handle_exception_internal + 5135
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	7   MPWU.iOS                            0x000000010bfdc938 mono_handle_exception + 24
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	8   MPWU.iOS                            0x000000010bf55acf mono_amd64_throw_exception + 143
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	9   ???                                 0x000000012ac6f9e7 0x0 + 5012650471
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	10  MPWU.iOS                            0x000000010c162b27 xamarin_invoke_trampoline + 3847
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	11  MPWU.iOS                            0x000000010c1643ce xamarin_arch_trampoline + 78
+2017-04-02 18:42:13.476 MPWU.iOS[880:18343] critical: 	12  MPWU.iOS                            0x000000010c1650e6 xamarin_x86_64_common_trampoline + 110
+2017-04-02 18:42:13.477 MPWU.iOS[880:18343] critical: 	13  UIKit                               0x000000010cea4957 -[UIApplication _handleDelegateCallbacksWithOptions:isSuspended:restoreState:] + 299
+2017-04-02 18:42:13.477 MPWU.iOS[880:18343] critical: 	14  UIKit                               0x000000010cea623c -[UIApplication _callInitializationDelegatesForMainScene:transitionContext:] + 4119
+2017-04-02 18:42:13.477 MPWU.iOS[880:18343] critical: 	15  UIKit                               0x000000010ceac584 -[UIApplication _runWithMainScene:transitionContext:completion:] + 1709
+2017-04-02 18:42:13.477 MPWU.iOS[880:18343] critical: 	16  UIKit                               0x000000010cea9793 -[UIApplication workspaceDidEndTransaction:] + 182
+2017-04-02 18:42:13.477 MPWU.iOS[880:18343] critical: 	17  FrontBoardServices                  0x000000011903c5f6 __FBSSERIALQUEUE_IS_CALLING_OUT_TO_A_BLOCK__ + 24
+2017-04-02 18:42:13.477 MPWU.iOS[880:18343] critical: 	18  FrontBoardServices                  0x000000011903c46d -[FBSSerialQueue _performNext] + 186
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	19  FrontBoardServices                  0x000000011903c7f6 -[FBSSerialQueue _performNextFromRunLoopSource] + 45
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	20  CoreFoundation                      0x0000000117577c01 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 17
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	21  CoreFoundation                      0x000000011755d0cf __CFRunLoopDoSources0 + 527
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	22  CoreFoundation                      0x000000011755c5ff __CFRunLoopRun + 911
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	23  CoreFoundation                      0x000000011755c016 CFRunLoopRunSpecific + 406
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	24  UIKit                               0x000000010cea802f -[UIApplication _run] + 468
+2017-04-02 18:42:13.478 MPWU.iOS[880:18343] critical: 	25  UIKit                               0x000000010ceae0d4 UIApplicationMain + 159
+2017-04-02 18:42:13.479 MPWU.iOS[880:18343] critical: 	26  ???                                 0x000000012cfe1f65 0x0 + 5049818981
+2017-04-02 18:42:13.479 MPWU.iOS[880:18343] critical: 	27  ???                                 0x000000012cfe1dd0 0x0 + 5049818576
+2017-04-02 18:42:13.479 MPWU.iOS[880:18343] critical: 
+=================================================================
+Got a SIGABRT while executing native code. This usually indicates
+a fatal error in the mono runtime or one of the native libraries 
+used by your application.
+=================================================================
+

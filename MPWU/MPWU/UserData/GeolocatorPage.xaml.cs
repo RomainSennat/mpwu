@@ -1,5 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Diagnostics;
+using Xamarin.Forms.Xaml;
 
 
 
@@ -32,15 +34,16 @@ namespace MPWU.UserData
 		{
 			try
 			{
-				if (true)
+				if (JourneyMode.SelectedSegment == 1)
 				{
 					await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
-					champHeure.Text = stif.getHeureArrive();
+					champHeure.Text = stif.getHeureArrive().ToString("c");
 				}
 				else
 				{
-					await this.waze.getItineraire(this.geolocalisation.coordAuto.lat, this.geolocalisation.coordAuto.longi, this.geolocalisation.coordAddress.lat, this.geolocalisation.coordAddress.longi);
-					champHeure.Text = waze.getHeureArrive();
+					await this.waze.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
+					Debug.WriteLine(waze.getHeureArrive());
+					champHeure.Text = waze.getHeureArrive().ToString("c");
 				}
 			}
 			catch (Exception ex)
@@ -49,7 +52,7 @@ namespace MPWU.UserData
 			}
 		}
 
-		void Handle_Toggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void Toggle(object sender, ToggledEventArgs e)
 		{
 			bool estActive = e.Value;
 
@@ -58,14 +61,20 @@ namespace MPWU.UserData
 				getIti.IsEnabled = true;
 				getPos.IsEnabled = true;
 				getGeo.IsEnabled = true;
+				JourneyMode.IsEnabled = true;
 			}
 			else
 			{
 				getIti.IsEnabled = false;
 				getPos.IsEnabled = false;
 				getGeo.IsEnabled = false;
-				//Faire update et insert ici ? 
+				JourneyMode.IsEnabled = false;
 			}
+		}
+
+		void JourneyModeChange(object sender, EventArgs e)
+		{
+			Debug.WriteLine(JourneyMode.SelectedText);
 		}
 	}
 }

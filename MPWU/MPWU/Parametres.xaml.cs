@@ -17,7 +17,7 @@ namespace MPWU
 			this.pageFluxRss = new Rss();
 		}
 
-		public void Handle_ValueChanged(object o, EventArgs e)
+		public void TabChange(object o, EventArgs e)
 		{
 			SegContent.Children.Clear();
 
@@ -30,11 +30,6 @@ namespace MPWU
 					SegContent.Children.Add(this.pageFluxRss.Content);
 					break;
 			}
-		}
-
-		public void Handle_ValueChangedJourney(object o, EventArgs e)
-		{
-			//Waze Seg code
 		}
 	}
 }

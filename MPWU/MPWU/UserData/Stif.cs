@@ -15,14 +15,14 @@ namespace MPWU.UserData
 {
 	public class Stif
 	{
-		String tempsTrajet;
+		TimeSpan tempsTrajet;
 
 		public Stif()
 		{
 
 		}
 
-		public String getHeureArrive() 
+		public TimeSpan getHeureArrive()
 		{
 			return this.tempsTrajet;
 		}
@@ -38,7 +38,7 @@ namespace MPWU.UserData
 				"&apikey=05dd8acbae99e3b9959076d38ab5cc472c3b6ca0452a97b5ea838c5d";
 			Debug.WriteLine(url);
 			var response = await getJson(url);
-			this.tempsTrajet = convertToDate(response).ToString("HH:mm");
+			this.tempsTrajet = convertToDate(response).TimeOfDay;
 			Debug.WriteLine(convertToDate(response).ToString("HH:mm"));
 			return true;
 		}
@@ -74,13 +74,13 @@ namespace MPWU.UserData
 			JsonTextReader reader = new JsonTextReader(new StringReader(result));
 			while (reader.Read())
 			{
-				if (reader.Value != null) 
+				if (reader.Value != null)
 				{
 					if (reader.Value.ToString().Equals("arrival_date_time"))
 					{
 						recupValeurDateTime = true;
 					}
-					else if (recupValeurDateTime) 
+					else if (recupValeurDateTime)
 					{
 						arrive = reader.Value.ToString();
 						recupValeurDateTime = false;

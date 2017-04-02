@@ -1,15 +1,19 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="79" Column="33" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="21" Column="4" />
+      <File FileName="MPWU/UserData/Waze.cs" Line="34" Column="47" />
+      <File FileName="MPWU/Parametres.xaml.cs" Line="33" Column="4" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="71" Column="35" />
+      <File FileName="MPWU/UserData/Stif.cs" Line="25" Column="18" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.98B4225F-564F-4086-AEB4-0139F6DAF216" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4f1ee5568fa29c2059acea8abc7f4f4e80948711" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
