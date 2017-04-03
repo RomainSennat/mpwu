@@ -9,9 +9,9 @@ namespace MPWU.UserData
 {
 	public partial class GeolocatorPage : ContentPage
 	{
-		Geolocalisation Geolocalisation = new Geolocalisation();
-		Stif Stif = new Stif();
-		Waze Waze = new Waze();
+		private Geolocalisation geolocalisation = new Geolocalisation();
+		private Stif stif = new Stif();
+		private Waze waze = new Waze();
 
 		public GeolocatorPage()
 		{
@@ -20,14 +20,14 @@ namespace MPWU.UserData
 
 		async void SwitchCoord(object sender, EventArgs e)
 		{
-			await this.Geolocalisation.recupCoord(entryAdresse.Text);
-			champAdresse.Text = string.Format("lat : {0}, long : {1}", this.Geolocalisation.CoordAddress.Latitude, this.Geolocalisation.CoordAddress.Longitude);
+			await this.geolocalisation.recupCoord(entryAdresse.Text);
+			champAdresse.Text = string.Format("lat : {0}, long : {1}", this.geolocalisation.CoordAddress.Latitude, this.geolocalisation.CoordAddress.Longitude);
 		}
 
 		async void OnClickGeo(object sender, EventArgs e)
 		{
-			await this.Geolocalisation.recupGeolocalisation();
-			xmlPos.Text = this.Geolocalisation.Location;
+			await this.geolocalisation.recupGeolocalisation();
+			xmlPos.Text = this.geolocalisation.Location;
 		}
 
 		async void GetItineraire(object sender, EventArgs e)
@@ -35,8 +35,8 @@ namespace MPWU.UserData
 			try
 			{
 				champHeure.Text = (JourneyMode.SelectedSegment == 1)
-									? (await Stif.GetHeureArrive(this.Geolocalisation.CoordAuto, this.Geolocalisation.CoordAddress)).ToString("c")
-									: champHeure.Text = (await Waze.GetHeureArrive(this.Geolocalisation.CoordAuto, this.Geolocalisation.CoordAddress)).ToString("c");
+									? (await stif.GetHeureArrive(this.geolocalisation.CoordAuto, this.geolocalisation.CoordAddress)).ToString("c")
+									: (await waze.GetHeureArrive(this.geolocalisation.CoordAuto, this.geolocalisation.CoordAddress)).ToString("c");
 			}
 			catch (Exception ex)
 			{
