@@ -15,61 +15,41 @@ namespace MPWU.UserData
 {
 	public class Stif
 	{
-		TimeSpan tempsTrajet;
 
 		public Stif()
 		{
 
 		}
 
-		public TimeSpan getHeureArrive()
+		public async Task<TimeSpan> GetHeureArrive(Coord depart, Coord arrive)
 		{
-			return this.tempsTrajet;
+
+			return await this.GetItineraire(depart, arrive);
 		}
 
-		public async Task<Boolean> getItineraire(Coord depart, Coord arrive)
+		public async Task<TimeSpan> GetItineraire(Coord depart, Coord arrive)
 		{
 
 			String date = DateTime.Now.ToString("yyyyMMddTHHmmss");
 			string url = "https://opendata.stif.info/service/api-stif-recherche-itineraires/journeys" +
-				"?from=" + depart.longi.ToString().Replace(",", ".") + "%3B" + depart.lat.ToString().Replace(",", ".") +
-				"&to=" + arrive.longi.ToString().Replace(",", ".") + "%3B" + arrive.lat.ToString().Replace(",", ".") +
+				"?from=" + depart.Longitude.ToString().Replace(",", ".") + "%3B" + depart.Latitude.ToString().Replace(",", ".") +
+				"&to=" + arrive.Longitude.ToString().Replace(",", ".") + "%3B" + arrive.Latitude.ToString().Replace(",", ".") +
 				"&datetime=" + date +
 				"&apikey=05dd8acbae99e3b9959076d38ab5cc472c3b6ca0452a97b5ea838c5d";
 			Debug.WriteLine(url);
-			var response = await getJson(url);
-			this.tempsTrajet = convertToDate(response).TimeOfDay;
-			Debug.WriteLine(convertToDate(response).ToString("HH:mm"));
-			return true;
+			var response = await GetJson(url);
+			Debug.WriteLine(ConvertToDate(response).ToString("HH:mm"));
+			return ConvertToDate(response).TimeOfDay;
 		}
 
 
-		public async Task<string> getJson(string url)
+		public async Task<string> GetJson(string url)
 		{
-			//Uri uri = new Uri(url);
-			//HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-			//string received;
-
-			//using (var response = (HttpWebResponse)(await Task<WebResponse>.Factory.FromAsync(request.BeginGetResponse, request.EndGetResponse, null)))
-			//{
-			//	using (var responseStream = response.GetResponseStream())
-			//	{
-			//		using (var sr = new StreamReader(responseStream))
-			//		{
-
-			//			received = await sr.ReadToEndAsync();
-			//		}
-			//	}
-			//}
-
-			//return received;
-			bool recupValeurDateTime = false;
 			string arrive = "null";
 			HttpClient client = new HttpClient();
 			HttpResponseMessage resp = await client.GetAsync(url);
 			HttpContent content = resp.Content;
-			String result = await content.ReadAsStringAsync();
-
+			string result = await content.ReadAsStringAsync();
 
 			JsonTextReader reader = new JsonTextReader(new StringReader(result));
 			while (reader.Read())
@@ -78,19 +58,16 @@ namespace MPWU.UserData
 				{
 					if (reader.Value.ToString().Equals("arrival_date_time"))
 					{
-						recupValeurDateTime = true;
-					}
-					else if (recupValeurDateTime)
-					{
-						arrive = reader.Value.ToString();
-						recupValeurDateTime = false;
+						break;
 					}
 				}
 			}
+			reader.Read();
+			arrive = reader.Value.ToString();
 			return arrive;
 		}
 
-		public DateTime convertToDate(string dateString)
+		public DateTime ConvertToDate(string dateString)
 		{
 			Debug.WriteLine(dateString);
 			DateTime now = DateTime.Now;

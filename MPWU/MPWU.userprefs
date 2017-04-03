@@ -1,15 +1,21 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="21" Column="4" />
-      <File FileName="MPWU/UserData/Waze.cs" Line="34" Column="47" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="31" Column="50" />
+      <File FileName="MPWU/UserData/Waze.cs" Line="57" Column="18" />
       <File FileName="MPWU/Parametres.xaml.cs" Line="33" Column="4" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="71" Column="35" />
-      <File FileName="MPWU/UserData/Stif.cs" Line="25" Column="18" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="59" Column="21" />
+      <File FileName="MPWU/UserData/Stif.cs" Line="65" Column="18" />
+      <File FileName="MPWU/UserData/Geolocalisation.cs" Line="45" Column="31" />
+      <File FileName="MPWU/App.xaml.cs" Line="1" Column="1" />
+      <File FileName="MPWU/MPWUPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="MPWU/Parametres.xaml" Line="1" Column="1" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml" Line="30" Column="89" />
+      <File FileName="MPWU/obj/Debug/MPWU.UserData.GeolocatorPage.xaml.g.cs" Line="1" Column="1" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

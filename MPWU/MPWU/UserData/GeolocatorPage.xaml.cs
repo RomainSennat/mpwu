@@ -9,9 +9,9 @@ namespace MPWU.UserData
 {
 	public partial class GeolocatorPage : ContentPage
 	{
-		Geolocalisation geolocalisation = new Geolocalisation();
-		Stif stif = new Stif();
-		Waze waze = new Waze();
+		Geolocalisation Geolocalisation = new Geolocalisation();
+		Stif Stif = new Stif();
+		Waze Waze = new Waze();
 
 		public GeolocatorPage()
 		{
@@ -20,31 +20,23 @@ namespace MPWU.UserData
 
 		async void SwitchCoord(object sender, EventArgs e)
 		{
-			await this.geolocalisation.recupCoord(entryAdresse.Text);
-			champAdresse.Text = String.Format("lat : {0}, long : {1}", this.geolocalisation.coordAddress.lat, this.geolocalisation.coordAddress.longi);
+			await this.Geolocalisation.recupCoord(entryAdresse.Text);
+			champAdresse.Text = string.Format("lat : {0}, long : {1}", this.Geolocalisation.CoordAddress.Latitude, this.Geolocalisation.CoordAddress.Longitude);
 		}
 
 		async void OnClickGeo(object sender, EventArgs e)
 		{
-			await this.geolocalisation.recupGeolocalisation();
-			xmlPos.Text = this.geolocalisation.getGeoLocalisation();
+			await this.Geolocalisation.recupGeolocalisation();
+			xmlPos.Text = this.Geolocalisation.Location;
 		}
 
-		async void getItineraire(object sender, EventArgs e)
+		async void GetItineraire(object sender, EventArgs e)
 		{
 			try
 			{
-				if (JourneyMode.SelectedSegment == 1)
-				{
-					await this.stif.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
-					champHeure.Text = stif.getHeureArrive().ToString("c");
-				}
-				else
-				{
-					await this.waze.getItineraire(this.geolocalisation.coordAuto, this.geolocalisation.coordAddress);
-					Debug.WriteLine(waze.getHeureArrive());
-					champHeure.Text = waze.getHeureArrive().ToString("c");
-				}
+				champHeure.Text = (JourneyMode.SelectedSegment == 1)
+									? (await Stif.GetHeureArrive(this.Geolocalisation.CoordAuto, this.Geolocalisation.CoordAddress)).ToString("c")
+									: champHeure.Text = (await Waze.GetHeureArrive(this.Geolocalisation.CoordAuto, this.Geolocalisation.CoordAddress)).ToString("c");
 			}
 			catch (Exception ex)
 			{
@@ -54,21 +46,20 @@ namespace MPWU.UserData
 
 		void Toggle(object sender, ToggledEventArgs e)
 		{
-			bool estActive = e.Value;
 
-			if (estActive)
+			if (e.Value)
 			{
-				getIti.IsEnabled = true;
-				getPos.IsEnabled = true;
-				getGeo.IsEnabled = true;
-				JourneyMode.IsEnabled = true;
+				foreach (var el in this.contentToHide.Children)
+				{
+					el.IsEnabled = true;
+				}
 			}
 			else
 			{
-				getIti.IsEnabled = false;
-				getPos.IsEnabled = false;
-				getGeo.IsEnabled = false;
-				JourneyMode.IsEnabled = false;
+				foreach (var el in this.contentToHide.Children)
+				{
+					el.IsEnabled = false;
+				}
 			}
 		}
 

@@ -9,41 +9,38 @@ namespace MPWU.UserData
 {
 	public class Waze
 	{
-		TimeSpan tempsTrajetLabel;
 
 		public Waze()
 		{
 
 		}
 
-		public TimeSpan getHeureArrive()
+		public async Task<TimeSpan> GetHeureArrive(Coord start, Coord end)
 		{
-			return this.tempsTrajetLabel;
+			return await this.GetItineraire(start, end);
 		}
 
-		public async Task<Boolean> getItineraire(Coord start, Coord end)
+		public async Task<TimeSpan> GetItineraire(Coord start, Coord end)
 		{
 			//string url = "http://localhost:8080/waze/routesXY?" +
 			string url = "http://speakgame.balastegui.com:1992/waze/routesXY?" +
-							"endLat=" + end.lat.ToString().Replace(",", ".") +
-							"&endLon=" + end.longi.ToString().Replace(",", ".") +
-							"&startLat=" + start.lat.ToString().Replace(",", ".") +
-							"&startLon=" + start.longi.ToString().Replace(",", ".");
+							"endLat=" + end.Latitude.ToString().Replace(",", ".") +
+							"&endLon=" + end.Longitude.ToString().Replace(",", ".") +
+							"&startLat=" + start.Latitude.ToString().Replace(",", ".") +
+							"&startLon=" + start.Longitude.ToString().Replace(",", ".");
 
 			Debug.WriteLine(url);
-			this.tempsTrajetLabel = await getJson(url);
-			return true;
+			return await GetJson(url);
 		}
 
-		public async Task<TimeSpan> getJson(string url)
+		public async Task<TimeSpan> GetJson(string url)
 		{
 			Debug.WriteLine("Begin");
-			bool recupValeur = false;
 			int tempsTrajet = 0;
 			HttpClient client = new HttpClient();
 			HttpResponseMessage resp = await client.GetAsync(url);
 			HttpContent content = resp.Content;
-			String result = await content.ReadAsStringAsync();
+			string result = await content.ReadAsStringAsync();
 			JsonTextReader reader = new JsonTextReader(new StringReader(result));
 
 			while (reader.Read())
@@ -53,20 +50,17 @@ namespace MPWU.UserData
 					Debug.WriteLine("While");
 					if (reader.Value.ToString().Equals("routeDurationInMinutes"))
 					{
-						recupValeur = true;
-					}
-					else if (recupValeur)
-					{
-						tempsTrajet += int.Parse(reader.Value.ToString());
-						recupValeur = false;
+						break;
 					}
 				}
 			}
+			reader.Read();
+			tempsTrajet += int.Parse(reader.Value.ToString());
 			Debug.WriteLine("End");
 			// Format HH:mm:ss
-			TimeSpan ts = new TimeSpan(tempsTrajet / 60, tempsTrajet % 60, 0);
-			Debug.WriteLine(ts);
-			return ts;
+			TimeSpan time = new TimeSpan(tempsTrajet / 60, tempsTrajet % 60, 0);
+			Debug.WriteLine(time);
+			return time;
 		}
 	}
 }

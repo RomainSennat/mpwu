@@ -3,7 +3,7 @@
 	// Structure qui stock les coordonnées gps
 	public struct Coord
 	{
-		public double lat;
-		public double longi;
+		public double Latitude;
+		public double Longitude;
 	};
 }

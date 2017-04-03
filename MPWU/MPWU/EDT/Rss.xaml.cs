@@ -24,11 +24,11 @@ namespace MPWU.EDT
 		{
 			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", addressRss.Text, "Oui", "Non"))
 			{
-				Debug.WriteLine(await recupProchaineHeure(addressRss.Text));
+				Debug.WriteLine(await RecupProchaineHeure(addressRss.Text));
 			}
 		}
 
-		public async Task<TimeSpan> recupProchaineHeure(string url)
+		public async Task<TimeSpan> RecupProchaineHeure(string url)
 		{
 			TimeSpan heure = new TimeSpan();
 			HttpClient webc = new HttpClient();

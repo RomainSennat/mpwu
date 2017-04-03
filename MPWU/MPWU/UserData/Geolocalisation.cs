@@ -9,33 +9,24 @@ namespace MPWU.UserData
 {
 	public class Geolocalisation
 	{
-		public Coord coordAuto;
-		public Coord coordAddress;
-		private Geocoder geo;
-		private String geoLocalisation;
+		public Coord CoordAuto;
+		public Coord CoordAddress;
+		private Geocoder Geocoder;
+		public string Location { get; set; }
+
 
 		public Geolocalisation()
 		{
-			
-			this.geo = new Geocoder();
+
+			this.Geocoder = new Geocoder();
 		}
 
-		public void setGeoLocalisation(String geo)
+		public async Task<bool> recupCoord(string address)
 		{
-			this.geoLocalisation = geo;
-		}
-
-		public String getGeoLocalisation()
-		{
-			return this.geoLocalisation;
-		}
-
-		public async Task<Boolean> recupCoord(String address)
-		{
-			var approximateLocations = await geo.GetPositionsForAddressAsync(address);
-			this.coordAddress.lat = approximateLocations.First().Latitude;
-			this.coordAddress.longi = approximateLocations.First().Longitude;
-			Debug.WriteLine(String.Format("{0},{1}", this.coordAddress.lat, this.coordAddress.longi));
+			var approximateLocations = await Geocoder.GetPositionsForAddressAsync(address);
+			this.CoordAddress.Latitude = approximateLocations.FirstOrDefault().Latitude;
+			this.CoordAddress.Longitude = approximateLocations.FirstOrDefault().Longitude;
+			Debug.WriteLine(String.Format("{0},{1}", this.CoordAddress.Latitude, this.CoordAddress.Longitude));
 			return true;
 		}
 
@@ -48,10 +39,10 @@ namespace MPWU.UserData
 		 * 
 		*/
 
-		public async Task<Boolean> recupGeolocalisation()
+		public async Task<bool> recupGeolocalisation()
 		{
 			var locator = CrossGeolocator.Current;
-			locator.DesiredAccuracy = 50;
+			locator.DesiredAccuracy = 10;
 			Debug.WriteLine("Getting GPS ...");
 			try
 			{
@@ -62,16 +53,16 @@ namespace MPWU.UserData
 					return false;
 				}
 				//Convertis les coord en adresses.
-				this.coordAuto.lat = position.Latitude;
-				this.coordAuto.longi = position.Longitude;
-				Debug.WriteLine(String.Format("lat : {0}, long : {1}", this.coordAuto.lat, this.coordAuto.longi));
-				if (this.coordAuto.lat != 0 && this.coordAuto.longi != 0)
+				this.CoordAuto.Latitude = position.Latitude;
+				this.CoordAuto.Longitude = position.Longitude;
+				Debug.WriteLine(String.Format("lat : {0}, long : {1}", this.CoordAuto.Latitude, this.CoordAuto.Longitude));
+				if ((int)this.CoordAuto.Latitude != 0 && (int)this.CoordAuto.Longitude != 0)
 				{
-					var revposition = new Xamarin.Forms.Maps.Position(this.coordAuto.lat, this.coordAuto.longi);
-					var possibleAddresses = await geo.GetAddressesForPositionAsync(revposition);
+					var revposition = new Position(this.CoordAuto.Latitude, this.CoordAuto.Longitude);
+					var possibleAddresses = await Geocoder.GetAddressesForPositionAsync(revposition);
 					// possibleAddresses est un Enum
-					setGeoLocalisation(possibleAddresses.First());
-					Debug.WriteLine(this.geoLocalisation);
+					this.Location = possibleAddresses.FirstOrDefault();
+					Debug.WriteLine(this.Location);
 					return true;
 				}
 				Debug.WriteLine(locator);
