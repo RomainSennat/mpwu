@@ -5,7 +5,6 @@ using MPWU.Alarm;
 using MPWU.EDT;
 using System.Diagnostics;
 using Plugin.LocalNotifications;
-using System.Globalization;
 
 namespace MPWU
 {

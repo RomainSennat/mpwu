@@ -11,7 +11,7 @@
 			HorizontalOptions="CenterAndExpand"
 			Orientation="Vertical"
 			Spacing="15">
-			<Button x:Name="stopButton" Text="Stop" Clicked="StopSound"/>
+			<Button x:Name="StopButton" Text="Stop" Clicked="StopSound"/>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

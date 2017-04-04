@@ -1,5 +1,4 @@
-﻿using Plugin.LocalNotifications;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MPWU.Alarm
 {

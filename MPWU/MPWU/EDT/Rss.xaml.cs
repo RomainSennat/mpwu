@@ -20,45 +20,44 @@ namespace MPWU.EDT
 			InitializeComponent();
 		}
 
-		public async void onClick(object sender, EventArgs e)
+		public async void GetRss(object sender, EventArgs e)
 		{
-			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", addressRss.Text, "Oui", "Non"))
+			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", AddressRss.Text, "Oui", "Non"))
 			{
-				Debug.WriteLine(await RecupProchaineHeure(addressRss.Text));
+				Debug.WriteLine(await RecupProchaineHeure(AddressRss.Text));
 			}
 		}
 
 		public async Task<TimeSpan> RecupProchaineHeure(string url)
 		{
 			TimeSpan heure = new TimeSpan();
-			HttpClient webc = new HttpClient();
-			var request = webc.GetAsync(new Uri(url));
+			HttpClient client = new HttpClient();
+			var request = client.GetAsync(new Uri(url));
 			var result = request.Result.Content;
 
-			string xmlString = await result.ReadAsStringAsync();
-			XDocument xml = XDocument.Parse(xmlString);
+			XDocument xml = XDocument.Parse(await result.ReadAsStringAsync());
 
 			// Init de la liste des éléments qui correpondent au titre du flux rss
 			var list = xml.Descendants("item").Cast<XElement>().ToList();
 
 			//Regex heures
-			Regex regex = new Regex("(([0-1]){1,}([0-9]{1,})|(2[0-3]))(:)([0-5]{1}[0-9]{1})");
-			Match match = regex.Match(list.FirstOrDefault().Value);
+			Regex regexHeure = new Regex("(([0-1]){1,}([0-9]{1,})|(2[0-3]))(:)([0-5]{1}[0-9]{1})");
+			Match matchHeure = regexHeure.Match(list.FirstOrDefault().Value);
 
 			//Regex jours
-			Regex regexJours = new Regex("lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche");
-			Match matchJours = regexJours.Match(list.FirstOrDefault().Value);
+			Regex regexJour = new Regex("lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche");
+			Match matchJour = regexJour.Match(list.FirstOrDefault().Value);
 
 			// Init de la variable du return
-			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
+			heure = new TimeSpan(int.Parse(matchHeure.Value.Split(':')[0]), int.Parse(matchHeure.Value.Split(':')[1]), 0);
 
 			// Init à 1, car on a déjà la valeur 0
 			int i = 1;
 			// Get next match if needed
-			while (i < list.Count() && (int.Parse(match.Value.Split(':')[0]) > 12 || ((int)DateTime.Today.DayOfWeek - 1 == Array.IndexOf(this.jours, matchJours.Value) && (int.Parse(match.Value.Split(':')[0]) <= DateTime.Now.Hour && int.Parse(match.Value.Split(':')[1]) <= DateTime.Now.Minute))))
+			while (i < list.Count() && (int.Parse(matchHeure.Value.Split(':')[0]) > 12 || ((int)DateTime.Today.DayOfWeek - 1 == Array.IndexOf(this.jours, matchJour.Value) && (int.Parse(matchHeure.Value.Split(':')[0]) <= DateTime.Now.Hour && int.Parse(matchHeure.Value.Split(':')[1]) <= DateTime.Now.Minute))))
 			{
-				match = regex.Match(list.ElementAtOrDefault(i).Value);
-				matchJours = regexJours.Match(list.ElementAtOrDefault(i).Value);
+				matchHeure = regexHeure.Match(list.ElementAtOrDefault(i).Value);
+				matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
 				i++;
 			}
 
@@ -69,11 +68,11 @@ namespace MPWU.EDT
 			// Get monday on current week
 			DateTime monday = today.AddDays(-(DateTime.Now.DayOfWeek - CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek) % 7);
 			// Get range between monday and target day
-			int dayIndex = Array.FindIndex(this.jours, day => day.Equals(matchJours.Value));
+			int dayIndex = Array.IndexOf(this.jours, matchJour.Value);
 			// Get target time
 			TimeSpan target = monday.AddDays(dayIndex).AddDays(-(currentDay - 1)) - monday;
 
-			heure = new TimeSpan(int.Parse(match.Value.Split(':')[0]), int.Parse(match.Value.Split(':')[1]), 0);
+			heure = new TimeSpan(int.Parse(matchHeure.Value.Split(':')[0]), int.Parse(matchHeure.Value.Split(':')[1]), 0);
 
 			// If alarm is next week add 7 days
 			if ((int)target.TotalDays < 0)

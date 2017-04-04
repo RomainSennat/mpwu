@@ -24,10 +24,10 @@ namespace MPWU.UserData
 		{
 			//string url = "http://localhost:8080/waze/routesXY?" +
 			string url = "http://speakgame.balastegui.com:1992/waze/routesXY?" +
-							"endLat=" + end.Latitude.ToString().Replace(",", ".") +
-							"&endLon=" + end.Longitude.ToString().Replace(",", ".") +
-							"&startLat=" + start.Latitude.ToString().Replace(",", ".") +
-							"&startLon=" + start.Longitude.ToString().Replace(",", ".");
+				"endLat=" + end.Latitude.ToString().Trim().Replace(",", ".") +
+							"&endLon=" + end.Longitude.ToString().Trim().Replace(",", ".") +
+							"&startLat=" + start.Latitude.ToString().Trim().Replace(",", ".") +
+							"&startLon=" + start.Longitude.ToString().Trim().Replace(",", ".");
 
 			Debug.WriteLine(url);
 			return await GetJson(url);
@@ -41,21 +41,21 @@ namespace MPWU.UserData
 			HttpResponseMessage resp = await client.GetAsync(url);
 			HttpContent content = resp.Content;
 			string result = await content.ReadAsStringAsync();
+
 			JsonTextReader reader = new JsonTextReader(new StringReader(result));
 
 			while (reader.Read())
 			{
 				if (reader.Value != null)
 				{
-					Debug.WriteLine("While");
 					if (reader.Value.ToString().Equals("routeDurationInMinutes"))
 					{
-						break;
+						reader.Read();
+						tempsTrajet += int.Parse(reader.Value.ToString());
 					}
 				}
 			}
-			reader.Read();
-			tempsTrajet += int.Parse(reader.Value.ToString());
+			reader.Close();
 			Debug.WriteLine("End");
 			// Format HH:mm:ss
 			TimeSpan time = new TimeSpan(tempsTrajet / 60, tempsTrajet % 60, 0);

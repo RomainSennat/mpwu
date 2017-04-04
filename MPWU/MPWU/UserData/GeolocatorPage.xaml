@@ -14,23 +14,23 @@
             		HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
-      				<Switch HorizontalOptions="EndAndExpand" Toggled="Toggle"></Switch>
-					<StackLayout x:Name="contentToHide" VerticalOptions="FillAndExpand">
+      				<Switch HorizontalOptions="EndAndExpand" Toggled="ToggleStackLayout"></Switch>
+					<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand">
 						<controls:SegmentedControl x:Name="JourneyMode" TintColor="#007AFF" IsEnabled="false" SelectedSegment="0" ValueChanged="JourneyModeChange">
 							<controls:SegmentedControl.Children>
-								<controls:SegmentedControlOption Text="Voiture" />
-						    	<controls:SegmentedControlOption Text="Transport en commun" />
+								<controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
+						    	<controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
 							</controls:SegmentedControl.Children>
 						</controls:SegmentedControl>
-						<Label Text="" x:Name="xmlPos"/>
-						<Button x:Name="getGeo" Text="Geolocalise toi" Clicked="OnClickGeo" IsEnabled="false" />
-						<Label Text="" x:Name="champAdresse"/>
-						<Entry x:Name="entryAdresse"/>
-						<Button x:Name="getPos" Text="Recuperer coord via adresses" Clicked="SwitchCoord" IsEnabled="false"/>
-						<Button x:Name="getIti" Text="Itinéraire" Clicked="GetItineraire" IsEnabled="false"/>
+						<Label Text="" x:Name="CurrentPosition"/>
+						<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation" IsEnabled="false" />
+						<Label Text="" x:Name="TargetAdress"/>
+						<Entry x:Name="TargetAdresseEntry"/>
+						<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord" IsEnabled="false"/>
+						<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire" IsEnabled="false"/>
 						<Label Text="Temps de trajet : " FontSize="15"/>
 					</StackLayout>
-					<Label Text="" x:Name="champHeure" FontSize="15"/>
+					<Label Text="" x:Name="ChampHeure" FontSize="15"/>
 				</StackLayout>
 			</ScrollView>
         </StackLayout>

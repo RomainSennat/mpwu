@@ -3,12 +3,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Net.Http;
-
-using System.Net.Http.Headers;
-using System.Text;
 using System.IO;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Globalization;
 
 namespace MPWU.UserData
@@ -30,7 +25,7 @@ namespace MPWU.UserData
 		public async Task<TimeSpan> GetItineraire(Coord depart, Coord arrive)
 		{
 
-			String date = DateTime.Now.ToString("yyyyMMddTHHmmss");
+			string date = DateTime.Now.ToString("yyyyMMddTHHmmss");
 			string url = "https://opendata.stif.info/service/api-stif-recherche-itineraires/journeys" +
 				"?from=" + depart.Longitude.ToString().Replace(",", ".") + "%3B" + depart.Latitude.ToString().Replace(",", ".") +
 				"&to=" + arrive.Longitude.ToString().Replace(",", ".") + "%3B" + arrive.Latitude.ToString().Replace(",", ".") +
@@ -50,8 +45,8 @@ namespace MPWU.UserData
 			HttpResponseMessage resp = await client.GetAsync(url);
 			HttpContent content = resp.Content;
 			string result = await content.ReadAsStringAsync();
-
 			JsonTextReader reader = new JsonTextReader(new StringReader(result));
+
 			while (reader.Read())
 			{
 				if (reader.Value != null)
@@ -64,6 +59,7 @@ namespace MPWU.UserData
 			}
 			reader.Read();
 			arrive = reader.Value.ToString();
+			reader.Close();
 			return arrive;
 		}
 
@@ -74,8 +70,8 @@ namespace MPWU.UserData
 			DateTime date = DateTime.ParseExact(dateString, "yyyyMMddTHHmmss", CultureInfo.InvariantCulture);
 			TimeSpan duree = date - now;
 
-			DateTime reponse = new DateTime(now.Year, now.Month, now.Day, duree.Hours, duree.Minutes, duree.Seconds);
-			return reponse;
+			DateTime result = new DateTime(now.Year, now.Month, now.Day, duree.Hours, duree.Minutes, duree.Seconds);
+			return result;
 		}
 	}
 }

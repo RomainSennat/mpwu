@@ -19,15 +19,15 @@ namespace MPWU
 
 		public void TabChange(object o, EventArgs e)
 		{
-			SegContent.Children.Clear();
+			SegmentContent.Children.Clear();
 
-			switch (SegControl.SelectedSegment)
+			switch (SegmentControl.SelectedSegment)
 			{
 				case 0:
-					SegContent.Children.Add(this.pageLocalisation.Content);
+					SegmentContent.Children.Add(this.pageLocalisation.Content);
 					break;
 				case 1:
-					SegContent.Children.Add(this.pageFluxRss.Content);
+					SegmentContent.Children.Add(this.pageFluxRss.Content);
 					break;
 			}
 		}

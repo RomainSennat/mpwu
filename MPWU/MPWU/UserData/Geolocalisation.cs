@@ -9,58 +9,56 @@ namespace MPWU.UserData
 {
 	public class Geolocalisation
 	{
-		public Coord CoordAuto;
-		public Coord CoordAddress;
-		private Geocoder Geocoder;
+		public Coord CurrentCoord;
+		public Coord TargetCoord;
+		private Geocoder geocoder;
 		public string Location { get; set; }
 
 
 		public Geolocalisation()
 		{
 
-			this.Geocoder = new Geocoder();
+			this.geocoder = new Geocoder();
 		}
 
-		public async Task<bool> recupCoord(string address)
+		public async Task<bool> GetCoord(string address)
 		{
-			var approximateLocations = await Geocoder.GetPositionsForAddressAsync(address);
-			this.CoordAddress.Latitude = approximateLocations.FirstOrDefault().Latitude;
-			this.CoordAddress.Longitude = approximateLocations.FirstOrDefault().Longitude;
-			Debug.WriteLine(String.Format("{0},{1}", this.CoordAddress.Latitude, this.CoordAddress.Longitude));
+			try
+			{
+				var approximateLocations = await geocoder.GetPositionsForAddressAsync(address);
+				this.TargetCoord.Latitude = approximateLocations.FirstOrDefault().Latitude;
+				this.TargetCoord.Longitude = approximateLocations.FirstOrDefault().Longitude;
+				Debug.WriteLine(string.Format("{0},{1}", this.TargetCoord.Latitude, this.TargetCoord.Longitude));
+			}
+			catch (Exception ex)
+			{
+
+			}
 			return true;
 		}
 
-		/*Fonction asynchrone utilisant les plugins Xamarin.FormMaps et Geocoder.
-		 * 
-		 * Recuperation des données de localisation avec locacor.GetPositionAsync(timoutMilliseconds : 300000)
-		 * 		position.Timestamp, position.Latitude, position.Longitude,
-		 * 		position.Altitude, position.AltitudeAccuracy, position.Accuracy, position.Heading, position.Speed
-		 * 
-		 * 
-		*/
-
-		public async Task<bool> recupGeolocalisation()
+		public async Task<bool> GetGeolocalisation()
 		{
 			var locator = CrossGeolocator.Current;
 			locator.DesiredAccuracy = 10;
 			Debug.WriteLine("Getting GPS ...");
 			try
 			{
-				var position = await locator.GetPositionAsync(timeoutMilliseconds: 300000);
+				var position = await locator.GetPositionAsync(30000);
 				if (position == null)
 				{
 					Debug.WriteLine("null gps ");
 					return false;
 				}
 				//Convertis les coord en adresses.
-				this.CoordAuto.Latitude = position.Latitude;
-				this.CoordAuto.Longitude = position.Longitude;
-				Debug.WriteLine(String.Format("lat : {0}, long : {1}", this.CoordAuto.Latitude, this.CoordAuto.Longitude));
-				if ((int)this.CoordAuto.Latitude != 0 && (int)this.CoordAuto.Longitude != 0)
+				this.CurrentCoord.Latitude = position.Latitude;
+				this.CurrentCoord.Longitude = position.Longitude;
+				Debug.WriteLine(string.Format("lat : {0}, long : {1}", this.CurrentCoord.Latitude, this.CurrentCoord.Longitude));
+				if ((int)this.CurrentCoord.Latitude != 0 && (int)this.CurrentCoord.Longitude != 0)
 				{
-					var revposition = new Position(this.CoordAuto.Latitude, this.CoordAuto.Longitude);
-					var possibleAddresses = await Geocoder.GetAddressesForPositionAsync(revposition);
-					// possibleAddresses est un Enum
+					var revposition = new Position(this.CurrentCoord.Latitude, this.CurrentCoord.Longitude);
+					var possibleAddresses = await geocoder.GetAddressesForPositionAsync(revposition);
+					// possibleAddresses est une Collection
 					this.Location = possibleAddresses.FirstOrDefault();
 					Debug.WriteLine(this.Location);
 					return true;
