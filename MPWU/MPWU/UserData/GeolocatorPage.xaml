@@ -3,36 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
              x:Class="MPWU.UserData.GeolocatorPage">
+	
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Spacing="15">
-
-			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
-            <StackLayout VerticalOptions="FillAndExpand"
-            		HorizontalOptions="FillAndExpand"
-                     Orientation="Vertical"
-                     Spacing="15">
-      				<Switch HorizontalOptions="EndAndExpand" Toggled="ToggleStackLayout"></Switch>
-					<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand">
-						<controls:SegmentedControl x:Name="JourneyMode" TintColor="#007AFF" IsEnabled="false" SelectedSegment="0" ValueChanged="JourneyModeChange">
-							<controls:SegmentedControl.Children>
-								<controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
-						    	<controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
-							</controls:SegmentedControl.Children>
-						</controls:SegmentedControl>
-						<Label Text="" x:Name="CurrentPosition"/>
-						<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation" IsEnabled="false" />
-						<Label Text="" x:Name="TargetAdress"/>
-						<Entry x:Name="TargetAdresseEntry"/>
-						<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord" IsEnabled="false"/>
-						<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire" IsEnabled="false"/>
-						<Label Text="Temps de trajet : " FontSize="15"/>
-					</StackLayout>
-					<Label Text="" x:Name="ChampHeure" FontSize="15"/>
+		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
+        <StackLayout x:Name="ParamToShow" VerticalOptions="FillAndExpand"
+        		HorizontalOptions="FillAndExpand"
+                 Orientation="Vertical"
+                 Spacing="15">
+				<Switch Toggled="ToggleStackLayout"></Switch>
+				<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand">
+					<controls:SegmentedControl x:Name="JourneyMode" TintColor="#007AFF" IsEnabled="false" SelectedSegment="{Binding modeTrajet}" ValueChanged="JourneyModeChange">
+						<controls:SegmentedControl.Children>
+							<controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
+					    	<controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
+						</controls:SegmentedControl.Children>
+					</controls:SegmentedControl>
+					<Label Text="{Binding adresseDepart}" x:Name="CurrentPosition"/>
+					<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation" IsEnabled="false" />
+					<Label Text="{Binding adresseArrive}" x:Name="TargetAdress"/>
+					<Entry x:Name="TargetAdresseEntry"/>
+					<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord" IsEnabled="false"/>
+					<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire" IsEnabled="false"/>
+					<Label Text="Temps de trajet : " FontSize="15"/>
+					<Button x:Name="SaveButton"  Text="Sauvegarder" Clicked="SaveParam"  IsEnabled="false"></Button>
 				</StackLayout>
-			</ScrollView>
+				<Label Text="{Binding tempsTrajet}" x:Name="ChampHeure" FontSize="15"/>
+			</StackLayout>
+		</ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -5,29 +5,29 @@ using Xamarin.Forms;
 
 namespace MPWU.Database
 {
-	public class StudentDB
+	public class ParamDB
 	{
-		private SQLiteConnection _sqlconnection;
+		private SQLiteConnection sqlconnection;
 
-		public StudentDB()
+		public ParamDB()
 		{
 			//Getting conection and Creating table  
-			_sqlconnection = DependencyService.Get<ISQLite>().GetConnection();
-			_sqlconnection.CreateTable<Param>();
+			sqlconnection = DependencyService.Get<ISQLite>().GetConnection();
+			sqlconnection.CreateTable<Param>();
 		}
 
 
-		//Get specific student  
-		public Param GetStudent()
+		//Retourne le dernier param enregistré 
+		public Param GetLastParam()
 		{
-			return _sqlconnection.Table<Param>().First();
+			return sqlconnection.Table<Param>().LastOrDefault();
 		}
 
 
-		//Add new student to DB  
-		public void AddStusent(Param param)
+		//Ajoute un nouveau param à la DB  
+		public void AddParam(Param param)
 		{
-			_sqlconnection.Insert(param);
+			sqlconnection.Insert(param);
 		}
 	}
 }
