@@ -1821,6 +1821,10 @@ namespace MPWU.Droid
 			global::SegmentedControl.FormsPlugin.Android.Resource.Styleable.ViewStubCompat_android_id = global::MPWU.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::SegmentedControl.FormsPlugin.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::MPWU.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::SegmentedControl.FormsPlugin.Android.Resource.Styleable.ViewStubCompat_android_layout = global::MPWU.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::MPWU.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::MPWU.Droid.Resource.String.Hello;
+			global::SQLite.Net.Platform.XamarinAndroidN.Resource.String.ApplicationName = global::MPWU.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroidN.Resource.String.Hello = global::MPWU.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MPWU.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -5089,6 +5093,12 @@ namespace MPWU.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f070046
+			public const int ApplicationName = 2131165254;
+			
+			// aapt resource value: 0x7f070045
+			public const int Hello = 2131165253;
 			
 			// aapt resource value: 0x7f07002e
 			public const int abc_action_bar_home_description = 2131165230;
