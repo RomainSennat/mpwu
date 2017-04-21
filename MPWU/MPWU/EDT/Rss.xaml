@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MPWU.EDT.Rss">
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-			<Entry x:Name="AddressRss" Text="http://agendas.iut.univ-paris8.fr/indexRSS.php?login=tbalastegui" />
+		<StackLayout x:Name="ParamToShow" Orientation="Vertical" VerticalOptions="CenterAndExpand">
+			<Entry x:Name="UrlRss" Text="{Binding UrlRss, Mode=TwoWay}" />
 			<Button Clicked="GetRss" HorizontalOptions="Center" Text="Soumettre ce lien" />
 		</StackLayout>
 	</ContentPage.Content>

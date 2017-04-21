@@ -18,13 +18,14 @@ namespace MPWU.EDT
 		public Rss()
 		{
 			InitializeComponent();
+			ParamToShow.BindingContext = App.Params;
 		}
 
 		public async void GetRss(object sender, EventArgs e)
 		{
-			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", AddressRss.Text, "Oui", "Non"))
+			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", UrlRss.Text, "Oui", "Non"))
 			{
-				Debug.WriteLine(await RecupProchaineHeure(AddressRss.Text));
+				Debug.WriteLine(await RecupProchaineHeure(UrlRss.Text));
 			}
 		}
 

@@ -61,14 +61,10 @@ namespace MPWU.UserData
 			try
 			{
 				await this.geolocalisation.GetGeolocalisation();
-				Debug.WriteLine("0");
 				App.Params.CoordDepartLatitude = (float)this.geolocalisation.CurrentCoord.Latitude;
-				Debug.WriteLine("1");
 				App.Params.CoordDepartLongitude = (float)this.geolocalisation.CurrentCoord.Longitude;
-				Debug.WriteLine("2");
 				//this.param.adresseDepart = this.geolocalisation.Location;
 				CurrentPosition.Text = this.geolocalisation.Location;
-				Debug.WriteLine("3");
 			}
 			catch (Exception ex)
 			{
@@ -89,24 +85,6 @@ namespace MPWU.UserData
 			catch (Exception ex)
 			{
 				Debug.WriteLine(ex.Message);
-			}
-		}
-
-		void ToggleStackLayout(object sender, ToggledEventArgs e)
-		{
-			if (e.Value)
-			{
-				foreach (var el in this.ContentToHide.Children)
-				{
-					el.IsEnabled = true;
-				}
-			}
-			else
-			{
-				foreach (var el in this.ContentToHide.Children)
-				{
-					el.IsEnabled = false;
-				}
 			}
 		}
 
