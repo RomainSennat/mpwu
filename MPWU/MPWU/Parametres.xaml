@@ -8,17 +8,18 @@
             Android="20, 20, 20, 20"
             WinPhone="20, 20, 20, 20" />
 	</ContentPage.Padding>
-<ContentPage.Content>
-	<StackLayout VerticalOptions="FillAndExpand">
-		<controls:SegmentedControl x:Name="SegmentControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="TabChange">
-			<controls:SegmentedControl.Children>
-				<controls:SegmentedControlOption x:Name="LocalisationTab" Text="Localisation" />
-		    	<controls:SegmentedControlOption x:Name="RssTab" Text="Flux Rss" />
-			</controls:SegmentedControl.Children>
-		</controls:SegmentedControl>
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="FillAndExpand">
+			<controls:SegmentedControl x:Name="SegmentControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="TabChange">
+				<controls:SegmentedControl.Children>
+					<controls:SegmentedControlOption x:Name="LocalisationTab" Text="Localisation" />
+			    	<controls:SegmentedControlOption x:Name="RssTab" Text="Flux Rss" />
+				</controls:SegmentedControl.Children>
+			</controls:SegmentedControl>
 
-		<StackLayout x:Name="SegmentContent" Grid.Row="1" Grid.Column="0" Padding="0, 20, 0, 0">
+			<StackLayout x:Name="SegmentContent" Grid.Row="1" Grid.Column="0" Padding="0, 20, 0, 0">
+			</StackLayout>
+			<Button x:Name="SaveButton"  Text="Sauvegarder" Clicked="SaveParam"  ></Button>
 		</StackLayout>
-	</StackLayout>
-</ContentPage.Content>
+	</ContentPage.Content>
 </ContentPage>

@@ -39,6 +39,9 @@
     <EmbeddedResource Include="Parametres.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="EDT\PersonalEDT.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -66,6 +69,9 @@
     <Compile Include="Database\ISQLite.cs" />
     <Compile Include="Database\Param.cs" />
     <Compile Include="Database\ParamDB.cs" />
+    <Compile Include="EDT\PersonalEDT.xaml.cs">
+      <DependentUpon>PersonalEDT.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Geolocator.Abstractions">

@@ -1,7 +1,9 @@
 ﻿using System;
 using MPWU.UserData;
 using MPWU.EDT;
+using MPWU.Database;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace MPWU
 {
@@ -30,6 +32,11 @@ namespace MPWU
 					SegmentContent.Children.Add(this.pageFluxRss.Content);
 					break;
 			}
+		}
+		void SaveParam(object sender, EventArgs e)
+		{
+			Debug.WriteLine("Enregistrement des param");
+			new ParamDB().UpdateParam(App.Params);
 		}
 	}
 }
