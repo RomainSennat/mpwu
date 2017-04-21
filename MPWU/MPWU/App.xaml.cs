@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MPWU.Alarm;
+using MPWU.Database;
 using MPWU.EDT;
 using System.Diagnostics;
 using Plugin.LocalNotifications;
@@ -10,9 +11,13 @@ namespace MPWU
 {
 	public partial class App : Application
 	{
+		public static Param Params { get; set; }
+
 		public App()
 		{
 			InitializeComponent();
+			App.Params = new ParamDB().InitParam();
+			Debug.WriteLine(Params.CoordArriveLatitude);
 			TabbedPage page = new TabbedPage();
 			page.Children.Add(new Parametres()
 			{

@@ -1,36 +1,20 @@
-﻿<Properties StartupConfiguration="{597D63FF-71C8-4F69-9BE7-D56712E5CE5A}|Default" GitUserInfo="UsingGIT">
+﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="Droid/SQLite_Android.cs" Line="11" Column="3" />
-      <File FileName="MPWU/Database/ParamDB.cs" Line="3" Column="17" />
-      <File FileName="MPWU/Database/ISQLite.cs" Line="9" Column="3" />
-      <File FileName="iOS/SQLite_iOS.cs" Line="11" Column="3" />
+      <File FileName="MPWU/App.xaml.cs" Line="20" Column="48" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="120" Column="36" />
+      <File FileName="MPWU/Database/ParamDB.cs" Line="32" Column="23" />
+      <File FileName="MPWU/UserData/Geolocalisation.cs" Line="64" Column="10" />
+      <File FileName="MPWU/Database/Param.cs" Line="3" Column="28" />
       <File FileName="MPWU État" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="MPWU" expanded="True">
-            <Node name="MPWU" expanded="True">
-              <Node name="Database" expanded="True" />
-              <Node name="EDT" expanded="True">
-                <Node name="Rss.xaml" expanded="True" />
-              </Node>
-              <Node name="UserData" expanded="True">
-                <Node name="GeolocatorPage.xaml" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.3A5C1C76-A016-4230-830A-59B25CC51FFC" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.846F4D19-37A3-4A3F-AC97-FAB079C28D5A" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.06e485a3" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -1,21 +1,24 @@
 ﻿using System;
 using MPWU.UserData;
+using SQLite.Net.Attributes;
 
 namespace MPWU.Database
 {
 	public class Param
 	{
-		public float coordDepartLatitude { get; set; }
-		public float coordDepartLongitude { get; set; }
+		[PrimaryKey, AutoIncrement]
+		public int Id { get; set; }
+		public float CoordDepartLatitude { get; set; }
+		public float CoordDepartLongitude { get; set; }
 
-		public float coordArriveLatitude { get; set; }
-		public float coordArriveLongitude { get; set; }
+		public float CoordArriveLatitude { get; set; }
+		public float CoordArriveLongitude { get; set; }
 
-		public string adresseDepart { get; set; }
-		public string adresseArrive { get; set; }
-		public int modeTrajet { get; set; }
-		public string tempsTrajet { get; set; }
-		public string urlRss { get; set; }
+		public string AdresseDepart { get; set; }
+		public string AdresseArrive { get; set; }
+		public int ModeTrajet { get; set; }
+		public string TempsTrajet { get; set; }
+		public string UrlRss { get; set; }
 
 
 		public Param()

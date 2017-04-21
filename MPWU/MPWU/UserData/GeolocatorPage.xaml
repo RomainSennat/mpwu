@@ -16,22 +16,22 @@
                  Spacing="15">
 				<Switch Toggled="ToggleStackLayout"></Switch>
 				<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand">
-					<controls:SegmentedControl x:Name="JourneyMode" TintColor="#007AFF" IsEnabled="false" SelectedSegment="{Binding modeTrajet}" ValueChanged="JourneyModeChange">
+					<controls:SegmentedControl x:Name="JourneyMode" TintColor="#007AFF" IsEnabled="false" SelectedSegment="{Binding ModeTrajet, Mode=TwoWay}" ValueChanged="JourneyModeChange">
 						<controls:SegmentedControl.Children>
 							<controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
 					    	<controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
 						</controls:SegmentedControl.Children>
 					</controls:SegmentedControl>
-					<Label Text="{Binding adresseDepart}" x:Name="CurrentPosition"/>
+					<Label Text="{Binding AdresseDepart, Mode=TwoWay}" x:Name="CurrentPosition"/>
 					<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation" IsEnabled="false" />
-					<Label Text="{Binding adresseArrive}" x:Name="TargetAdress"/>
+					<Label Text="{Binding AdresseArrive, Mode=TwoWay}" x:Name="TargetAdress"/>
 					<Entry x:Name="TargetAdresseEntry"/>
 					<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord" IsEnabled="false"/>
 					<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire" IsEnabled="false"/>
 					<Label Text="Temps de trajet : " FontSize="15"/>
 					<Button x:Name="SaveButton"  Text="Sauvegarder" Clicked="SaveParam"  IsEnabled="false"></Button>
 				</StackLayout>
-				<Label Text="{Binding tempsTrajet}" x:Name="ChampHeure" FontSize="15"/>
+				<Label Text="{Binding TempsTrajet, Mode=TwoWay}" x:Name="ChampHeure" FontSize="15"/>
 			</StackLayout>
 		</ScrollView>
         </StackLayout>

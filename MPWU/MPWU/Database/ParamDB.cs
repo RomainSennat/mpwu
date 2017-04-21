@@ -23,8 +23,21 @@ namespace MPWU.Database
 			return sqlconnection.Table<Param>().LastOrDefault();
 		}
 
+		public Param InitParam() 
+		{
+			if (this.GetLastParam() == null)
+			{
+				this.AddParam(new Param());
+			}
+			return this.GetLastParam();
+		}
 
-		//Ajoute un nouveau param à la DB  
+		//Met a jour le dernier param de la DB  
+		public void UpdateParam(Param param)
+		{
+			sqlconnection.Update(param);
+		}
+
 		public void AddParam(Param param)
 		{
 			sqlconnection.Insert(param);
