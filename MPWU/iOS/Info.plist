@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>My Personnal Wake Up</string>
 	<key>CFBundleIdentifier</key>
-	<string>frt.myperonnalwakeup</string>
+	<string>frt.mpwu</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
