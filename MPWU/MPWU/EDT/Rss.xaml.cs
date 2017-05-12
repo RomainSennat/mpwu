@@ -14,7 +14,7 @@ namespace MPWU.EDT
 	{
 
 		private readonly string[] jours = { "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" };
-        private RSSData data = new RSSData();
+		private RSSData data = new RSSData();
 
 		public Rss()
 		{
@@ -26,17 +26,16 @@ namespace MPWU.EDT
 		{
 			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", UrlRss.Text, "Oui", "Non"))
 			{
-				Debug.WriteLine(await RecupProchaineHeure(UrlRss.Text));
+				Debug.WriteLine(await RecupData(UrlRss.Text));
 			}
 		}
 
-		public async Task<TimeSpan> RecupProchaineHeure(string url)
+		public async Task<RSSData> RecupData(string url)
 		{
 			TimeSpan heure = new TimeSpan();
 			HttpClient client = new HttpClient();
 			var request = client.GetAsync(new Uri(url));
 			var result = request.Result.Content;
-
 			XDocument xml = XDocument.Parse(await result.ReadAsStringAsync());
 
 			// Init de la liste des éléments qui correpondent au titre du flux rss
@@ -48,7 +47,7 @@ namespace MPWU.EDT
 
 			//Regex jours
 			Regex regexJour = new Regex("lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche");
-            Match matchJour = regexJour.Match(list.FirstOrDefault().Value);
+			Match matchJour = regexJour.Match(list.FirstOrDefault().Value);
 
 			// Init de la variable du return
 			heure = new TimeSpan(int.Parse(matchHeure.Value.Split(':')[0]), int.Parse(matchHeure.Value.Split(':')[1]), 0);
@@ -59,11 +58,11 @@ namespace MPWU.EDT
 			while (i < list.Count() && (int.Parse(matchHeure.Value.Split(':')[0]) > 12 || ((int)DateTime.Today.DayOfWeek - 1 == Array.IndexOf(this.jours, matchJour.Value) && (int.Parse(matchHeure.Value.Split(':')[0]) <= DateTime.Now.Hour && int.Parse(matchHeure.Value.Split(':')[1]) <= DateTime.Now.Minute))))
 			{
 				matchHeure = regexHeure.Match(list.ElementAtOrDefault(i).Value);
-                matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
+				matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
 				i++;
 			}
-            RecupTitreActivite(list.Descendants("title").ElementAtOrDefault(i).Value);
-            Debug.WriteLine("Recup titre : " + this.data.titre);
+			RecupTitreActivite(list.Descendants("title").ElementAtOrDefault(i).Value);
+			Debug.WriteLine("Recup titre : " + this.data.titre);
 
 			// Get current day
 			DateTime today = DateTime.Today;
@@ -86,14 +85,13 @@ namespace MPWU.EDT
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
 			Debug.WriteLine(heure.ToString());
-            this.data.heure = heure;
-            return this.data.heure;
+			this.data.heure = heure;
+			return this.data;
 		}
 
 		public void RecupTitreActivite(string element)
 		{
-            String[] splittedElement = element.Split(':');
-            this.data.titre = splittedElement[3].Substring(1);
+			this.data.titre = element.Split(':')[3].Substring(1);
 		}
 	}
 }

@@ -43,7 +43,8 @@ namespace MPWU
 				DateTime now = DateTime.Now;
 				// Get start day time
 				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-				start = start.Add(await new Rss().RecupProchaineHeure("http://agendas.iut.univ-paris8.fr/indexRSS.php?login=rsennat"));
+				RSSData data = await new Rss().RecupData("http://agendas.iut.univ-paris8.fr/indexRSS.php?login=rsennat");
+				start = start.Add(data.heure);
 				// Substract journey and prepare time
 				TimeSpan journey = new TimeSpan(0, 5, 0);
 				TimeSpan prepare = new TimeSpan(0, 10, 0);
