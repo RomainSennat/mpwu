@@ -12,11 +12,13 @@ namespace MPWU
 	public partial class App : Application
 	{
 		public static Param Params { get; set; }
+        public static CustomSchedule Schedule { get; set; }
 
 		public App()
 		{
 			InitializeComponent();
 			App.Params = new ParamDB().InitParam();
+            App.Schedule = new ParamDB().InitCustomSchedule();
 			Debug.WriteLine(Params.CoordArriveLatitude);
 			TabbedPage page = new TabbedPage();
 			page.Children.Add(new Parametres()

@@ -13,6 +13,7 @@ namespace MPWU.Database
 		{
 			//Getting conection and Creating table  
 			sqlconnection = DependencyService.Get<ISQLite>().GetConnection();
+            sqlconnection.CreateTable<CustomSchedule>();
 			sqlconnection.CreateTable<Param>();
 		}
 
@@ -21,6 +22,12 @@ namespace MPWU.Database
 		public Param GetLastParam()
 		{
 			return sqlconnection.Table<Param>().LastOrDefault();
+		}
+
+		//Retourne le dernier Schedule enregistré 
+		public CustomSchedule GetLastSchedule()
+		{
+            return sqlconnection.Table<CustomSchedule>().LastOrDefault();
 		}
 
 		public Param InitParam() 
@@ -32,6 +39,15 @@ namespace MPWU.Database
 			return this.GetLastParam();
 		}
 
+        public CustomSchedule InitCustomSchedule()
+		{
+			if (this.GetLastSchedule() == null)
+			{
+                this.AddSchedule(new CustomSchedule());
+			}
+			return this.GetLastSchedule();
+		}
+
 		//Met a jour le dernier param de la DB  
 		public void UpdateParam(Param param)
 		{
@@ -41,6 +57,17 @@ namespace MPWU.Database
 		public void AddParam(Param param)
 		{
 			sqlconnection.Insert(param);
+		}
+
+		//Met a jour le dernier param de la DB  
+        public void UpdateSchedule(CustomSchedule schedule)
+		{
+			sqlconnection.Update(schedule);
+		}
+
+        public void AddSchedule(CustomSchedule schedule)
+		{
+			sqlconnection.Insert(schedule);
 		}
 	}
 }

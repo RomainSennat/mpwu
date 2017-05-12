@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace MPWU
@@ -10,6 +10,11 @@ namespace MPWU
 		public PersonalEDT()
 		{
 			InitializeComponent();
-		}
-	}
+        }
+
+        void SaveButton(object sender, EventArgs e)
+        {
+            Debug.WriteLine("click");
+        }
+    }
 }
