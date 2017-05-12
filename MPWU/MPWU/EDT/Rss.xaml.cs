@@ -14,6 +14,7 @@ namespace MPWU.EDT
 	{
 
 		private readonly string[] jours = { "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" };
+        private RSSData data = new RSSData();
 
 		public Rss()
 		{
@@ -59,9 +60,10 @@ namespace MPWU.EDT
 			{
 				matchHeure = regexHeure.Match(list.ElementAtOrDefault(i).Value);
                 matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
-				Debug.WriteLine("Recup titre " + RecupTitreActivite(list.ElementAtOrDefault(i).Value));
 				i++;
 			}
+            RecupTitreActivite(list.Descendants("title").ElementAtOrDefault(i).Value);
+            Debug.WriteLine("Recup titre : " + this.data.titre);
 
 			// Get current day
 			DateTime today = DateTime.Today;
@@ -84,13 +86,14 @@ namespace MPWU.EDT
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
 			Debug.WriteLine(heure.ToString());
-			return heure;
+            this.data.heure = heure;
+            return this.data.heure;
 		}
-		public string RecupTitreActivite(string element)
+
+		public void RecupTitreActivite(string element)
 		{
-            Regex regexTitre = new Regex("[[:alpha:]]");
-			Match matchTitre = regexTitre.Match(element);
-			return matchTitre.Value;
+            String[] splittedElement = element.Split(':');
+            this.data.titre = splittedElement[3].Substring(1);
 		}
 	}
 }
