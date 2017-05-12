@@ -27,7 +27,7 @@ namespace MPWU
 			{
 				Icon = "alarm.png"
 			});
-			page.Children.Add(new ContentPage()
+			page.Children.Add(new PersonalEDT()
 			{
 				Icon = "schedule.png"
 			});

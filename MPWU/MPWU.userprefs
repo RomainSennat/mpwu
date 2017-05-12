@@ -1,22 +1,27 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="53" Column="41" />
+      <File FileName="MPWU/EDT/PersonalEDT.xaml" Line="31" Column="1" />
+      <File FileName="MPWU/EDT/PersonalEDT.xaml.cs" Line="8" Column="34" />
       <File FileName="MPWU/UserData/GeolocatorPage.xaml" Line="37" Column="15" />
-      <File FileName="MPWU/UserData/Geolocalisation.cs" Line="24" Column="25" />
-      <File FileName="MPWU/UserData/Waze.cs" Line="30" Column="56" />
-      <File FileName="MPWU/UserData/Stif.cs" Line="74" Column="17" />
-      <File FileName="MPWU/Parametres.xaml.cs" Line="24" Column="36" />
-      <File FileName="MPWU/App.xaml.cs" Line="17" Column="4" />
-      <File FileName="Droid/Properties/AndroidManifest.xml" Line="10" Column="12" />
+      <File FileName="MPWU/Parametres.xaml" Line="26" Column="1" />
+      <File FileName="MPWU/Parametres.xaml.cs" Line="35" Column="4" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="96" Column="3" />
+      <File FileName="MPWU/App.xaml" Line="7" Column="1" />
+      <File FileName="MPWU/App.xaml.cs" Line="1" Column="1" />
+      <File FileName="MPWU/Database/ParamDB.cs" Line="16" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="38" Column="1" />
+      <File FileName="../../../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/10.10.0.21/lib/msbuild/iOS/Xamarin.iOS.Common.targets" Line="605" Column="3" />
+      <File FileName="iOS/Info.plist" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.095E1B18-A93C-4CC1-9BDA-15701C5936D1" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.846F4D19-37A3-4A3F-AC97-FAB079C28D5A" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MultiItemStartupConfigurations />
 </Properties>
