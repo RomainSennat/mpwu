@@ -47,7 +47,7 @@ namespace MPWU.EDT
 
 			//Regex jours
 			Regex regexJour = new Regex("lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche");
-			Match matchJour = regexJour.Match(list.FirstOrDefault().Value);
+            Match matchJour = regexJour.Match(list.FirstOrDefault().Value);
 
 			// Init de la variable du return
 			heure = new TimeSpan(int.Parse(matchHeure.Value.Split(':')[0]), int.Parse(matchHeure.Value.Split(':')[1]), 0);
@@ -58,7 +58,8 @@ namespace MPWU.EDT
 			while (i < list.Count() && (int.Parse(matchHeure.Value.Split(':')[0]) > 12 || ((int)DateTime.Today.DayOfWeek - 1 == Array.IndexOf(this.jours, matchJour.Value) && (int.Parse(matchHeure.Value.Split(':')[0]) <= DateTime.Now.Hour && int.Parse(matchHeure.Value.Split(':')[1]) <= DateTime.Now.Minute))))
 			{
 				matchHeure = regexHeure.Match(list.ElementAtOrDefault(i).Value);
-				matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
+                matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
+				Debug.WriteLine("Recup titre " + RecupTitreActivite(list.ElementAtOrDefault(i).Value));
 				i++;
 			}
 
@@ -84,6 +85,12 @@ namespace MPWU.EDT
 			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
 			Debug.WriteLine(heure.ToString());
 			return heure;
+		}
+		public string RecupTitreActivite(string element)
+		{
+            Regex regexTitre = new Regex("[[:alpha:]]");
+			Match matchTitre = regexTitre.Match(element);
+			return matchTitre.Value;
 		}
 	}
 }
