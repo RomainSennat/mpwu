@@ -16,10 +16,11 @@
 				<Grid.RowDefinitions>
 					<RowDefinition  Height="*"/>
 				</Grid.RowDefinitions>
-				<Label x:Name="Hour" Text="Heure" Grid.Row="0"></Label>
-				<Label x:Name="Title" Text="Titre" Grid.Row="1"></Label>
+				<Label x:Name="Hour" Text="Heure" Grid.Row="0" />
+				<Label x:Name="Title" Text="Titre" Grid.Row="1" />
 			</Grid>
-			
+
+			<Label x:Name="AlarmHour" Text="" />			
 			<Button x:Name="StopButton" Text="Stop" Clicked="StopSound"/>
 		</StackLayout>
 	</ContentPage.Content>

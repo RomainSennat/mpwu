@@ -4,6 +4,8 @@ using MPWU.UserData;
 using Xamarin.Forms;
 using Plugin.Geolocator;
 using Plugin.LocalNotifications;
+using MPWU.EDT;
+using System.Diagnostics;
 
 namespace MPWU
 {
@@ -21,5 +23,6 @@ namespace MPWU
 		{
 			this.manager.StopSound();
 		}
+
 	}
 }

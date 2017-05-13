@@ -72,6 +72,8 @@
     <Compile Include="EDT\PersonalEDT.xaml.cs">
       <DependentUpon>PersonalEDT.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EDT\RSSData.cs" />
+    <Compile Include="Database\CustomSchedule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Geolocator.Abstractions">
