@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,39 +17,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="10" translatesAutoresizingMaskIntoConstraints="NO" usesAttributedText="YES">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10">
                                 <rect key="frame" x="15" y="145" width="570" height="43"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="154"/>
+                                    <constraint firstAttribute="width" constant="570" id="155"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="My Personnal Wake Up">
                                         <attributes>
-                                            <font key="NSFont" name="HelveticaNeue-Bold" family="Helvetica Neue" size="17"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <constraints>
-                                    <constraint id="154" firstItem="10" firstAttribute="height" constant="43"/>
-                                    <constraint id="155" firstItem="10" firstAttribute="width" constant="570"/>
-                                </constraints>
+                                <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="203" verticalHuggingPriority="251" id="14" translatesAutoresizingMaskIntoConstraints="NO" image="Logo.png">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="203" verticalHuggingPriority="251" image="logo_final_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="14">
                                 <rect key="frame" x="20" y="245" width="560" height="200"/>
                                 <constraints>
-                                    <constraint id="169" firstItem="14" firstAttribute="height" constant="200"/>
-                                    <constraint id="170" firstItem="14" firstAttribute="width" constant="560"/>
+                                    <constraint firstAttribute="height" constant="200" id="169"/>
+                                    <constraint firstAttribute="width" constant="560" id="170"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint id="158" firstItem="10" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="125"/>
-                            <constraint id="161" firstItem="10" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="15"/>
-                            <constraint id="164" firstItem="7" firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="15"/>
-                            <constraint id="171" firstItem="14" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20"/>
-                            <constraint id="172" firstItem="7" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="20"/>
-                            <constraint id="173" firstItem="14" firstAttribute="top" secondItem="10" secondAttribute="bottom" constant="57"/>
+                            <constraint firstItem="10" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="125" id="158"/>
+                            <constraint firstItem="10" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="15" id="161"/>
+                            <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="15" id="164"/>
+                            <constraint firstItem="14" firstAttribute="leading" secondItem="7" secondAttribute="leading" constant="20" id="171"/>
+                            <constraint firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="20" id="172"/>
+                            <constraint firstItem="14" firstAttribute="top" secondItem="10" secondAttribute="bottom" constant="57" id="173"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -62,6 +61,6 @@
         <image name="alarm.png" width="32" height="32"/>
         <image name="logoParam.png" width="32" height="32"/>
         <image name="schedule.png" width="32" height="32"/>
-        <image name="Logo.png" width="300" height="300"/>
+        <image name="logo_final_300.png" width="300" height="300"/>
     </resources>
 </document>
