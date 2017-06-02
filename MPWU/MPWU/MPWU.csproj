@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="EDT\RSSData.cs" />
     <Compile Include="Database\CustomSchedule.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Geolocator.Abstractions">

@@ -18,6 +18,7 @@ namespace MPWU.Database
 		public string AdresseArrive { get; set; }
 		public int ModeTrajet { get; set; }
 		public string TempsTrajet { get; set; }
+        public TimeSpan PrepTime { get; set; }
 		public string UrlRss { get; set; }
 
 

@@ -18,7 +18,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: romain.sennat@yahoo.fr (4QK6H98YCA)</CodesignKey>
+    <CodesignKey>iPhone Developer: fabienlebon974@gmail.com (SQCP6JQ7NX)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -28,7 +28,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>iOS Team Provisioning Profile: frt.mpwu</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: frt.mpwul</CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -70,18 +70,18 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: romain.sennat@yahoo.fr (4QK6H98YCA)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
-    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchProfiling>false</MtouchProfiling>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>iOS Team Provisioning Profile: frt.mpwu</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -195,7 +195,9 @@
     <BundleResource Include="Resources\alarm.png" />
     <BundleResource Include="Resources\logoParam.png" />
     <BundleResource Include="Resources\schedule.png" />
+
     <BundleResource Include="Resources\logo_final_300.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

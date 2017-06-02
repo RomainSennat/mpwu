@@ -71,13 +71,15 @@ namespace MPWU
 			// Time for test
 			TimeSpan timeForTest = new TimeSpan(0, 0, 4);
 			// Wait to reach time
-			await Task.Delay((int)timeForTest.TotalMilliseconds);
-			//await Task.Delay((int)time.TotalMilliseconds);
+			//await Task.Delay((int)timeForTest.TotalMilliseconds);
+			await Task.Delay((int)time.TotalMilliseconds);
 
 			// Notify user to wake up
 			CrossLocalNotifications.Current.Show("My Personnal Wake Up", "Reveil toi !");
-			// Play sound
+            // Play sound
+            //Task.Run(await () => {
 			DependencyService.Get<IPlayer>().Play();
+            //});
 
 		}
 

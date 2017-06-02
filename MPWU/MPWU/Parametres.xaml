@@ -13,7 +13,7 @@
 			<controls:SegmentedControl x:Name="SegmentControl" TintColor="#007AFF" SelectedSegment="0" ValueChanged="TabChange">
 				<controls:SegmentedControl.Children>
 					<controls:SegmentedControlOption x:Name="LocalisationTab" Text="Localisation" />
-			    	<controls:SegmentedControlOption x:Name="RssTab" Text="Flux Rss" />
+			    	<controls:SegmentedControlOption x:Name="RssTab" Text="Données personnelles" />
 				</controls:SegmentedControl.Children>
 			</controls:SegmentedControl>
 
