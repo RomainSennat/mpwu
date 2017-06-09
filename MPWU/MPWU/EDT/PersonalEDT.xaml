@@ -28,7 +28,7 @@
                 <Label Text="Dimanche" Grid.Row="6" Grid.Column="0" />
                 <TimePicker Time="{Binding dimanche, Mode=TwoWay}" x:Name="DimanchePicker" Grid.Row="6" Grid.Column="1" />  
             </Grid>
-            <Button x:Name="BoutonSauvegarde" Clicked="SaveButton" Text="Sauvegarder"></Button>
+            <Button x:Name="BoutonSauvegarde" Clicked="SaveSchedule" Text="Sauvegarder"></Button>
                 
         </StackLayout>
 	</ContentPage.Content>

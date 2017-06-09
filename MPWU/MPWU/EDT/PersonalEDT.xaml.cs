@@ -8,18 +8,18 @@ namespace MPWU
 {
 	public partial class PersonalEDT : ContentPage
 	{
-        private ParamDB paramDB = new ParamDB();
+		private ParamDB paramDB = new ParamDB();
 
 		public PersonalEDT()
 		{
 			InitializeComponent();
-            ScheduleToShow.BindingContext = App.Schedule;
-        }
+			ScheduleToShow.BindingContext = App.Schedule;
+		}
 
-        void SaveButton(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Enregistrement du CustomSchedule");
-            this.paramDB.AddSchedule(App.Schedule);
-        }
-    }
+		void SaveSchedule(object sender, EventArgs e)
+		{
+			Debug.WriteLine("Enregistrement du CustomSchedule");
+			this.paramDB.AddSchedule(App.Schedule);
+		}
+	}
 }

@@ -1,21 +1,33 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/MPWUPage.xaml.cs" Line="13" Column="3" />
-      <File FileName="MPWU/App.xaml.cs" Line="77" Column="44" />
-      <File FileName="MPWU/UserData/Geolocalisation.cs" Line="94" Column="1" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="15" Column="34" />
-      <File FileName="iOS/Main.cs" Line="18" Column="1" />
-      <File FileName="MPWU/EDT/Rss.xaml" Line="8" Column="66" />
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="23" Column="4" />
+      <File FileName="MPWU/EDT/PersonalEDT.xaml" Line="17" Column="105" />
+      <File FileName="MPWU/EDT/PersonalEDT.xaml.cs" Line="15" Column="26" />
       <File FileName="MPWU État" />
     </Files>
+    <Pads>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="MPWU" expanded="True">
+            <Node name="MPWU" expanded="True">
+              <Node name="MPWU" expanded="True">
+                <Node name="MPWU.PersonalEDT" expanded="True">
+                  <Node name="paramDB" selected="True" />
+                </Node>
+                <Node name="MPWU.UserData.Coord" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="MPWU.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4f1ee5568fa29c2059acea8abc7f4f4e80948711" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.095E1B18-A93C-4CC1-9BDA-15701C5936D1" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android6.0" />
   <MultiItemStartupConfigurations />
