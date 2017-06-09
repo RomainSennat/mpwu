@@ -6,7 +6,6 @@
             <TimePicker  x:Name="PrepTime" Time="{Binding PrepTime, Mode=TwoWay}" />
             <Label Text="Lien du flux RSS"/>
 			<Entry x:Name="UrlRss" Text="{Binding UrlRss, Mode=TwoWay}" />
-			<Button Clicked="GetRss" HorizontalOptions="Center" Text="Soumettre ce lien" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

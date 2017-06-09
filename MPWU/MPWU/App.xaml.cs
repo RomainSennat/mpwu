@@ -6,6 +6,7 @@ using MPWU.Database;
 using MPWU.EDT;
 using System.Diagnostics;
 using Plugin.LocalNotifications;
+using MPWU.UserData;
 
 namespace MPWU
 {
@@ -41,46 +42,51 @@ namespace MPWU
 
 		protected override async void OnStart()
 		{
-			// Get Data
-			App.Data = await new Rss().RecupData("http://agendas.iut.univ-paris8.fr/indexRSS.php?login=rsennat");
-			// Set next course informations on UI
-			var hour = App.Data.heure.ToString("c").Split('.')[1].Split(':');
-			this.alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
-			this.alarmPage.FindByName<Label>("Title").Text = App.Data.titre;
+			try
+			{
+				// Get Data
+				App.Data = await new Rss().RecupData(App.Params.UrlRss);
+				// Set next course informations on UI
+				var hour = App.Data.heure.ToString("c").Split('.')[1].Split(':');
+				this.alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
+				this.alarmPage.FindByName<Label>("Title").Text = App.Data.titre;
 
-			// Get actual date and time
-			DateTime now = DateTime.Now;
-			// Get start day time
-			DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
+				// Get actual date and time
+				DateTime now = DateTime.Now;
+				// Get start day time
+				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
 
-			start = start.Add(App.Data.heure);
-			// Substract journey and prepare time
-			TimeSpan journey = new TimeSpan(0, 5, 0);
-			TimeSpan prepare = new TimeSpan(0, 10, 0);
-			start = start.Subtract(journey).Subtract(prepare);
+				start = start.Add(App.Data.heure);
+				// Substract journey and prepare time
+				TimeSpan journey = await new Geolocalisation().GetJourneyTime();
+				TimeSpan prepare = App.Params.PrepTime;
+				start = start.Subtract(journey).Subtract(prepare);
 
-			// Set time to UI
-			this.alarmPage.FindByName<Label>("AlarmHour").Text = start.ToString("t");
+				// Set time to UI
+				this.alarmPage.FindByName<Label>("AlarmHour").Text = start.ToString("t");
 
-			// Notify time to user
-			String body = String.Format("L'alarme sonnera {0} {1} à {2}.", start.ToString("dddd"), start.ToString("M"), start.ToString("t"));
-			CrossLocalNotifications.Current.Show("My Personnal Wake Up", body);
-			// Get time between start time and now time
-			TimeSpan time = start - now;
-			Debug.WriteLine(time.ToString());
-			// Time for test
-			TimeSpan timeForTest = new TimeSpan(0, 0, 4);
-			// Wait to reach time
-			//await Task.Delay((int)timeForTest.TotalMilliseconds);
-			await Task.Delay((int)time.TotalMilliseconds);
+				// Notify time to user
+				String body = String.Format("L'alarme sonnera {0} {1} à {2}.", start.ToString("dddd"), start.ToString("M"), start.ToString("t"));
+				CrossLocalNotifications.Current.Show("My Personal Wake Up", body);
+				// Get time between start time and now time
+				TimeSpan time = start - now;
+				Debug.WriteLine(time.ToString());
+				// Time for test
+				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
+				// Wait to reach time
+				//await Task.Delay((int)timeForTest.TotalMilliseconds);
+				await Task.Delay((int)time.TotalMilliseconds);
 
-			// Notify user to wake up
-			CrossLocalNotifications.Current.Show("My Personnal Wake Up", "Reveil toi !");
-            // Play sound
-            //Task.Run(await () => {
-			DependencyService.Get<IPlayer>().Play();
-            //});
+				// Notify user to wake up
+				CrossLocalNotifications.Current.Show("My Personal Wake Up", "Reveil toi !");
+				// Play sound
+				//Task.Run(await () => {
+				DependencyService.Get<IPlayer>().Play();
+			}
+			catch (Exception e)
+			{
 
+			}
 		}
 
 		protected override void OnSleep()

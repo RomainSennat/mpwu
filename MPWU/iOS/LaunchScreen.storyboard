@@ -24,9 +24,9 @@
                                     <constraint firstAttribute="width" constant="570" id="155"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="My Personnal Wake Up">
+                                    <fragment content="My Personal Wake Up">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <font key="NSFont" name="HelveticaNeue-Bold" family="Helvetica Neue" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>

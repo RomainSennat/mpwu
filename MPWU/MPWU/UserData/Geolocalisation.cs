@@ -12,6 +12,8 @@ namespace MPWU.UserData
 		public Coord CurrentCoord;
 		public Coord TargetCoord;
 		private Geocoder geocoder;
+		private Stif stif = new Stif();
+		private Waze waze = new Waze();
 		public string Location { get; set; }
 
 
@@ -71,6 +73,20 @@ namespace MPWU.UserData
 				Debug.WriteLine(eexc.Message);
 				return false;
 			}
+		}
+
+		public async Task<TimeSpan> GetJourneyTime()
+		{
+			if (App.Params.CoordArriveLatitude == null || App.Params.CoordArriveLongitude == null || App.Params.CoordDepartLatitude == null || App.Params.CoordDepartLongitude == null)
+			{
+				return new TimeSpan(0, 0, 0);
+			}
+			Coord depart, arrive;
+			depart.Latitude = App.Params.CoordDepartLatitude;
+			depart.Longitude = App.Params.CoordDepartLongitude;
+			arrive.Latitude = App.Params.CoordArriveLatitude;
+			arrive.Longitude = App.Params.CoordArriveLongitude;
+			return (App.Params.ModeTrajet == 1) ? (await stif.GetHeureArrive(depart, arrive)) : (await waze.GetHeureArrive(depart, arrive));
 		}
 	}
 }

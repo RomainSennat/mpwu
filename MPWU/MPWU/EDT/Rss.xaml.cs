@@ -22,14 +22,6 @@ namespace MPWU.EDT
 			ParamToShow.BindingContext = App.Params;
 		}
 
-		public async void GetRss(object sender, EventArgs e)
-		{
-			if (await Application.Current.MainPage.DisplayAlert("Est-ce la bonne adresse ?", UrlRss.Text, "Oui", "Non"))
-			{
-				Debug.WriteLine(await RecupData(UrlRss.Text));
-			}
-		}
-
 		public async Task<RSSData> RecupData(string url)
 		{
 			TimeSpan heure = new TimeSpan();
