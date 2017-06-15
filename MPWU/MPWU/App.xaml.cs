@@ -85,7 +85,7 @@ namespace MPWU
 			}
 			catch (Exception e)
 			{
-
+				Debug.WriteLine(e.Message);
 			}
 		}
 

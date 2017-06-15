@@ -39,7 +39,7 @@ namespace MPWU.UserData
 				// Bind tous les champs enregistrés en dernier dans les champs sur la vue
 				ParamToShow.BindingContext = App.Params;
 			}
-			catch(Exception e) 
+			catch (Exception e)
 			{
 				Debug.WriteLine("Aucune donnée pré-enregistrés");
 			}
@@ -49,7 +49,7 @@ namespace MPWU.UserData
 		async void SwitchCoord(object sender, EventArgs e)
 		{
 			await this.geolocalisation.GetCoord(TargetAdresseEntry.Text);
-			App.Params.CoordArriveLatitude = (float)this.geolocalisation.TargetCoord.Latitude; 
+			App.Params.CoordArriveLatitude = (float)this.geolocalisation.TargetCoord.Latitude;
 			App.Params.CoordArriveLongitude = (float)this.geolocalisation.TargetCoord.Longitude;
 			//.param.adresseArrive = TargetAdresseEntry.Text;
 			TargetAdress.Text = string.Format("lat : {0}, long : {1}", this.geolocalisation.TargetCoord.Latitude, this.geolocalisation.TargetCoord.Longitude);
