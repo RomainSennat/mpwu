@@ -47,7 +47,16 @@ namespace MPWU
 				// Get Data
 				App.Data = await new Rss().RecupData(App.Params.UrlRss);
 				// Set next course informations on UI
-				var hour = App.Data.heure.ToString("c").Split('.')[1].Split(':');
+				string[] hour = new string[3];
+				try
+				{
+					hour = App.Data.heure.ToString("c").Split('.')[1].Split(':');
+				}
+				catch (Exception ex)
+				{
+					hour = App.Data.heure.ToString("c").Split(':');
+
+				}
 				this.alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
 				this.alarmPage.FindByName<Label>("Title").Text = App.Data.titre;
 
@@ -72,7 +81,7 @@ namespace MPWU
 				TimeSpan time = start - now;
 				Debug.WriteLine(time.ToString());
 				// Time for test
-				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
+				//TimeSpan timeForTest = new TimeSpan(0, 0, 4);
 				// Wait to reach time
 				//await Task.Delay((int)timeForTest.TotalMilliseconds);
 				await Task.Delay((int)time.TotalMilliseconds);

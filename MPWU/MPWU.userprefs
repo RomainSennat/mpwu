@@ -1,23 +1,22 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/App.xaml.cs" Line="73" Column="38" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="82" Column="36" />
-      <File FileName="MPWU/obj/Debug/MPWU.Parametres.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml" Line="18" Column="158" />
+      <File FileName="MPWU/App.xaml.cs" Line="75" Column="57" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="82" Column="31" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml" Line="37" Column="15" />
       <File FileName="iOS/Main.cs" Line="1" Column="1" />
       <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="MPWU/Parametres.xaml" Line="8" Column="37" />
+      <File FileName="MPWU/Parametres.xaml" Line="26" Column="1" />
       <File FileName="MPWU/Parametres.xaml.cs" Line="22" Column="47" />
-      <File FileName="MPWU/obj/Debug/MPWU.UserData.GeolocatorPage.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="1" Column="1" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4f1ee5568fa29c2059acea8abc7f4f4e80948711" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.095E1B18-A93C-4CC1-9BDA-15701C5936D1" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="MPWU/Parametres.xaml" line="13" offsetX="-1" offsetY="-1" expression="SelectedSegment" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
