@@ -26,14 +26,17 @@ namespace MPWU
 			TabbedPage page = new TabbedPage();
 			page.Children.Add(new Parametres()
 			{
+				Title = "Paramètres",
 				Icon = "logoParam.png"
 			});
 			page.Children.Add(this.alarmPage = new MPWUPage()
 			{
+				Title = "Reveil",
 				Icon = "alarm.png"
 			});
 			page.Children.Add(new PersonalEDT()
 			{
+				Title = "Emploi du temps",
 				Icon = "schedule.png"
 			});
 			page.CurrentPage = page.Children[1];

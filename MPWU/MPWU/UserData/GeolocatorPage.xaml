@@ -21,15 +21,71 @@
 						    	<controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
 							</controls:SegmentedControl.Children>
 						</controls:SegmentedControl>
-						<Label Text="{Binding AdresseDepart, Mode=TwoWay}" x:Name="CurrentPosition"/>
-						<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation"  />
-						<Label Text="{Binding AdresseArrive, Mode=TwoWay}" x:Name="TargetAdress"/>
-						<Entry x:Name="TargetAdresseEntry"/>
-						<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord" />
-						<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire" />
-						<Label Text="Temps de trajet : " FontSize="15"/>
+						<Label Text="{Binding AdresseDepart, Mode=TwoWay}" x:Name="CurrentPosition">
+							<Label.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+								</OnPlatform>
+					    	</Label.FontFamily>
+						</Label>
+						<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation">
+							<Button.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+								</OnPlatform>
+					    	</Button.FontFamily>
+						</Button>
+						<Label Text="{Binding AdresseArrive, Mode=TwoWay}" x:Name="TargetAdress">
+							<Label.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+								</OnPlatform>
+					    	</Label.FontFamily>
+						</Label>
+						<Entry x:Name="TargetAdresseEntry">
+							<Entry.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+								</OnPlatform>
+					    	</Entry.FontFamily>
+						</Entry>
+						<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord">
+							<Button.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+								</OnPlatform>
+					    	</Button.FontFamily>
+						</Button>
+						<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire">
+							<Button.FontFamily>
+						        <OnPlatform x:TypeArguments="x:String">
+						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+								</OnPlatform>
+					    	</Button.FontFamily>
+						</Button>
+						<Label Text="Temps de trajet : " FontSize="15" FontFamily="baloo">
+						    <Label.FontFamily>
+					        <OnPlatform x:TypeArguments="x:String">
+					            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+					            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+							</OnPlatform>
+					    </Label.FontFamily>
+					</Label>
 					</StackLayout>
-					<Label Text="{Binding TempsTrajet, Mode=TwoWay}" x:Name="ChampHeure" FontSize="15"/>
+					<Label Text="{Binding TempsTrajet, Mode=TwoWay}" x:Name="ChampHeure" FontSize="15">
+						<Label.FontFamily>
+					        <OnPlatform x:TypeArguments="x:String">
+					            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+					            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+							</OnPlatform>
+				    	</Label.FontFamily>
+					</Label>
 				</StackLayout>
 			</ScrollView>
         </StackLayout>

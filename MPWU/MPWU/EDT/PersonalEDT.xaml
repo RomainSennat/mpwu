@@ -7,28 +7,84 @@
     				<ColumnDefinition Width="*" />
     				<ColumnDefinition Width="*" />
     			</Grid.ColumnDefinitions>
-    			<Label Text="Lundi" Grid.Row="0" Grid.Column="0" />
+    			<Label Text="Lundi" Grid.Row="0" Grid.Column="0">
+    				<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
     			<TimePicker Time="{Binding lundi, Mode=TwoWay}" x:Name="LundiPicker" Grid.Row="0" Grid.Column="1" />
                 
-    			<Label Text="Mardi" Grid.Row="1" Grid.Column="0" />
+    			<Label Text="Mardi" Grid.Row="1" Grid.Column="0">
+    				<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
     			<TimePicker Time="{Binding mardi, Mode=TwoWay}" x:Name="MardiPicker" Grid.Row="1" Grid.Column="1" />
                 
-    			<Label Text="Mercredi" Grid.Row="2" Grid.Column="0" />
+    			<Label Text="Mercredi" Grid.Row="2" Grid.Column="0">
+    				<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
     			<TimePicker Time="{Binding mercredi, Mode=TwoWay}" x:Name="MercrediPicker" Grid.Row="2" Grid.Column="1" />
                 
-    			<Label Text="Jeudi" Grid.Row="3" Grid.Column="0" />
+    			<Label Text="Jeudi" Grid.Row="3" Grid.Column="0">
+    				<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
     			<TimePicker Time="{Binding jeudi, Mode=TwoWay}" x:Name="JeudiPicker" Grid.Row="3" Grid.Column="1" />
                 
-    			<Label Text="Vendredi" Grid.Row="4" Grid.Column="0" />
+    			<Label Text="Vendredi" Grid.Row="4" Grid.Column="0">
+    				<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
     			<TimePicker Time="{Binding vendredi, Mode=TwoWay}" x:Name="VendrediPicker" Grid.Row="4" Grid.Column="1" />	
                 
-    			<Label Text="Samedi" Grid.Row="5" Grid.Column="0" />
+    			<Label Text="Samedi" Grid.Row="5" Grid.Column="0">
+    				<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
     			<TimePicker Time="{Binding samedi, Mode=TwoWay}" x:Name="SamediPicker" Grid.Row="5" Grid.Column="1" />
                 
-                <Label Text="Dimanche" Grid.Row="6" Grid.Column="0" />
+                <Label Text="Dimanche" Grid.Row="6" Grid.Column="0">
+                	<Label.FontFamily>
+				        <OnPlatform x:TypeArguments="x:String">
+				            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+				            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+						</OnPlatform>
+			    	</Label.FontFamily>
+				</Label>
                 <TimePicker Time="{Binding dimanche, Mode=TwoWay}" x:Name="DimanchePicker" Grid.Row="6" Grid.Column="1" />  
             </Grid>
-            <Button x:Name="BoutonSauvegarde" Clicked="SaveSchedule" Text="Sauvegarder"></Button>
+            <Button x:Name="BoutonSauvegarde" Clicked="SaveSchedule" Text="Sauvegarder">
+				<Button.FontFamily>
+			        <OnPlatform x:TypeArguments="x:String">
+			            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+			            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+					</OnPlatform>
+		    	</Button.FontFamily>
+			</Button>
                 
         </StackLayout>
 	</ContentPage.Content>

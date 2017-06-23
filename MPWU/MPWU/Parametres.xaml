@@ -19,7 +19,14 @@
 
 			<StackLayout x:Name="SegmentContent" Grid.Row="1" Grid.Column="0" Padding="0, 20, 0, 0">
 			</StackLayout>
-			<Button x:Name="SaveButton"  Text="Sauvegarder" Clicked="SaveParam"  ></Button>
+			<Button x:Name="SaveButton" Text="Sauvegarder" Clicked="SaveParam">
+			<Button.FontFamily>
+		        <OnPlatform x:TypeArguments="x:String">
+		            <OnPlatform.iOS>baloo</OnPlatform.iOS>
+		            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+				</OnPlatform>
+	    	</Button.FontFamily>
+			</Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

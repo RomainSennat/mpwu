@@ -52,5 +52,9 @@
 	<string></string>
 	<key>RequestWhenInUseAuthorization</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/baloo.ttf</string>
+	</array>
 </dict>
 </plist>
