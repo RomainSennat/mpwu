@@ -1,10 +1,13 @@
 ﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/MPWUPage.xaml" Line="14" Column="24" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml" Line="46" Column="53" />
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="62" Column="7" />
-      <File FileName="MPWU/Parametres.xaml" Line="25" Column="30" />
+      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="52" Column="5" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="56" Column="54" />
+      <File FileName="iOS/AppDelegate.cs" Line="40" Column="4" />
+      <File FileName="iOS/Main.cs" Line="16" Column="31" />
+      <File FileName="MPWU/MPWUPage.xaml" Line="57" Column="30" />
+      <File FileName="MPWU/App.xaml.cs" Line="97" Column="20" />
+      <File FileName="MPWU/MPWUPage.xaml.cs" Line="14" Column="32" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -12,8 +15,10 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.91f429bc426e0424e4bbb574c8db7d8368953e0e" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.4f1ee5568fa29c2059acea8abc7f4f4e80948711" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="MPWU/Parametres.xaml" line="13" offsetX="-1" offsetY="-1" expression="SelectedSegment" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.SelectDevice" />
   <MultiItemStartupConfigurations />
 </Properties>

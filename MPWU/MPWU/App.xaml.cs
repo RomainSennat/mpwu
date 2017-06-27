@@ -12,7 +12,7 @@ namespace MPWU
 {
 	public partial class App : Application
 	{
-        
+
 		public static Param Params { get; set; }
 		public static CustomSchedule Schedule { get; set; }
 		public static RSSData Data { get; set; }
@@ -25,24 +25,24 @@ namespace MPWU
 			App.Schedule = new ParamDB().InitCustomSchedule();
 			Debug.WriteLine(Params.CoordArriveLatitude);
 			TabbedPage page = new TabbedPage();
-            page.BarTextColor = Color.DarkBlue;
-            page.Children.Add(new Parametres()
-            {
-                BackgroundColor = Color.FromHex("#DEDEDE"),
+			page.BarTextColor = Color.DarkBlue;
+			page.Children.Add(new Parametres()
+			{
+				BackgroundColor = Color.FromHex("#DEDEDE"),
 				Icon = "logoParam.png"
 			});
 			page.Children.Add(this.alarmPage = new MPWUPage()
 			{
-                BackgroundColor = Color.FromHex("#DEDEDE"),
+				BackgroundColor = Color.FromHex("#DEDEDE"),
 				Icon = "alarm.png"
 			});
 			page.Children.Add(new PersonalEDT()
 			{
-                BackgroundColor = Color.FromHex("#DEDEDE"),
+				BackgroundColor = Color.FromHex("#DEDEDE"),
 				Icon = "schedule.png"
 			});
 			page.CurrentPage = page.Children[1];
-            MainPage = page;
+			MainPage = page;
 		}
 
 		protected override async void OnStart()
@@ -86,15 +86,15 @@ namespace MPWU
 				TimeSpan time = start - now;
 				Debug.WriteLine(time.ToString());
 				// Time for test
-				//TimeSpan timeForTest = new TimeSpan(0, 0, 4);
+				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
 				// Wait to reach time
-				//await Task.Delay((int)timeForTest.TotalMilliseconds);
-				await Task.Delay((int)time.TotalMilliseconds);
+				await Task.Delay((int)timeForTest.TotalMilliseconds);
+				//await Task.Delay((int)time.TotalMilliseconds);
 
 				// Notify user to wake up
 				CrossLocalNotifications.Current.Show("My Personal Wake Up", "Reveil toi !");
 				// Play sound
-				//Task.Run(await () => {
+				this.alarmPage.FindByName<Button>("StopButton").IsEnabled = true;
 				DependencyService.Get<IPlayer>().Play();
 			}
 			catch (Exception e)

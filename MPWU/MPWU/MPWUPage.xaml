@@ -54,7 +54,7 @@
     		    	</Label.FontFamily>
     			</Label>
             </Frame>
-			<Button x:Name="StopButton" Text="Stop" Clicked="StopSound" TextColor="White"  BackgroundColor="#985e6d" BorderRadius="10">
+			<Button x:Name="StopButton" Text="Stop" IsEnabled="false" Clicked="StopSound" TextColor="White"  BackgroundColor="#985e6d" BorderRadius="10">
 				<Button.FontFamily>
 			        <OnPlatform x:TypeArguments="x:String">
 			            <OnPlatform.iOS>baloo</OnPlatform.iOS>

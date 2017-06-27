@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>My Personnal Wake Up</string>
+	<string>My Personal Wake Up</string>
 	<key>CFBundleName</key>
-	<string>My Personnal Wake Up</string>
+	<string>My Personal Wake Up</string>
 	<key>CFBundleIdentifier</key>
-	<string>frt.mpwull</string>
+	<string>frt.mpwu</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

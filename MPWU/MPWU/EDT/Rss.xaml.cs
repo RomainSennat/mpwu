@@ -53,7 +53,8 @@ namespace MPWU.EDT
 				matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
 				i++;
 			}
-			RecupTitreActivite(list.Descendants("title").ElementAtOrDefault(i).Value);
+			// i - 1 because i is incremented on previous loop
+			RecupTitreActivite(list.Descendants("title").ElementAtOrDefault(i - 1).Value);
 			Debug.WriteLine("Recup titre : " + this.data.titre);
 
 			// Get current day

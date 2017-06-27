@@ -48,12 +48,15 @@ namespace MPWU.UserData
 		// Adresse -> Coordonnées
 		async void SwitchCoord(object sender, EventArgs e)
 		{
-			await this.geolocalisation.GetCoord(TargetAdresseEntry.Text);
-			App.Params.CoordArriveLatitude = (float)this.geolocalisation.TargetCoord.Latitude;
-			App.Params.CoordArriveLongitude = (float)this.geolocalisation.TargetCoord.Longitude;
-            await App.Current.MainPage.DisplayAlert("Votre destination", TargetAdresseEntry.Text, "Ok");
-			//.param.adresseArrive = TargetAdresseEntry.Text;
-			//TargetAdress.Text = string.Format("lat : {0}, long : {1}", this.geolocalisation.TargetCoord.Latitude, this.geolocalisation.TargetCoord.Longitude);
+			if (!String.IsNullOrWhiteSpace(TargetAdresseEntry.Text))
+			{
+				await this.geolocalisation.GetCoord(TargetAdresseEntry.Text);
+				App.Params.CoordArriveLatitude = (float)this.geolocalisation.TargetCoord.Latitude;
+				App.Params.CoordArriveLongitude = (float)this.geolocalisation.TargetCoord.Longitude;
+				await App.Current.MainPage.DisplayAlert("Votre destination", TargetAdresseEntry.Text, "Ok");
+				//.param.adresseArrive = TargetAdresseEntry.Text;
+				//TargetAdress.Text = string.Format("lat : {0}, long : {1}", this.geolocalisation.TargetCoord.Latitude, this.geolocalisation.TargetCoord.Longitude);
+			}
 		}
 
 		// Coordonnées actuelles
@@ -64,8 +67,8 @@ namespace MPWU.UserData
 				await this.geolocalisation.UpdateGeolocalisationAsync();
 				App.Params.CoordDepartLatitude = (float)this.geolocalisation.CurrentCoord.Latitude;
 				App.Params.CoordDepartLongitude = (float)this.geolocalisation.CurrentCoord.Longitude;
-                await App.Current.MainPage.DisplayAlert("Position de départ", this.geolocalisation.Location, "Ok");
-                //this.param.adresseDepart = this.geolocalisation.Location;
+				await App.Current.MainPage.DisplayAlert("Position de départ", this.geolocalisation.Location, "Ok");
+				//this.param.adresseDepart = this.geolocalisation.Location;
 				//CurrentPosition.Text = this.geolocalisation.Location;
 
 			}

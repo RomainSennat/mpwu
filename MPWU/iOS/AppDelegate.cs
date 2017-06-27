@@ -31,7 +31,7 @@ namespace MPWU.iOS
 
 				UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
 			}
-			
+
 			global::Xamarin.Forms.Forms.Init();
 			global::Xamarin.FormsMaps.Init();
 			SegmentedControlRenderer.Init();

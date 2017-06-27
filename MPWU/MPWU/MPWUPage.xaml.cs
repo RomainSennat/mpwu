@@ -15,13 +15,14 @@ namespace MPWU
 
 		public MPWUPage()
 		{
-            
+
 			InitializeComponent();
 			this.manager = new AlarmManager();
 		}
 
 		public void StopSound(object sender, EventArgs e)
 		{
+			StopButton.IsEnabled = false;
 			this.manager.StopSound();
 		}
 
