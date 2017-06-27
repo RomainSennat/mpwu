@@ -5528,7 +5528,7 @@ namespace MPWU.Droid
 		{
 			
 			// aapt resource value: 0x7f070000
-			public const int ding_persevy = 2131165184;
+			public const int sound = 2131165184;
 			
 			static Raw()
 			{

@@ -1,17 +1,19 @@
-﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
+﻿<Properties StartupConfiguration="{597D63FF-71C8-4F69-9BE7-D56712E5CE5A}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
       <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="52" Column="5" />
       <File FileName="MPWU/EDT/Rss.xaml.cs" Line="56" Column="54" />
       <File FileName="iOS/AppDelegate.cs" Line="40" Column="4" />
       <File FileName="iOS/Main.cs" Line="16" Column="31" />
-      <File FileName="MPWU/MPWUPage.xaml" Line="57" Column="30" />
-      <File FileName="MPWU/App.xaml.cs" Line="89" Column="7" />
+      <File FileName="MPWU/MPWUPage.xaml" Line="70" Column="1" />
+      <File FileName="MPWU/App.xaml.cs" Line="77" Column="28" />
       <File FileName="MPWU/MPWUPage.xaml.cs" Line="14" Column="32" />
+      <File FileName="iOS/Player.cs" Line="24" Column="62" />
+      <File FileName="Droid/Player.cs" Line="22" Column="97" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -19,6 +21,6 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="MPWU/Parametres.xaml" line="13" offsetX="-1" offsetY="-1" expression="SelectedSegment" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.MPWU.Droid PreferredExecutionTarget="Android.73QDU16828006816" />
   <MultiItemStartupConfigurations />
 </Properties>

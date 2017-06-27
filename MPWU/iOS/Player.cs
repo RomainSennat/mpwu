@@ -21,7 +21,7 @@ namespace MPWU.iOS
 			if (this.player == null)
 			{
 				NSError err;
-				this.player = new AVAudioPlayer(NSUrl.FromFilename("ding_persevy.wav"), "wav", out err);
+				this.player = new AVAudioPlayer(NSUrl.FromFilename("sound.wav"), "wav", out err);
 			}
 
 			if (!this.player.Playing)

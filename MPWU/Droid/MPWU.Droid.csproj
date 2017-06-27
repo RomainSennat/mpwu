@@ -214,13 +214,13 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\raw\ding_persevy.wav" />
     <AndroidResource Include="Resources\drawable\alarm.png" />
     <AndroidResource Include="Resources\drawable\logoParam.png" />
     <AndroidResource Include="Resources\drawable\schedule.png" />
     <AndroidResource Include="Resources\drawable\SplashScreen.xml" />
     <AndroidResource Include="Resources\drawable\geofence.png" />
     <AndroidResource Include="Resources\drawable\splash_icon.png" />
+    <AndroidResource Include="Resources\raw\sound.wav" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\raw\" />

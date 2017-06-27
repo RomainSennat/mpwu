@@ -19,7 +19,7 @@ namespace MPWU.Droid
 		{
 			if (this.player == null)
 			{
-				this.player = MediaPlayer.Create(global::Android.App.Application.Context, Resource.Raw.ding_persevy);
+				this.player = MediaPlayer.Create(global::Android.App.Application.Context, Resource.Raw.sound);
 			}
 
 			if (!this.player.IsPlaying)

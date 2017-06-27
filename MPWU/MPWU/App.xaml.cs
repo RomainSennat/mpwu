@@ -72,7 +72,10 @@ namespace MPWU
 
 				start = start.Add(App.Data.heure);
 				// Substract journey and prepare time
+				Debug.WriteLine("avant");
 				TimeSpan journey = await new Geolocalisation().ComputeJourneyDurationAsync();
+				Debug.WriteLine("apres");
+
 				TimeSpan prepare = App.Params.PrepTime;
 				start = start.Subtract(journey).Subtract(prepare);
 
@@ -86,10 +89,10 @@ namespace MPWU
 				TimeSpan time = start - now;
 				Debug.WriteLine(time.ToString());
 				// Time for test
-				//TimeSpan timeForTest = new TimeSpan(0, 0, 4);
+				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
 				// Wait to reach time
-				//await Task.Delay((int)timeForTest.TotalMilliseconds);
-				await Task.Delay((int)time.TotalMilliseconds);
+				await Task.Delay((int)timeForTest.TotalMilliseconds);
+				//await Task.Delay((int)time.TotalMilliseconds);
 
 				// Notify user to wake up
 				CrossLocalNotifications.Current.Show("My Personal Wake Up", "Reveil toi !");
