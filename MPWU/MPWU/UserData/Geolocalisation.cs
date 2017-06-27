@@ -11,17 +11,17 @@ namespace MPWU.UserData
 	{
 		public Coord CurrentCoord;
 		public Coord TargetCoord;
-		private Geocoder geocoder;
+		private Geocoder geocoder = new Geocoder();
 		private Stif stif = new Stif();
 		private Waze waze = new Waze();
 		public string Location { get; set; }
 
 
-		public Geolocalisation()
-		{
-
-			this.geocoder = new Geocoder();
-		}
+        public Geolocalisation()
+        {
+            
+        }
+		
 
 		public async Task<bool> GetCoord(string address)
 		{
@@ -34,12 +34,12 @@ namespace MPWU.UserData
 			}
 			catch (Exception ex)
 			{
-
+                Debug.WriteLine(ex.Message);
 			}
 			return true;
 		}
 
-		public async Task<bool> GetGeolocalisation()
+		public async Task<bool> UpdateGeolocalisationAsync()
 		{
 			var locator = CrossGeolocator.Current;
 			locator.DesiredAccuracy = 10;
@@ -75,7 +75,9 @@ namespace MPWU.UserData
 			}
 		}
 
-		public async Task<TimeSpan> GetJourneyTime()
+
+
+		public async Task<TimeSpan> ComputeJourneyDurationAsync()
 		{
 			if (App.Params.CoordArriveLatitude == null || App.Params.CoordArriveLongitude == null || App.Params.CoordDepartLatitude == null || App.Params.CoordDepartLongitude == null)
 			{

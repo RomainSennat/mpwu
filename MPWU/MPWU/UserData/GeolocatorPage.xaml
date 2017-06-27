@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
-             x:Class="MPWU.UserData.GeolocatorPage">
+             x:Class="MPWU.UserData.GeolocatorPage"
+            Title="Paramètres">
 	
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand"
@@ -12,71 +13,92 @@
 			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
 	        <StackLayout x:Name="ParamToShow" VerticalOptions="FillAndExpand"
 	        		HorizontalOptions="FillAndExpand"
-	                 Orientation="Vertical"
-	                 Spacing="15">
-					<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand">
-						<controls:SegmentedControl x:Name="JourneyMode" TintColor="#007AFF" SelectedSegment="{Binding ModeTrajet, Mode=TwoWay}" ValueChanged="JourneyModeChange">
-							<controls:SegmentedControl.Children>
-								<controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
-						    	<controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
-							</controls:SegmentedControl.Children>
-						</controls:SegmentedControl>
-						<Label Text="{Binding AdresseDepart, Mode=TwoWay}" x:Name="CurrentPosition">
-							<Label.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-								</OnPlatform>
-					    	</Label.FontFamily>
-						</Label>
-						<Button x:Name="GeoButton" Text="Geolocalise toi" Clicked="GetGeolocalisation">
-							<Button.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-								</OnPlatform>
-					    	</Button.FontFamily>
-						</Button>
-						<Label Text="{Binding AdresseArrive, Mode=TwoWay}" x:Name="TargetAdress">
-							<Label.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-								</OnPlatform>
-					    	</Label.FontFamily>
-						</Label>
-						<Entry x:Name="TargetAdresseEntry">
-							<Entry.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-								</OnPlatform>
-					    	</Entry.FontFamily>
-						</Entry>
-						<Button x:Name="TargetButton" Text="Recuperer coord via adresse" Clicked="SwitchCoord">
-							<Button.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-								</OnPlatform>
-					    	</Button.FontFamily>
-						</Button>
-						<Button x:Name="TimeCalculButton" Text="Itinéraire" Clicked="GetItineraire">
-							<Button.FontFamily>
-						        <OnPlatform x:TypeArguments="x:String">
-						            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-						            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-								</OnPlatform>
-					    	</Button.FontFamily>
-						</Button>
-						<Label Text="Temps de trajet : " FontSize="15" FontFamily="baloo">
-						    <Label.FontFamily>
-					        <OnPlatform x:TypeArguments="x:String">
-					            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-					            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-							</OnPlatform>
-					    </Label.FontFamily>
-					</Label>
+	                 Orientation="Vertical">
+					<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand" Spacing="20" Padding="20">
+                        <Label Text="Départ" TextColor="#985e6d" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                    <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <Button x:Name="GeoButton" Text="Se géolocaliser" BackgroundColor="White" TextColor="Black" Clicked="GetGeolocalisation" BorderColor="#494e6B" BorderRadius="10" BorderWidth="1">
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                    <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                </OnPlatform>
+                            </Button.FontFamily>
+                        </Button>
+                        <Label Text="Arrivée" TextColor="#985e6d" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                    <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <!--Placeholder="Ex: 17 rue du bonheur Paris 75001"-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                              </Grid.RowDefinitions>
+                              <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="75" />
+                            </Grid.ColumnDefinitions>
+                            <Entry x:Name="TargetAdresseEntry" Text="{Binding AdresseArrive, Mode=TwoWay}"  Placeholder="Ex: 17 rue du bonheur Paris 75001" Grid.Row="0" Grid.Column="0" >
+                                <Entry.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                        <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                    </OnPlatform>
+                                </Entry.FontFamily>
+                            </Entry>
+                            <Button x:Name="TargetButton" Image="geofence.png" Clicked="SwitchCoord" BackgroundColor="White" BorderWidth="1" BorderRadius="10" Grid.Row="0" Grid.Column="1">
+                                <Button.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                        <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                    </OnPlatform>
+                                </Button.FontFamily>
+                            </Button>
+                        </Grid>
+                        <controls:SegmentedControl x:Name="JourneyMode" TintColor="#494e6b" BackgroundColor="White" SelectedSegment="{Binding ModeTrajet, Mode=TwoWay}" ValueChanged="JourneyModeChange">
+                            <controls:SegmentedControl.Children>
+                                <controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
+                                <controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
+                            </controls:SegmentedControl.Children>
+                        </controls:SegmentedControl>
+                        <Label Text="Temps de préparation">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                    <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <TimePicker x:Name="PrepTime" Time="{Binding PrepTime, Mode=TwoWay}"/>
+                        <!-- Itinéraire  
+                        <Button x:Name="TimeCalculButton" Text="Itinéraire" TextColor="Black" Clicked="GetItineraire" BorderColor="#494e6B" BorderRadius="10" BorderWidth="1">
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <OnPlatform.iOS>baloo</OnPlatform.iOS>
+                                    <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+                                </OnPlatform>
+                            </Button.FontFamily>
+						</Button>-->
+                        
+						<!-- Temps Prep 
+                        <Label Text="Temps de trajet : " FontSize="15" FontFamily="baloo">
+					        <Label.FontFamily>
+					            <OnPlatform x:TypeArguments="x:String">
+					                <OnPlatform.iOS>baloo</OnPlatform.iOS>
+					                <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
+							    </OnPlatform>   
+                            </Label.FontFamily>
+					    </Label>-->
 					</StackLayout>
 					<Label Text="{Binding TempsTrajet, Mode=TwoWay}" x:Name="ChampHeure" FontSize="15">
 						<Label.FontFamily>

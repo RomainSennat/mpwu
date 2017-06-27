@@ -2,16 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MPWU.EDT.Rss">
 	<ContentPage.Content>
 		<StackLayout x:Name="ParamToShow" Orientation="Vertical" VerticalOptions="CenterAndExpand">
-            <Label Text="Temps de préparation">
-	            <Label.FontFamily>
-			        <OnPlatform x:TypeArguments="x:String">
-			            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-			            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-					</OnPlatform>
-		    	</Label.FontFamily>
-			</Label>
-            <TimePicker x:Name="PrepTime" Time="{Binding PrepTime, Mode=TwoWay}"/>
-            <Label Text="Lien du flux RSS">
+            <Label Text="Lien du flux RSS" TextColor="#985e6d">
             	<Label.FontFamily>
 			        <OnPlatform x:TypeArguments="x:String">
 			            <OnPlatform.iOS>baloo</OnPlatform.iOS>

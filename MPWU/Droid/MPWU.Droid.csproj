@@ -220,6 +220,7 @@
     <AndroidResource Include="Resources\drawable\schedule.png" />
     <AndroidResource Include="Resources\drawable\SplashScreen.xml" />
     <AndroidResource Include="Resources\drawable\splash_icon.png" />
+    <AndroidResource Include="Resources\drawable\geofence.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\raw\" />

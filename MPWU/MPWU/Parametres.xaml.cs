@@ -17,6 +17,7 @@ namespace MPWU
 			InitializeComponent();
 			this.pageLocalisation = new GeolocatorPage();
 			this.pageFluxRss = new Rss();
+
 		}
 
 		public void TabChange(object o, EventArgs e)

@@ -15,6 +15,7 @@ namespace MPWU
 
 		public MPWUPage()
 		{
+            
 			InitializeComponent();
 			this.manager = new AlarmManager();
 		}

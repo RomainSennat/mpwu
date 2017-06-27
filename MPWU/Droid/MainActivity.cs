@@ -26,5 +26,7 @@ namespace MPWU.Droid
 			SegmentedControlRenderer.Init();
 			LoadApplication(new App());
 		}
+
+		
 	}
 }

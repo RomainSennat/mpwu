@@ -12,6 +12,7 @@ namespace MPWU
 {
 	public partial class App : Application
 	{
+        
 		public static Param Params { get; set; }
 		public static CustomSchedule Schedule { get; set; }
 		public static RSSData Data { get; set; }
@@ -24,23 +25,24 @@ namespace MPWU
 			App.Schedule = new ParamDB().InitCustomSchedule();
 			Debug.WriteLine(Params.CoordArriveLatitude);
 			TabbedPage page = new TabbedPage();
-			page.Children.Add(new Parametres()
-			{
-				Title = "Paramètres",
+            page.BarTextColor = Color.DarkBlue;
+            page.Children.Add(new Parametres()
+            {
+                BackgroundColor = Color.FromHex("#DEDEDE"),
 				Icon = "logoParam.png"
 			});
 			page.Children.Add(this.alarmPage = new MPWUPage()
 			{
-				Title = "Reveil",
+                BackgroundColor = Color.FromHex("#DEDEDE"),
 				Icon = "alarm.png"
 			});
 			page.Children.Add(new PersonalEDT()
 			{
-				Title = "Emploi du temps",
+                BackgroundColor = Color.FromHex("#DEDEDE"),
 				Icon = "schedule.png"
 			});
 			page.CurrentPage = page.Children[1];
-			MainPage = page;
+            MainPage = page;
 		}
 
 		protected override async void OnStart()
@@ -70,7 +72,7 @@ namespace MPWU
 
 				start = start.Add(App.Data.heure);
 				// Substract journey and prepare time
-				TimeSpan journey = await new Geolocalisation().GetJourneyTime();
+				TimeSpan journey = await new Geolocalisation().ComputeJourneyDurationAsync();
 				TimeSpan prepare = App.Params.PrepTime;
 				start = start.Subtract(journey).Subtract(prepare);
 
