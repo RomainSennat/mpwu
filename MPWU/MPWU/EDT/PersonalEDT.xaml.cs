@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using MPWU.Database;
 using Xamarin.Forms;
 
-namespace MPWU
+namespace MPWU.EDT
 {
 	public partial class PersonalEDT : ContentPage
 	{
@@ -18,8 +17,7 @@ namespace MPWU
 
 		void SaveSchedule(object sender, EventArgs e)
 		{
-			Debug.WriteLine("Enregistrement du CustomSchedule");
-			this.paramDB.AddSchedule(App.Schedule);
+			this.paramDB.UpdateSchedule(App.Schedule);
 		}
 	}
 }

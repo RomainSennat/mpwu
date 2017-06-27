@@ -1,5 +1,4 @@
 using System;
-
 using Android.App;
 using Android.OS;
 using Android.Runtime;
@@ -11,8 +10,7 @@ namespace MPWU.Droid
 	[Application]
 	public class MainApplication : Application, Application.IActivityLifecycleCallbacks
 	{
-		public MainApplication(IntPtr handle, JniHandleOwnership transer)
-		  : base(handle, transer)
+		public MainApplication(IntPtr handle, JniHandleOwnership transer) : base(handle, transer)
 		{
 		}
 
@@ -59,6 +57,5 @@ namespace MPWU.Droid
 		public void OnActivityStopped(Activity activity)
 		{
 		}
-
 	}
 }

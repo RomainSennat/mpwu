@@ -10,16 +10,15 @@
 	</ContentPage.Padding>
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="Start">
-			<controls:SegmentedControl x:Name="SegmentControl"  TintColor="#494e6b" BackgroundColor="White" SelectedSegment="0" ValueChanged="TabChange">
+			<controls:SegmentedControl x:Name="SegmentControl" TintColor="#494e6b" BackgroundColor="White" SelectedSegment="0" ValueChanged="TabChange">
 				<controls:SegmentedControl.Children>
-					<controls:SegmentedControlOption x:Name="LocalisationTab" Text="Localisation"  />
-			    	<controls:SegmentedControlOption x:Name="RssTab" Text="Données personnelles"  />
+					<controls:SegmentedControlOption x:Name="LocalisationTab" Text="Localisation" />
+			    	<controls:SegmentedControlOption x:Name="RssTab" Text="Données personnelles" />
 				</controls:SegmentedControl.Children>
 			</controls:SegmentedControl>
-
 			<StackLayout x:Name="SegmentContent" Grid.Row="1" Grid.Column="0" Padding="0, 20, 0, 0">
 			</StackLayout>
-            <Button x:Name="SaveButton" Text="Sauvegarder" Clicked="SaveParam" TextColor="White"  BackgroundColor="#985e6d" BorderRadius="10">
+            <Button x:Name="SaveButton" Text="Sauvegarder" Clicked="SaveParameters" TextColor="White" BackgroundColor="#985e6d" BorderRadius="10">
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <OnPlatform.iOS>baloo</OnPlatform.iOS>
@@ -27,9 +26,6 @@
                     </OnPlatform>
                 </Button.FontFamily>
             </Button>
-
         </StackLayout>
-
-        
 	</ContentPage.Content>
 </ContentPage>

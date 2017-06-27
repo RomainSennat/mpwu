@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SQLite.Net;
 using Xamarin.Forms;
 
@@ -7,67 +6,66 @@ namespace MPWU.Database
 {
 	public class ParamDB
 	{
-		private SQLiteConnection sqlconnection;
+		private SQLiteConnection connection;
 
 		public ParamDB()
 		{
 			//Getting conection and Creating table  
-			sqlconnection = DependencyService.Get<ISQLite>().GetConnection();
-            sqlconnection.CreateTable<CustomSchedule>();
-			sqlconnection.CreateTable<Param>();
+			connection = DependencyService.Get<ISQLite>().OpenConnection();
+			connection.CreateTable<CustomSchedule>();
+			connection.CreateTable<Param>();
 		}
 
-
 		//Retourne le dernier param enregistré 
-		public Param GetLastParam()
+		public Param LastParam()
 		{
-			return sqlconnection.Table<Param>().LastOrDefault();
+			return connection.Table<Param>().LastOrDefault();
 		}
 
 		//Retourne le dernier Schedule enregistré 
-		public CustomSchedule GetLastSchedule()
+		public CustomSchedule LastSchedule()
 		{
-            return sqlconnection.Table<CustomSchedule>().LastOrDefault();
+			return connection.Table<CustomSchedule>().LastOrDefault();
 		}
 
-		public Param InitParam() 
+		public Param InitParam()
 		{
-			if (this.GetLastParam() == null)
+			if (this.LastParam() == null)
 			{
 				this.AddParam(new Param());
 			}
-			return this.GetLastParam();
+			return this.LastParam();
 		}
 
-        public CustomSchedule InitCustomSchedule()
+		public CustomSchedule InitCustomSchedule()
 		{
-			if (this.GetLastSchedule() == null)
+			if (this.LastSchedule() == null)
 			{
-                this.AddSchedule(new CustomSchedule());
+				this.AddSchedule(new CustomSchedule());
 			}
-			return this.GetLastSchedule();
+			return this.LastSchedule();
 		}
 
 		//Met a jour le dernier param de la DB  
 		public void UpdateParam(Param param)
 		{
-			sqlconnection.Update(param);
+			connection.Update(param);
 		}
 
 		public void AddParam(Param param)
 		{
-			sqlconnection.Insert(param);
+			connection.Insert(param);
 		}
 
 		//Met a jour le dernier param de la DB  
-        public void UpdateSchedule(CustomSchedule schedule)
+		public void UpdateSchedule(CustomSchedule schedule)
 		{
-			sqlconnection.Update(schedule);
+			connection.Update(schedule);
 		}
 
-        public void AddSchedule(CustomSchedule schedule)
+		public void AddSchedule(CustomSchedule schedule)
 		{
-			sqlconnection.Insert(schedule);
+			connection.Insert(schedule);
 		}
 	}
 }

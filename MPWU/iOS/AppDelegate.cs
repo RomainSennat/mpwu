@@ -1,6 +1,5 @@
 ﻿using Foundation;
 using UIKit;
-using SegmentedControl;
 using SegmentedControl.FormsPlugin.iOS;
 using UserNotifications;
 using LocalNotificationsSample.iOS;
@@ -38,7 +37,5 @@ namespace MPWU.iOS
 			LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
 		}
-
 	}
-
 }

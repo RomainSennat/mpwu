@@ -9,7 +9,7 @@ namespace MPWU.iOS
 {
 	public class SQLite_iOS : ISQLite
 	{
-		public SQLite.Net.SQLiteConnection GetConnection()
+		public SQLite.Net.SQLiteConnection OpenConnection()
 		{
 			var fileName = "Param.db3";
 			var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);

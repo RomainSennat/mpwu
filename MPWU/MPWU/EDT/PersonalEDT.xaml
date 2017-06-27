@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MPWU.PersonalEDT" >
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MPWU.EDT.PersonalEDT">
 	<ContentPage.Content>
         <StackLayout x:Name="ScheduleToShow" Padding="25">
     		<Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
@@ -15,8 +15,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-    			<TimePicker Time="{Binding lundi, Mode=TwoWay}" x:Name="LundiPicker" Grid.Row="0" Grid.Column="1" />
-                
+    			<TimePicker Time="{Binding Lundi, Mode=TwoWay}" x:Name="LundiPicker" Grid.Row="0" Grid.Column="1" />
     			<Label Text="Mardi" Grid.Row="1" Grid.Column="0">
     				<Label.FontFamily>
 				        <OnPlatform x:TypeArguments="x:String">
@@ -25,8 +24,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-    			<TimePicker Time="{Binding mardi, Mode=TwoWay}" x:Name="MardiPicker" Grid.Row="1" Grid.Column="1" />
-                
+    			<TimePicker Time="{Binding Mardi, Mode=TwoWay}" x:Name="MardiPicker" Grid.Row="1" Grid.Column="1" />
     			<Label Text="Mercredi" Grid.Row="2" Grid.Column="0">
     				<Label.FontFamily>
 				        <OnPlatform x:TypeArguments="x:String">
@@ -35,8 +33,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-    			<TimePicker Time="{Binding mercredi, Mode=TwoWay}" x:Name="MercrediPicker" Grid.Row="2" Grid.Column="1" />
-                
+    			<TimePicker Time="{Binding Mercredi, Mode=TwoWay}" x:Name="MercrediPicker" Grid.Row="2" Grid.Column="1" />
     			<Label Text="Jeudi" Grid.Row="3" Grid.Column="0">
     				<Label.FontFamily>
 				        <OnPlatform x:TypeArguments="x:String">
@@ -45,8 +42,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-    			<TimePicker Time="{Binding jeudi, Mode=TwoWay}" x:Name="JeudiPicker" Grid.Row="3" Grid.Column="1" />
-                
+    			<TimePicker Time="{Binding Jeudi, Mode=TwoWay}" x:Name="JeudiPicker" Grid.Row="3" Grid.Column="1" />
     			<Label Text="Vendredi" Grid.Row="4" Grid.Column="0">
     				<Label.FontFamily>
 				        <OnPlatform x:TypeArguments="x:String">
@@ -55,8 +51,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-    			<TimePicker Time="{Binding vendredi, Mode=TwoWay}" x:Name="VendrediPicker" Grid.Row="4" Grid.Column="1" />	
-                
+    			<TimePicker Time="{Binding Vendredi, Mode=TwoWay}" x:Name="VendrediPicker" Grid.Row="4" Grid.Column="1" />	
     			<Label Text="Samedi" Grid.Row="5" Grid.Column="0">
     				<Label.FontFamily>
 				        <OnPlatform x:TypeArguments="x:String">
@@ -65,8 +60,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-    			<TimePicker Time="{Binding samedi, Mode=TwoWay}" x:Name="SamediPicker" Grid.Row="5" Grid.Column="1" />
-                
+    			<TimePicker Time="{Binding Samedi, Mode=TwoWay}" x:Name="SamediPicker" Grid.Row="5" Grid.Column="1" />
                 <Label Text="Dimanche" Grid.Row="6" Grid.Column="0">
                 	<Label.FontFamily>
 				        <OnPlatform x:TypeArguments="x:String">
@@ -75,7 +69,7 @@
 						</OnPlatform>
 			    	</Label.FontFamily>
 				</Label>
-                <TimePicker Time="{Binding dimanche, Mode=TwoWay}" x:Name="DimanchePicker" Grid.Row="6" Grid.Column="1" />  
+                <TimePicker Time="{Binding Dimanche, Mode=TwoWay}" x:Name="DimanchePicker" Grid.Row="6" Grid.Column="1" />  
             </Grid>
             <Button x:Name="BoutonSauvegarde" Clicked="SaveSchedule" Text="Sauvegarder" TextColor="White"  BackgroundColor="#985e6d" BorderRadius="10">
 				<Button.FontFamily>
@@ -85,7 +79,6 @@
 					</OnPlatform>
 		    	</Button.FontFamily>
 			</Button>
-                
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

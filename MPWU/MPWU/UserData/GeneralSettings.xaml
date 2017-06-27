@@ -2,9 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:controls="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
-             x:Class="MPWU.UserData.GeolocatorPage"
+             x:Class="MPWU.UserData.GeneralSettings"
             Title="Paramètres">
-	
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
@@ -12,8 +11,7 @@
                      Spacing="15">
 			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
 	        <StackLayout x:Name="ParamToShow" VerticalOptions="FillAndExpand"
-	        		HorizontalOptions="FillAndExpand"
-	                 Orientation="Vertical">
+	        		HorizontalOptions="FillAndExpand" Orientation="Vertical">
 					<StackLayout x:Name="ContentToHide" VerticalOptions="FillAndExpand" Spacing="20" Padding="20">
                         <Label Text="Départ" TextColor="#985e6d" HorizontalOptions="Center" VerticalOptions="Center">
                             <Label.FontFamily>
@@ -23,7 +21,7 @@
                                 </OnPlatform>
                             </Label.FontFamily>
                         </Label>
-                        <Button x:Name="GeoButton" Text="Se géolocaliser" BackgroundColor="White" TextColor="Black" Clicked="GetGeolocalisation" BorderColor="#494e6B" BorderRadius="10" BorderWidth="1">
+                        <Button x:Name="GeoButton" Text="Se géolocaliser" BackgroundColor="White" TextColor="Black" Clicked="UpdateCurrentPositionAsync" BorderColor="#494e6B" BorderRadius="10" BorderWidth="1">
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <OnPlatform.iOS>baloo</OnPlatform.iOS>
@@ -31,7 +29,7 @@
                                 </OnPlatform>
                             </Button.FontFamily>
                         </Button>
-                        <Label Text="Arrivée" TextColor="#985e6d" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Destination" TextColor="#985e6d" HorizontalOptions="Center" VerticalOptions="Center">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <OnPlatform.iOS>baloo</OnPlatform.iOS>
@@ -39,7 +37,6 @@
                                 </OnPlatform>
                             </Label.FontFamily>
                         </Label>
-                        <!--Placeholder="Ex: 17 rue du bonheur Paris 75001"-->
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -56,7 +53,7 @@
                                     </OnPlatform>
                                 </Entry.FontFamily>
                             </Entry>
-                            <Button x:Name="TargetButton" Image="geofence.png" Clicked="SwitchCoord" BackgroundColor="White" BorderWidth="1" BorderRadius="10" Grid.Row="0" Grid.Column="1">
+                            <Button x:Name="TargetButton" Image="geofence.png" Clicked="UpdateDestinationPositionAsync" BackgroundColor="White" BorderWidth="1" BorderRadius="10" Grid.Row="0" Grid.Column="1">
                                 <Button.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String">
                                         <OnPlatform.iOS>baloo</OnPlatform.iOS>
@@ -65,7 +62,7 @@
                                 </Button.FontFamily>
                             </Button>
                         </Grid>
-                        <controls:SegmentedControl x:Name="JourneyMode" TintColor="#494e6b" BackgroundColor="White" SelectedSegment="{Binding ModeTrajet, Mode=TwoWay}" ValueChanged="JourneyModeChange">
+                        <controls:SegmentedControl x:Name="JourneyMode" TintColor="#494e6b" BackgroundColor="White" SelectedSegment="{Binding ModeTrajet, Mode=TwoWay}">
                             <controls:SegmentedControl.Children>
                                 <controls:SegmentedControlOption x:Name="Car" Text="Voiture" />
                                 <controls:SegmentedControlOption x:Name="PublicTransport" Text="Transport en commun" />
@@ -79,35 +76,8 @@
                                 </OnPlatform>
                             </Label.FontFamily>
                         </Label>
-                        <TimePicker x:Name="PrepTime" Time="{Binding PrepTime, Mode=TwoWay}"/>
-                        <!-- Itinéraire  
-                        <Button x:Name="TimeCalculButton" Text="Itinéraire" TextColor="Black" Clicked="GetItineraire" BorderColor="#494e6B" BorderRadius="10" BorderWidth="1">
-                            <Button.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String">
-                                    <OnPlatform.iOS>baloo</OnPlatform.iOS>
-                                    <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-                                </OnPlatform>
-                            </Button.FontFamily>
-						</Button>-->
-                        
-						<!-- Temps Prep 
-                        <Label Text="Temps de trajet : " FontSize="15" FontFamily="baloo">
-					        <Label.FontFamily>
-					            <OnPlatform x:TypeArguments="x:String">
-					                <OnPlatform.iOS>baloo</OnPlatform.iOS>
-					                <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-							    </OnPlatform>   
-                            </Label.FontFamily>
-					    </Label>-->
+                        <TimePicker x:Name="PrepTime" Time="{Binding PreparationTime, Mode=TwoWay}"/>
 					</StackLayout>
-					<Label Text="{Binding TempsTrajet, Mode=TwoWay}" x:Name="ChampHeure" FontSize="15">
-						<Label.FontFamily>
-					        <OnPlatform x:TypeArguments="x:String">
-					            <OnPlatform.iOS>baloo</OnPlatform.iOS>
-					            <OnPlatform.Android>baloo.ttf#baloo</OnPlatform.Android>
-							</OnPlatform>
-				    	</Label.FontFamily>
-					</Label>
 				</StackLayout>
 			</ScrollView>
         </StackLayout>

@@ -30,7 +30,7 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="MPWUPage.xaml" />
-    <EmbeddedResource Include="UserData\GeolocatorPage.xaml">
+    <EmbeddedResource Include="UserData\GeneralSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="EDT\Rss.xaml">
@@ -55,8 +55,8 @@
     <Compile Include="Alarm\IPlayer.cs" />
     <Compile Include="UserData\Coord.cs" />
     <Compile Include="UserData\Geolocalisation.cs" />
-    <Compile Include="UserData\GeolocatorPage.xaml.cs">
-      <DependentUpon>GeolocatorPage.xaml</DependentUpon>
+    <Compile Include="UserData\GeneralSettings.xaml.cs">
+      <DependentUpon>GeneralSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserData\Stif.cs" />
     <Compile Include="EDT\Rss.xaml.cs">

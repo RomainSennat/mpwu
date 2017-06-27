@@ -3,24 +3,25 @@ using MPWU.UserData;
 using MPWU.EDT;
 using MPWU.Database;
 using Xamarin.Forms;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Diagnostics;
 
 namespace MPWU
 {
 	public partial class Parametres : ContentPage
 	{
-		private GeolocatorPage pageLocalisation;
-		private Rss pageFluxRss;
+		private GeneralSettings pageLocalisation = new GeneralSettings();
+		private Rss pageFluxRss = new Rss();
+		private ParamDB paramDB = new ParamDB();
 
 		public Parametres()
 		{
 			InitializeComponent();
-			this.pageLocalisation = new GeolocatorPage();
-			this.pageFluxRss = new Rss();
-
 		}
 
-		public void TabChange(object o, EventArgs e)
+		private void TabChange(object o, EventArgs e)
 		{
 			SegmentContent.Children.Clear();
 
@@ -34,10 +35,24 @@ namespace MPWU
 					break;
 			}
 		}
-		void SaveParam(object sender, EventArgs e)
+
+		private async void SaveParameters(object sender, EventArgs e)
 		{
-			Debug.WriteLine("Enregistrement des param");
-			new ParamDB().UpdateParam(App.Params);
+			this.paramDB.UpdateParam(App.Params);
+			try
+			{
+				HttpClient client = new HttpClient();
+				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+				var request = new HttpRequestMessage(HttpMethod.Post, "http://speakgame.balastegui.com:4200/alarm/");
+				var content = new StringContent("{\"hour\":\"9:35\"}", Encoding.UTF8, "application/json");
+				content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+				var response = await client.PostAsync("http://speakgame.balastegui.com:4200/alarm/", content);
+				Debug.WriteLine(response);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
 		}
 	}
 }

@@ -8,7 +8,6 @@ namespace MPWU.Droid
 {
 	public class Player : IPlayer
 	{
-
 		private MediaPlayer player;
 
 		public Player()
@@ -37,7 +36,6 @@ namespace MPWU.Droid
 				this.player.Stop();
 				this.player.Reset();
 			}
-
 		}
 	}
 }

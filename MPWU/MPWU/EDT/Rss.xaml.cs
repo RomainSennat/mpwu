@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -12,7 +11,6 @@ namespace MPWU.EDT
 {
 	public partial class Rss : ContentPage
 	{
-
 		private readonly string[] jours = { "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" };
 		private RSSData data = new RSSData();
 
@@ -22,7 +20,7 @@ namespace MPWU.EDT
 			ParamToShow.BindingContext = App.Params;
 		}
 
-		public async Task<RSSData> RecupData(string url)
+		public async Task<RSSData> DataFromRssAsync(string url)
 		{
 			TimeSpan heure = new TimeSpan();
 			HttpClient client = new HttpClient();
@@ -53,9 +51,8 @@ namespace MPWU.EDT
 				matchJour = regexJour.Match(list.ElementAtOrDefault(i).Value);
 				i++;
 			}
-			// i - 1 because i is incremented on previous loop
-			RecupTitreActivite(list.Descendants("title").ElementAtOrDefault(i - 1).Value);
-			Debug.WriteLine("Recup titre : " + this.data.titre);
+			// i - 1 because i is incremented on previous loop or 1 was affected before
+			TitleActivity(list.Descendants("title").ElementAtOrDefault(i - 1).Value);
 
 			// Get current day
 			DateTime today = DateTime.Today;
@@ -77,14 +74,13 @@ namespace MPWU.EDT
 			}
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
-			Debug.WriteLine(heure.ToString());
-			this.data.heure = heure;
+			this.data.hour = heure;
 			return this.data;
 		}
 
-		public void RecupTitreActivite(string element)
+		private void TitleActivity(string element)
 		{
-			this.data.titre = element.Split(':')[3].Substring(1);
+			this.data.title = element.Split(':')[3].Substring(1);
 		}
 	}
 }

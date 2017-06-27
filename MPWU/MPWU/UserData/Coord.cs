@@ -1,6 +1,6 @@
 ﻿namespace MPWU.UserData
 {
-	// Structure qui stock les coordonnées gps
+	// Structure for GPS coordinates
 	public struct Coord
 	{
 		public double Latitude;

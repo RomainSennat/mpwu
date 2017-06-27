@@ -9,7 +9,7 @@ namespace MPWU.Droid
 {
 	public class SQLite_Android : ISQLite
 	{
-		public SQLite.Net.SQLiteConnection GetConnection()
+		public SQLite.Net.SQLiteConnection OpenConnection()
 		{
 			var filename = "Param.db3";
 			var documentspath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -19,6 +19,5 @@ namespace MPWU.Droid
 			var connection = new SQLite.Net.SQLiteConnection(platform, path);
 			return connection;
 		}
-
 	}
 }

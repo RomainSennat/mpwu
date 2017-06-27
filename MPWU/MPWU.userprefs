@@ -1,19 +1,40 @@
-﻿<Properties StartupConfiguration="{597D63FF-71C8-4F69-9BE7-D56712E5CE5A}|Default" GitUserInfo="UsingGIT">
+﻿<Properties StartupConfiguration="{179EC812-96BB-43C2-803F-3822042D6385}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="MPWU État">
     <Files>
-      <File FileName="MPWU/UserData/GeolocatorPage.xaml.cs" Line="52" Column="5" />
-      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="56" Column="54" />
-      <File FileName="iOS/AppDelegate.cs" Line="40" Column="4" />
-      <File FileName="iOS/Main.cs" Line="16" Column="31" />
-      <File FileName="MPWU/MPWUPage.xaml" Line="70" Column="1" />
-      <File FileName="MPWU/App.xaml.cs" Line="77" Column="28" />
-      <File FileName="MPWU/MPWUPage.xaml.cs" Line="14" Column="32" />
+      <File FileName="MPWU/UserData/Stif.cs" Line="2" Column="23" />
+      <File FileName="MPWU/UserData/Waze.cs" Line="22" Column="4" />
+      <File FileName="MPWU/Alarm/AlarmManager.cs" Line="8" Column="4" />
+      <File FileName="MPWU/MPWUPage.xaml.cs" Line="19" Column="17" />
+      <File FileName="MPWU/Alarm/IPlayer.cs" Line="1" Column="1" />
+      <File FileName="MPWU/Database/CustomSchedule.cs" Line="1" Column="14" />
+      <File FileName="MPWU/Database/Param.cs" Line="18" Column="34" />
+      <File FileName="MPWU/Database/ParamDB.cs" Line="62" Column="4" />
+      <File FileName="MPWU/EDT/PersonalEDT.xaml.cs" Line="22" Column="3" />
+      <File FileName="MPWU/EDT/PersonalEDT.xaml" Line="2" Column="145" />
+      <File FileName="MPWU/EDT/Rss.xaml" Line="24" Column="1" />
+      <File FileName="MPWU/EDT/Rss.xaml.cs" Line="1" Column="14" />
+      <File FileName="MPWU/EDT/RSSData.cs" Line="7" Column="24" />
+      <File FileName="Droid/MainActivity.cs" Line="22" Column="4" />
+      <File FileName="Droid/MainApplication.cs" Line="1" Column="14" />
+      <File FileName="Droid/Player.cs" Line="10" Column="3" />
+      <File FileName="Droid/SQLite_Android.cs" Line="21" Column="4" />
+      <File FileName="iOS/AppDelegate.cs" Line="2" Column="13" />
+      <File FileName="iOS/Main.cs" Line="11" Column="31" />
       <File FileName="iOS/Player.cs" Line="24" Column="62" />
-      <File FileName="Droid/Player.cs" Line="22" Column="97" />
+      <File FileName="iOS/SQLite_iOS.cs" Line="8" Column="1" />
+      <File FileName="iOS/UserNotificationCenterDelegate.cs" Line="14" Column="3" />
+      <File FileName="Droid/SplashActivity.cs" Line="1" Column="1" />
+      <File FileName="MPWU/Database/ISQLite.cs" Line="1" Column="18" />
+      <File FileName="MPWU/UserData/Coord.cs" Line="3" Column="22" />
+      <File FileName="MPWU/UserData/Geolocalisation.cs" Line="18" Column="42" />
+      <File FileName="MPWU/UserData/GeneralSettings.xaml.cs" Line="8" Column="38" />
+      <File FileName="MPWU/UserData/GeneralSettings.xaml" Line="79" Column="85" />
+      <File FileName="MPWU/Parametres.xaml.cs" Line="17" Column="43" />
+      <File FileName="MPWU/App.xaml.cs" Line="88" Column="21" />
       <File FileName="MPWU État" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

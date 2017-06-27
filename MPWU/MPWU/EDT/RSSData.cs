@@ -1,8 +1,10 @@
-﻿namespace MPWU.EDT
+﻿using System;
+
+namespace MPWU.EDT
 {
-    public struct RSSData
-    {
-        public System.TimeSpan heure;
-        public string titre;
-    }
+	public struct RSSData
+	{
+		public TimeSpan hour;
+		public string title;
+	}
 }

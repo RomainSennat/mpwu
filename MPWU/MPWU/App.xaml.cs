@@ -23,7 +23,6 @@ namespace MPWU
 			InitializeComponent();
 			App.Params = new ParamDB().InitParam();
 			App.Schedule = new ParamDB().InitCustomSchedule();
-			Debug.WriteLine(Params.CoordArriveLatitude);
 			TabbedPage page = new TabbedPage();
 			page.BarTextColor = Color.DarkBlue;
 			page.Children.Add(new Parametres()
@@ -47,56 +46,51 @@ namespace MPWU
 
 		protected override async void OnStart()
 		{
+			Debug.WriteLine(App.Schedule.Lundi);
 			try
 			{
 				// Get Data
-				App.Data = await new Rss().RecupData(App.Params.UrlRss);
+				App.Data = await new Rss().DataFromRssAsync(App.Params.UrlRss);
 				// Set next course informations on UI
-				string[] hour = new string[3];
+				string[] hour = new String[3];
 				try
 				{
-					hour = App.Data.heure.ToString("c").Split('.')[1].Split(':');
+					hour = App.Data.hour.ToString("c").Split('.')[1].Split(':');
 				}
 				catch (Exception ex)
 				{
-					hour = App.Data.heure.ToString("c").Split(':');
-
+					hour = App.Data.hour.ToString("c").Split(':');
+					Debug.WriteLine(ex.Message);
 				}
-				this.alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
-				this.alarmPage.FindByName<Label>("Title").Text = App.Data.titre;
+				alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
+				alarmPage.FindByName<Label>("Title").Text = App.Data.title;
 
 				// Get actual date and time
 				DateTime now = DateTime.Now;
 				// Get start day time
 				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-
-				start = start.Add(App.Data.heure);
+				start = start.Add(App.Data.hour);
 				// Substract journey and prepare time
-				Debug.WriteLine("avant");
 				TimeSpan journey = await new Geolocalisation().ComputeJourneyDurationAsync();
-				Debug.WriteLine("apres");
-
-				TimeSpan prepare = App.Params.PrepTime;
+				TimeSpan prepare = App.Params.PreparationTime;
 				start = start.Subtract(journey).Subtract(prepare);
 
 				// Set time to UI
 				this.alarmPage.FindByName<Label>("AlarmHour").Text = start.ToString("t");
-
 				// Notify time to user
 				String body = String.Format("L'alarme sonnera {0} {1} à {2}.", start.ToString("dddd"), start.ToString("M"), start.ToString("t"));
 				CrossLocalNotifications.Current.Show("My Personal Wake Up", body);
+
 				// Get time between start time and now time
 				TimeSpan time = start - now;
-				Debug.WriteLine(time.ToString());
-				// Time for test
-				TimeSpan timeForTest = new TimeSpan(0, 0, 4);
 				// Wait to reach time
-				await Task.Delay((int)timeForTest.TotalMilliseconds);
-				//await Task.Delay((int)time.TotalMilliseconds);
+				await Task.Delay((int)time.TotalMilliseconds);
+				//await Task.Delay((int)new TimeSpan(0, 0, 4).TotalMilliseconds);
 
 				// Notify user to wake up
 				CrossLocalNotifications.Current.Show("My Personal Wake Up", "Reveil toi !");
-				// Play sound
+
+				// Play sound and enable Stop button
 				this.alarmPage.FindByName<Button>("StopButton").IsEnabled = true;
 				DependencyService.Get<IPlayer>().Play();
 			}
