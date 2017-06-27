@@ -33,7 +33,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="203" verticalHuggingPriority="251" image="logo_final_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="203" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="14">
                                 <rect key="frame" x="20" y="245" width="560" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="169"/>
@@ -61,6 +61,7 @@
         <image name="alarm.png" width="32" height="32"/>
         <image name="logoParam.png" width="32" height="32"/>
         <image name="schedule.png" width="32" height="32"/>
-        <image name="logo_final_300.png" width="300" height="300"/>
+        <image name="geofence.png" width="26" height="26"/>
+        <image name="logo.png" width="300" height="300"/>
     </resources>
 </document>
