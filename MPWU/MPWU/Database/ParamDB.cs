@@ -57,7 +57,7 @@ namespace MPWU.Database
 			connection.Insert(param);
 		}
 
-		//Met a jour le dernier param de la DB  
+		//Met a jour le dernier param de la DB
 		public void UpdateSchedule(CustomSchedule schedule)
 		{
 			connection.Update(schedule);

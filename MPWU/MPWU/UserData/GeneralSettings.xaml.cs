@@ -2,6 +2,7 @@ using System;
 using Xamarin.Forms;
 using MPWU.Database;
 using System.Diagnostics;
+using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
@@ -11,8 +12,8 @@ namespace MPWU.UserData
 		private Stif stif = new Stif();
 		private Waze waze = new Waze();
 		private ParamDB paramDB = new ParamDB();
-		private Coord coordDepart;
-		private Coord coordArrive;
+		private Position coordDepart;
+		private Position coordArrive;
 
 		public GeneralSettings()
 		{
@@ -20,10 +21,8 @@ namespace MPWU.UserData
 			try
 			{
 				// Read parameters
-				this.coordDepart.Latitude = App.Params.CoordDepartLatitude;
-				this.coordDepart.Longitude = App.Params.CoordDepartLongitude;
-				this.coordArrive.Latitude = App.Params.CoordArriveLatitude;
-				this.coordArrive.Longitude = App.Params.CoordArriveLongitude;
+				this.coordDepart = new Position(App.Params.CoordDepartLatitude, App.Params.CoordDepartLongitude);
+				this.coordArrive = new Position(App.Params.CoordArriveLatitude, App.Params.CoordArriveLongitude);
 				//Assignation des Coordonnées enregistres
 				this.geolocalisation.CurrentCoord = this.coordDepart;
 				this.geolocalisation.TargetCoord = this.coordArrive;

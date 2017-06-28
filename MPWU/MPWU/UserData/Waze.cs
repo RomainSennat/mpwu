@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
@@ -13,12 +14,12 @@ namespace MPWU.UserData
 		{
 		}
 
-		public async Task<TimeSpan> TargetTimeAsync(Coord start, Coord end)
+		public async Task<TimeSpan> TargetTimeAsync(Position start, Position end)
 		{
 			return await this.JourneyTimeAsync(start, end);
 		}
 
-		public async Task<TimeSpan> JourneyTimeAsync(Coord start, Coord end)
+		public async Task<TimeSpan> JourneyTimeAsync(Position start, Position end)
 		{
 			string url = "http://speakgame.balastegui.com:1992/waze/routesXY?" +
 				"endLat=" + end.Latitude.ToString().Trim().Replace(",", ".") +

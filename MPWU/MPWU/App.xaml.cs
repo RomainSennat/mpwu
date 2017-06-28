@@ -60,7 +60,6 @@ namespace MPWU
 				catch (Exception ex)
 				{
 					hour = App.Data.hour.ToString("c").Split(':');
-					Debug.WriteLine(ex.Message);
 				}
 				alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
 				alarmPage.FindByName<Label>("Title").Text = App.Data.title;

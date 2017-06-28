@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.IO;
 using System.Globalization;
+using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
@@ -13,12 +14,12 @@ namespace MPWU.UserData
 		{
 		}
 
-		public async Task<TimeSpan> TargetTimeAsync(Coord depart, Coord arrive)
+		public async Task<TimeSpan> TargetTimeAsync(Position depart, Position arrive)
 		{
 			return await this.JourneyTimeAsync(depart, arrive);
 		}
 
-		private async Task<TimeSpan> JourneyTimeAsync(Coord depart, Coord arrive)
+		private async Task<TimeSpan> JourneyTimeAsync(Position depart, Position arrive)
 		{
 			string date = DateTime.Now.ToString("yyyyMMddTHHmmss");
 			string url = "https://opendata.stif.info/service/api-stif-recherche-itineraires/journeys" +
