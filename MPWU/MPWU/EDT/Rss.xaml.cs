@@ -74,7 +74,7 @@ namespace MPWU.EDT
 			}
 			// Heure du prochain cours * 24 ajouté à l'heure de la prochaine activité
 			heure = heure.Add(new TimeSpan((int)((target).TotalDays * 24), 0, 0));
-			this.data.hour = heure;
+			this.data.Hour = heure;
 			return this.data;
 		}
 
