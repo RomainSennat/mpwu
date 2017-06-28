@@ -6,13 +6,34 @@ using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
+	/// <summary>
+	/// General settings.
+	/// </summary>
 	public partial class GeneralSettings : ContentPage
 	{
+		/// <summary>
+		/// The geolocalisation.
+		/// </summary>
 		private Geolocalisation geolocalisation = new Geolocalisation();
+		/// <summary>
+		/// The stif API.
+		/// </summary>
 		private Stif stif = new Stif();
+		/// <summary>
+		/// The waze API.
+		/// </summary>
 		private Waze waze = new Waze();
+		/// <summary>
+		/// The parameters databse.
+		/// </summary>
 		private ParamDB paramDB = new ParamDB();
+		/// <summary>
+		/// The start coordinate.
+		/// </summary>
 		private Position coordDepart;
+		/// <summary>
+		/// The end coordinate.
+		/// </summary>
 		private Position coordArrive;
 
 		public GeneralSettings()
@@ -35,6 +56,11 @@ namespace MPWU.UserData
 			}
 		}
 
+		/// <summary>
+		/// Updates the destination position.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		private async void UpdateDestinationPositionAsync(object sender, EventArgs e)
 		{
 			if (!String.IsNullOrWhiteSpace(TargetAdresseEntry.Text))
@@ -46,6 +72,11 @@ namespace MPWU.UserData
 			}
 		}
 
+		/// <summary>
+		/// Updates the current position.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		private async void UpdateCurrentPositionAsync(object sender, EventArgs e)
 		{
 			try

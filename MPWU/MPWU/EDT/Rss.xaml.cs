@@ -9,9 +9,18 @@ using Xamarin.Forms;
 
 namespace MPWU.EDT
 {
+	/// <summary>
+	/// Rss.
+	/// </summary>
 	public partial class Rss : ContentPage
 	{
+		/// <summary>
+		/// The days.
+		/// </summary>
 		private readonly string[] jours = { "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche" };
+		/// <summary>
+		/// The Rss data.
+		/// </summary>
 		private RSSData data = new RSSData();
 
 		public Rss()
@@ -20,6 +29,11 @@ namespace MPWU.EDT
 			ParamToShow.BindingContext = App.Params;
 		}
 
+		/// <summary>
+		/// Datas from Rss.
+		/// </summary>
+		/// <returns>Rss data.</returns>
+		/// <param name="url">URL.</param>
 		public async Task<RSSData> DataFromRssAsync(string url)
 		{
 			TimeSpan heure = new TimeSpan();
@@ -78,9 +92,13 @@ namespace MPWU.EDT
 			return this.data;
 		}
 
+		/// <summary>
+		/// Update Rss data with title
+		/// </summary>
+		/// <param name="element">Element.</param>
 		private void TitleActivity(string element)
 		{
-			this.data.title = element.Split(':')[3].Substring(1);
+			this.data.Title = element.Split(':')[3].Substring(1);
 		}
 	}
 }

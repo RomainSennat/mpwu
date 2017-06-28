@@ -10,12 +10,29 @@ using MPWU.UserData;
 
 namespace MPWU
 {
+	/// <summary>
+	/// App.
+	/// </summary>
 	public partial class App : Application
 	{
-
+		/// <summary>
+		/// Gets or sets the parameters.
+		/// </summary>
+		/// <value>The parameters.</value>
 		public static Param Params { get; set; }
+		/// <summary>
+		/// Gets or sets the schedule.
+		/// </summary>
+		/// <value>The schedule.</value>
 		public static CustomSchedule Schedule { get; set; }
+		/// <summary>
+		/// Gets or sets the Rss data.
+		/// </summary>
+		/// <value>The data.</value>
 		public static RSSData Data { get; set; }
+		/// <summary>
+		/// The alarm page.
+		/// </summary>
 		private MPWUPage alarmPage;
 
 		public App()
@@ -44,6 +61,9 @@ namespace MPWU
 			MainPage = page;
 		}
 
+		/// <summary>
+		/// Function tun when application start.
+		/// </summary>
 		protected override async void OnStart()
 		{
 			Debug.WriteLine(App.Schedule.Lundi);
@@ -55,20 +75,20 @@ namespace MPWU
 				string[] hour = new String[3];
 				try
 				{
-					hour = App.Data.hour.ToString("c").Split('.')[1].Split(':');
+					hour = App.Data.Hour.ToString("c").Split('.')[1].Split(':');
 				}
 				catch (Exception ex)
 				{
-					hour = App.Data.hour.ToString("c").Split(':');
+					hour = App.Data.Hour.ToString("c").Split(':');
 				}
 				alarmPage.FindByName<Label>("Hour").Text = String.Format("{0}:{1}", hour[0], hour[1]);
-				alarmPage.FindByName<Label>("Title").Text = App.Data.title;
+				alarmPage.FindByName<Label>("Title").Text = App.Data.Title;
 
 				// Get actual date and time
 				DateTime now = DateTime.Now;
 				// Get start day time
 				DateTime start = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-				start = start.Add(App.Data.hour);
+				start = start.Add(App.Data.Hour);
 				// Substract journey and prepare time
 				TimeSpan journey = await new Geolocalisation().ComputeJourneyDurationAsync();
 				TimeSpan prepare = App.Params.PreparationTime;
@@ -99,11 +119,17 @@ namespace MPWU
 			}
 		}
 
+		/// <summary>
+		/// Function run when application enter in background.
+		/// </summary>
 		protected override void OnSleep()
 		{
 			// Handle when your app sleeps
 		}
 
+		/// <summary>
+		/// Function run when application exit background.
+		/// </summary>
 		protected override void OnResume()
 		{
 			// Handle when your app resumes

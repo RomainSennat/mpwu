@@ -5,9 +5,16 @@ using SegmentedControl.FormsPlugin.Android;
 
 namespace MPWU.Droid
 {
+	/// <summary>
+	/// Main activity.
+	/// </summary>
 	[Activity(Label = "MPWU.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
+		/// <summary>
+		/// Function run when activity is create.
+		/// </summary>
+		/// <param name="bundle">Bundle.</param>
 		protected override void OnCreate(Bundle bundle)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;

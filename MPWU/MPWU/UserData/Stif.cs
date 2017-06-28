@@ -8,17 +8,32 @@ using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
+	/// <summary>
+	/// Stif API.
+	/// </summary>
 	public class Stif
 	{
 		public Stif()
 		{
 		}
 
+		/// <summary>
+		/// Targets the time.
+		/// </summary>
+		/// <returns>The time.</returns>
+		/// <param name="depart">Depart.</param>
+		/// <param name="arrive">Arrive.</param>
 		public async Task<TimeSpan> TargetTimeAsync(Position depart, Position arrive)
 		{
 			return await this.JourneyTimeAsync(depart, arrive);
 		}
 
+		/// <summary>
+		/// Obtain journey time.
+		/// </summary>
+		/// <returns>The time.</returns>
+		/// <param name="depart">Depart.</param>
+		/// <param name="arrive">Arrive.</param>
 		private async Task<TimeSpan> JourneyTimeAsync(Position depart, Position arrive)
 		{
 			string date = DateTime.Now.ToString("yyyyMMddTHHmmss");
@@ -31,6 +46,11 @@ namespace MPWU.UserData
 			return DateFromString(response).TimeOfDay;
 		}
 
+		/// <summary>
+		/// Parses the json.
+		/// </summary>
+		/// <returns>The json.</returns>
+		/// <param name="url">URL.</param>
 		private async Task<string> ParseJsonAsync(string url)
 		{
 			string arrive = "null";
@@ -55,6 +75,11 @@ namespace MPWU.UserData
 			return arrive;
 		}
 
+		/// <summary>
+		/// Date from string.
+		/// </summary>
+		/// <returns>The date.</returns>
+		/// <param name="dateString">Date.</param>
 		private DateTime DateFromString(string dateString)
 		{
 			DateTime now = DateTime.Now;

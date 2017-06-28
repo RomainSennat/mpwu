@@ -8,17 +8,32 @@ using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
+	/// <summary>
+	/// Waze API.
+	/// </summary>
 	public class Waze
 	{
 		public Waze()
 		{
 		}
 
+		/// <summary>
+		/// Targets the time.
+		/// </summary>
+		/// <returns>The time.</returns>
+		/// <param name="start">Start.</param>
+		/// <param name="end">End.</param>
 		public async Task<TimeSpan> TargetTimeAsync(Position start, Position end)
 		{
 			return await this.JourneyTimeAsync(start, end);
 		}
 
+		/// <summary>
+		/// Obtain journey time.
+		/// </summary>
+		/// <returns>The time.</returns>
+		/// <param name="depart">Depart.</param>
+		/// <param name="arrive">Arrive.</param>
 		public async Task<TimeSpan> JourneyTimeAsync(Position start, Position end)
 		{
 			string url = "http://speakgame.balastegui.com:1992/waze/routesXY?" +
@@ -29,6 +44,11 @@ namespace MPWU.UserData
 			return await ParseJsonAsync(url);
 		}
 
+		/// <summary>
+		/// Parses the json.
+		/// </summary>
+		/// <returns>The json.</returns>
+		/// <param name="url">URL.</param>
 		public async Task<TimeSpan> ParseJsonAsync(string url)
 		{
 			int tempsTrajet = 0;

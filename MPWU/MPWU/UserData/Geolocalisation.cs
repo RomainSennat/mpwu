@@ -7,20 +7,51 @@ using Xamarin.Forms.Maps;
 
 namespace MPWU.UserData
 {
+	/// <summary>
+	/// Geolocalisation.
+	/// </summary>
 	public class Geolocalisation
 	{
+		/// <summary>
+		/// The current coordinate.
+		/// </summary>
 		public Position CurrentCoord;
+		/// <summary>
+		/// The target coordinate.
+		/// </summary>
 		public Position TargetCoord;
+		/// <summary>
+		/// The geocoder.
+		/// </summary>
 		private Geocoder geocoder = new Geocoder();
+		/// <summary>
+		/// The stif API.
+		/// </summary>
 		private Stif stif = new Stif();
+		/// <summary>
+		/// The waze API.
+		/// </summary>
 		private Waze waze = new Waze();
+		/// <summary>
+		/// Gets or sets the location.
+		/// </summary>
+		/// <value>The location.</value>
 		public string Location { get; set; }
+		/// <summary>
+		/// Gets or sets the destination.
+		/// </summary>
+		/// <value>The destination.</value>
 		public string Destination { get; set; }
 
 		public Geolocalisation()
 		{
 		}
 
+		/// <summary>
+		/// Updates the target location.
+		/// </summary>
+		/// <returns>The target location.</returns>
+		/// <param name="address">Address.</param>
 		public async Task<bool> UpdateTargetLocationAsync(string address)
 		{
 
@@ -45,6 +76,10 @@ namespace MPWU.UserData
 			}
 		}
 
+		/// <summary>
+		/// Updates the current location.
+		/// </summary>
+		/// <returns>The current location.</returns>
 		public async Task<bool> UpdateCurrentLocationAsync()
 		{
 			var locator = CrossGeolocator.Current;
@@ -74,6 +109,10 @@ namespace MPWU.UserData
 			}
 		}
 
+		/// <summary>
+		/// Computes the journey duration.
+		/// </summary>
+		/// <returns>The journey duration.</returns>
 		public async Task<TimeSpan> ComputeJourneyDurationAsync()
 		{
 			if (App.Params.CoordArriveLatitude == 0 || App.Params.CoordArriveLongitude == 0 || App.Params.CoordDepartLatitude == 0 || App.Params.CoordDepartLongitude == 0)

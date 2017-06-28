@@ -6,9 +6,18 @@ using LocalNotificationsSample.iOS;
 
 namespace MPWU.iOS
 {
+	/// <summary>
+	/// App delegate for iOS platform.
+	/// </summary>
 	[Register("AppDelegate")]
 	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
+		/// <summary>
+		/// Function run when app is launched.
+		/// </summary>
+		/// <returns><c>true</c>, if launching was finisheded, <c>false</c> otherwise.</returns>
+		/// <param name="app">App.</param>
+		/// <param name="options">Options.</param>
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))

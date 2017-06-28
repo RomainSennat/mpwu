@@ -7,14 +7,23 @@ using MPWU.Alarm;
 [assembly: Dependency(typeof(Player))]
 namespace MPWU.iOS
 {
+	/// <summary>
+	/// Implementation of player for iOS platform
+	/// </summary>
 	public class Player : IPlayer
 	{
+		/// <summary>
+		/// Media player for iOS.
+		/// </summary>
 		private AVAudioPlayer player;
 
 		public Player()
 		{
 		}
 
+		/// <summary>
+		/// Play the sound.
+		/// </summary>
 		public void Play()
 		{
 
@@ -36,6 +45,9 @@ namespace MPWU.iOS
 
 		}
 
+		/// <summary>
+		/// Stop the sound.
+		/// </summary>
 		public void Stop()
 		{
 			if (player != null && player.Playing)

@@ -10,10 +10,22 @@ using System.Diagnostics;
 
 namespace MPWU
 {
+	/// <summary>
+	/// Parameters
+	/// </summary>
 	public partial class Parametres : ContentPage
 	{
-		private GeneralSettings pageLocalisation = new GeneralSettings();
+		/// <summary>
+		/// The general settings page.
+		/// </summary>
+		private GeneralSettings generalSettings = new GeneralSettings();
+		/// <summary>
+		/// The flux rss page.
+		/// </summary>
 		private Rss pageFluxRss = new Rss();
+		/// <summary>
+		/// The parameter database.
+		/// </summary>
 		private ParamDB paramDB = new ParamDB();
 
 		public Parametres()
@@ -21,6 +33,11 @@ namespace MPWU
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// Handle click on segments control.
+		/// </summary>
+		/// <param name="o">O.</param>
+		/// <param name="e">E.</param>
 		private void TabChange(object o, EventArgs e)
 		{
 			SegmentContent.Children.Clear();
@@ -28,7 +45,7 @@ namespace MPWU
 			switch (SegmentControl.SelectedSegment)
 			{
 				case 0:
-					SegmentContent.Children.Add(this.pageLocalisation.Content);
+					SegmentContent.Children.Add(this.generalSettings.Content);
 					break;
 				case 1:
 					SegmentContent.Children.Add(this.pageFluxRss.Content);
@@ -36,6 +53,11 @@ namespace MPWU
 			}
 		}
 
+		/// <summary>
+		/// Saves user parameters.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		private async void SaveParameters(object sender, EventArgs e)
 		{
 			this.paramDB.UpdateParam(App.Params);

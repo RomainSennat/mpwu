@@ -7,8 +7,15 @@ using MPWU.Database;
 [assembly: Dependency(typeof(SQLite_iOS))]
 namespace MPWU.iOS
 {
+	/// <summary>
+	/// SQLite for iOS platform.
+	/// </summary>
 	public class SQLite_iOS : ISQLite
 	{
+		/// <summary>
+		/// Opens the connection to database.
+		/// </summary>
+		/// <returns>The database connection.</returns>
 		public SQLite.Net.SQLiteConnection OpenConnection()
 		{
 			var fileName = "Param.db3";

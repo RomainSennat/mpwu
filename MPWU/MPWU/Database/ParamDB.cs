@@ -4,8 +4,14 @@ using Xamarin.Forms;
 
 namespace MPWU.Database
 {
+	/// <summary>
+	/// Parameters database.
+	/// </summary>
 	public class ParamDB
 	{
+		/// <summary>
+		/// The connection to database.
+		/// </summary>
 		private SQLiteConnection connection;
 
 		public ParamDB()
@@ -16,18 +22,28 @@ namespace MPWU.Database
 			connection.CreateTable<Param>();
 		}
 
-		//Retourne le dernier param enregistré 
+		/// <summary>
+		/// Get Last parameter.
+		/// </summary>
+		/// <returns>The parameters.</returns>
 		public Param LastParam()
 		{
 			return connection.Table<Param>().LastOrDefault();
 		}
 
-		//Retourne le dernier Schedule enregistré 
+		/// <summary>
+		/// Get last schedule.
+		/// </summary>
+		/// <returns>The schedule.</returns>
 		public CustomSchedule LastSchedule()
 		{
 			return connection.Table<CustomSchedule>().LastOrDefault();
 		}
 
+		/// <summary>
+		/// Init the parameter.
+		/// </summary>
+		/// <returns>The parameters.</returns>
 		public Param InitParam()
 		{
 			if (this.LastParam() == null)
@@ -37,6 +53,10 @@ namespace MPWU.Database
 			return this.LastParam();
 		}
 
+		/// <summary>
+		/// Init the custom schedule.
+		/// </summary>
+		/// <returns>The custom schedule.</returns>
 		public CustomSchedule InitCustomSchedule()
 		{
 			if (this.LastSchedule() == null)
@@ -46,23 +66,37 @@ namespace MPWU.Database
 			return this.LastSchedule();
 		}
 
-		//Met a jour le dernier param de la DB  
+		/// <summary>
+		/// Updates the parameters.
+		/// </summary>
+		/// <param name="param">Parameter.</param>
 		public void UpdateParam(Param param)
 		{
 			connection.Update(param);
 		}
 
+		/// <summary>
+		/// Add the parameters.
+		/// </summary>
+		/// <param name="param">Parameter.</param>
 		public void AddParam(Param param)
 		{
 			connection.Insert(param);
 		}
 
-		//Met a jour le dernier param de la DB
+		/// <summary>
+		/// Updates the schedule.
+		/// </summary>
+		/// <param name="schedule">Schedule.</param>
 		public void UpdateSchedule(CustomSchedule schedule)
 		{
 			connection.Update(schedule);
 		}
 
+		/// <summary>
+		/// Add the schedule.
+		/// </summary>
+		/// <param name="schedule">Schedule.</param>
 		public void AddSchedule(CustomSchedule schedule)
 		{
 			connection.Insert(schedule);

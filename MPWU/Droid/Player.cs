@@ -6,14 +6,23 @@ using MPWU.Alarm;
 [assembly: Dependency(typeof(Player))]
 namespace MPWU.Droid
 {
+	/// <summary>
+	/// Player implementation for Android platform.
+	/// </summary>
 	public class Player : IPlayer
 	{
+		/// <summary>
+		/// Media player for Android.
+		/// </summary>
 		private MediaPlayer player;
 
 		public Player()
 		{
 		}
 
+		/// <summary>
+		/// Play the sound.
+		/// </summary>
 		public void Play()
 		{
 			if (this.player == null)
@@ -29,6 +38,9 @@ namespace MPWU.Droid
 			}
 		}
 
+		/// <summary>
+		/// Stop the sound.
+		/// </summary>
 		public void Stop()
 		{
 			if (this.player != null && this.player.IsPlaying)
